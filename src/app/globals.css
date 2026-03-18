@@ -3,24 +3,38 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@theme {
+  /* --- Core Palette --- */
+  --color-kiwi-bg: hsl(0 0% 2%);
+  --color-kiwi-nav-bg: hsl(0 0% 5%);
+  --color-kiwi-code-body: hsl(0 0% 6%);
+  
+  /* --- Borders --- */
+  --color-kiwi-border-main: hsla(0 0% 100% / 0.04);
+  --color-kiwi-border-nav: hsla(0 0% 37% / 0.34);
+  --color-kiwi-border-table: hsla(0 0% 100% / 0.10);
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* --- Typography & Icons --- */
+  --color-kiwi-heading: hsl(0 0% 90%);
+  --color-kiwi-subheading: hsla(0 0% 90% / 0.55);
+  --color-kiwi-icon: hsla(0 0% 98% / 0.73);
+  --color-kiwi-inactive: hsla(216 13% 84% / 0.41);
+
+  /* --- Specialty Surfaces --- */
+  --color-kiwi-code-tab: hsla(0 0% 2% / 0.05);
+
+  /* --- Button Gradients (from screenshots) --- */
+  --background-image-kiwi-btn: linear-gradient(180deg, #fafafa 0%, #949494 100%);
+  /* Tactical inner-shadow effect for buttons */
+  --shadow-kiwi-inset: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }

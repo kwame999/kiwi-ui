@@ -1,4 +1,4 @@
-const components = [
+export const components: ComponentTypes[] = [
   {
     componentType: 'Environmental Switch',
     description: 'An environmental switch with hover animation and micro-interactions',
@@ -39,4 +39,30 @@ const components = [
       default: [],
     },
   },
+  {
+    componentType: 'Morphing Card',
+    description: 'An environmental switch with hover animation and micro-interactions',
+    category: 'Cards',
+    definitions: {
+      props: [],
+      type: [],
+      default: [],
+    },
+  },
 ];
+
+
+type ComponentTypes = {
+  componentType: string,
+  description: string,
+  category: string,
+  definitions: {
+    props: string[],
+    type: string[],
+    default: string[],
+  }
+  
+}
+
+
+export const componentCategories = ["All", 'Cards', 'Tools', 'Buttons', 'Inputs', 'Navigation']

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Children, useState } from "react";
 import { HugeiconsIcon } from '@hugeicons/react'
-import { Github01Icon, Sun01Icon, Moon02Icon, FilterVerticalIcon, ArrowRight02Icon, ArrowLeft02Icon, FilterIcon} from '@hugeicons/core-free-icons'
+import { Github01Icon, Sun01Icon, Moon02Icon, FilterVerticalIcon, ArrowRight02Icon, ArrowLeft02Icon, FilterIcon, SoftwareLicenseIcon, CopyIcon} from '@hugeicons/core-free-icons'
 import { componentCategories, components } from "./components";
 import { ComponentTypes } from "./components";
 
@@ -11,7 +11,8 @@ export default function Home() {
   return (
     // <NavigationBar/>
     // <SideBar></SideBar>
-    <Table data={components}/>
+    // <Table data={components}/>
+    <CliBlock/>
   );
 }
 
@@ -152,6 +153,47 @@ const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
         </div>
   )
 }
+
+
+
+// Cli installation
+
+const CliBlock = ({}) => {
+
+  return(
+    <div className={`flex flex-col bg-purple-600 rounded-[8px] mt-20 overflow-clip border-1`}>
+      <CliTab/>
+      <pre className={`p-3.5`}>
+        <code className={`bg-amber-600`}>
+          sadasd
+        </code>
+      </pre>
+    </div>
+  )
+}
+
+const CliTab = () => {
+  
+  const tabs = ['pnpm', 'npm', 'yarn', 'bun']
+  const [currentTab, setCurrentTab] = useState<string>('pnpm')
+  
+  
+  return(
+    <div className={`flex items-center px-3.5 border-b border-red-800`}>
+      <HugeiconsIcon icon={SoftwareLicenseIcon} size={20} />
+      <ul className={`flex gap-1 px-2 py-2 text-[0.9rem] `}>
+        {tabs.map(t => (<li className={`px-2 cursor-pointer hover:text-blue-50 ${currentTab === t && 'bg-blue-400 rounded-[4px] border border-red-400'}`} 
+                            onClick={()=> {setCurrentTab(t)}}>{t}</li>))}
+      </ul>
+      <button className={`ml-auto cursor-pointer`}>
+      <HugeiconsIcon icon={CopyIcon} size={20} />
+      </button>
+    </div>
+  )
+}
+
+
+// Component Preview component
 
 
 //Types

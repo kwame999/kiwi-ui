@@ -49,10 +49,20 @@ export const components: ComponentTypes[] = [
       default: [],
     },
   },
+  {
+    componentType: 'Filter Table',
+    description: 'An environmental switch with hover animation and micro-interactions',
+    category: 'Tools',
+    definitions: {
+      props: [],
+      type: [],
+      default: [],
+    },
+  },
 ];
 
 
-type ComponentTypes = {
+export type ComponentTypes = {
   componentType: string,
   description: string,
   category: string,

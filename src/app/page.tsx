@@ -2,19 +2,22 @@
 import Image from "next/image";
 import { Children, useState } from "react";
 import { HugeiconsIcon } from '@hugeicons/react'
-import { Github01Icon, Sun01Icon, Moon02Icon, FilterVerticalIcon, ArrowRight02Icon, ArrowLeft02Icon} from '@hugeicons/core-free-icons'
+import { Github01Icon, Sun01Icon, Moon02Icon, FilterVerticalIcon, ArrowRight02Icon, ArrowLeft02Icon, FilterIcon} from '@hugeicons/core-free-icons'
 import { componentCategories, components } from "./components";
+import { ComponentTypes } from "./components";
+
 export default function Home() {
-  const [isLight, setIsLight] = useState<Boolean>(false)
 
   return (
     // <NavigationBar/>
-
     // <SideBar></SideBar>
-    <Table/>
+    <Table data={components}/>
   );
 }
- const SideBar = ({}) => {
+
+
+//Sidebar Readbar
+const SideBar = ({}) => {
  const [isActive, setIsActive] = useState<Boolean>(false)
   
  return (
@@ -51,7 +54,7 @@ export default function Home() {
     </aside>
   );
 }
-
+//Main navigation component
 const NavigationBar = ({}) => {
   const [isLight, setIsLight] = useState<Boolean>(false)
 
@@ -74,82 +77,65 @@ const NavigationBar = ({}) => {
   )
 }
 
-const Table = ({})=> {
-  
-  const [currentSort, setCurrentSort] = useState<string>('All')
-  console.log(components)
-
+//Table components
+const Table = ({data}: TableProps) => {
+  const [currentSort, setCurrentSort] = useState<string>(componentCategories[0])
   function handleFilter(component: string){
     setCurrentSort(component);
-
   }
+  
   return(
     <div className={`max-w-[781px] flex flex-col p-5`}>
-    
-        <div className={`flex gap-6 items-center px-[14px] py-[4px] border-2 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
-          
+      <FilterBar currentSort={currentSort} onFilter={handleFilter}></FilterBar>
+      <div className={`grid grid-cols-3 auto-rows-auto border-1  rounded-b-[10px] text-[0.9rem] font-medium overflow-clip`}>
+        {
+          data.map(c => (
+            currentSort === c.category ?
+            <TableChild key={c.componentType} children={c.componentType}/> : 
+            currentSort === componentCategories[0] &&
+            <TableChild key={c.componentType} children={c.componentType}/>))
+            
+            
+          }
 
+      </div>
+    </div>
+  )
+}
+
+const TableChild = ({children}: TableChildProps) => {
+  return(
+    <div className={`border-1 px-[14px] py-[12px] cursor-pointer hover:bg-blue-50`}>{children}</div>
+  )
+}
+
+const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
+  
+  return(
+    <div className={`flex gap-6 items-center px-[14px] py-[4px] border-2 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
+            
             <div className={`flex items-center gap-1 shrink-0`}>
-              <HugeiconsIcon icon={FilterVerticalIcon} size={18}/>
+              <HugeiconsIcon icon={FilterIcon} size={18}/>
               <h1 className="">Sort components by: 
                 <span className="ml-3.5">
                 {currentSort}
                 </span>
-
               </h1>
             </div>
-            
+
           <div className={`flex justify-between flex-1 items-center`}>
+                        <div className={`w-px bg-blue-600 h-auto self-stretch`}></div>
+
             <div className="relative">
               <div className="filter-bubble"/>
               <ul className={`flex gap-4 font-medium  anchor-filter-bar`}>
-                  {/* <li className={` bg-blue-500 anchor-item text-center py-[4px] px-[14px] rounded-md`}
-                      onClick={()=>{}}
-                  >Buttons</li> */}
-
-                  {/* {
-
-                    components.map(({ category }) => { 
-                      if(currentSort !== category){
-                        return ( 
-                                  <li className={`anchor-item text-center py-[4px] px-[14px]`}
-                                    onClick={()=>{handleFilter(category)}}>
-                                    {category}
-                                  </li>
-                              )}
-                        })
-
-
-                  }  */}
-
-
                   {
-
                     componentCategories.map((c) => { 
                       if(currentSort !== c){
-                        return ( 
-                                  <li key={c}
-                                      className={`anchor-item text-center py-[4px] px-[14px]`}
-                                       onClick={()=>{handleFilter(c)}}>
-                                      {c}
-                                  </li>
-                              )}
-                        })
-
-
-                  } 
-
-
-                  {/* {
-                  components.map((c =>  
-                                <li className={`anchor-item text-center py-[4px] px-[14px]`}
-                                     onClick={()=>{handleFilter(c.category)}}>
-                                      {c.category}
-                                 </li>
-                                 ))
-                  } */}
+                        return ( <li key={c} className={`anchor-item text-center py-[4px] px-[14px]`} onClick={()=>{onFilter(c)}}>{c}</li>)}
+                      })
+                    } 
               </ul>
-
             </div>
 
             <div className={`w-px bg-blue-600 h-auto self-stretch`}></div>
@@ -163,35 +149,21 @@ const Table = ({})=> {
             </div>
           </div>
          
-
-          
         </div>
-      
-      <div className={`grid grid-cols-3 auto-rows-auto border-1  rounded-b-[10px] text-[0.9rem] font-medium overflow-clip `}>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-        <TableChild children = {`Blah2`}/>
-
-      </div>
-    </div>
   )
+}
+
+
+//Types
+type FilterBarProps = {
+  currentSort: string,
+  onFilter: (category: string) => void
+}
+
+type TableProps = {
+  data: ComponentTypes[]
 }
 
 type TableChildProps = {
   children: React.ReactNode
-}
-
-const TableChild = ({children}: TableChildProps) => {
-  return(
-          <div className={`border-1  px-[14px] py-[12px] cursor-pointer hover:bg-blue-50`}>{children}</div>
-  )
 }

@@ -4,9 +4,9 @@ export const components: ComponentTypes[] = [
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Buttons',
     definitions: {
-      props: [],
-      type: [],
-      default: [],
+      props: ['data', 'Onclick'],
+      type: ['asdasd'],
+      defaults: ['adad'],
     },
   },
   {
@@ -16,7 +16,7 @@ export const components: ComponentTypes[] = [
     definitions: {
       props: [],
       type: [],
-      default: [],
+      defaults: [],
     },
   },
   {
@@ -26,7 +26,7 @@ export const components: ComponentTypes[] = [
     definitions: {
       props: [],
       type: [],
-      default: [],
+      defaults: [],
     },
   },
   {
@@ -36,7 +36,7 @@ export const components: ComponentTypes[] = [
     definitions: {
       props: [],
       type: [],
-      default: [],
+      defaults: [],
     },
   },
   {
@@ -46,7 +46,7 @@ export const components: ComponentTypes[] = [
     definitions: {
       props: [],
       type: [],
-      default: [],
+      defaults: [],
     },
   },
   {
@@ -56,7 +56,7 @@ export const components: ComponentTypes[] = [
     definitions: {
       props: [],
       type: [],
-      default: [],
+      defaults: [],
     },
   },
 ];
@@ -69,7 +69,7 @@ export type ComponentTypes = {
   definitions: {
     props: string[],
     type: string[],
-    default: string[],
+    defaults: string[],
   }
   
 }

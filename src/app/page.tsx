@@ -16,8 +16,12 @@ export default function Home() {
     // <ComponentView currentView={components}/>
      
     // <TextBlock largestHead={false} heading="Inspiration" body="dfdsfsffffffffffffffffffffffff"></TextBlock>
-    <TitileHead titleHead={{h04: true, content: 'tesdfsfsft'}}></TitileHead>
-
+    // <TitileHead titleHead={{h04: true, content: 'tesdfsfsft'}}></TitileHead>
+    <div className="p-5">
+      {/* <CodeBlock></CodeBlock> */}
+      {/* <PaginationArrows data={components}></PaginationArrows> */}
+      <PropTable data={components[0]}></PropTable>
+    </div>
   );
 }
 
@@ -273,8 +277,79 @@ h03 ? <h3>{content}</h3> :
 )
 }
 
-//
+//Code Display
+const CodeBlock = ({children}: CodeBlockProps)=> {
+  
+  return(
+    <div className={`bg-red-600 p-[14px] border border-blue-600 relative rounded-[14px] h-[400px]`}>
+      <pre className={``}>
+        <code>{children}</code>
+      </pre>
+      <button className={`absolute top-2.5 right-2.5 border-1 bg-blue-600 w-[34px] h-[34px] rounded-[8px] flex justify-center items-center cursor-pointer`}
+              onClick={()=>{}}>
+        <HugeiconsIcon icon={CopyIcon} size={18}></HugeiconsIcon>
+      </button>
+    </div>
+  )
+}
 
+
+//Navigate to next component view component
+const PaginationArrows = ({data, onPaginate}: PaginationArrowsProp) => {
+  
+  const [currentPage, setCurrentPage]= useState<number>(0)
+  console.log(currentPage)
+  function handleNext(){
+    if(data.length !== currentPage)
+    setCurrentPage(p => p+1)
+  }
+
+  function handlePrevious(){
+    if(currentPage !== 0)
+    setCurrentPage(p => p-1)
+  }
+  return(
+    <div className={`flex gap-[8px]`}>
+      <button className={`rounded-full border p-[4px]`}
+              onClick={handlePrevious}>
+        <HugeiconsIcon icon={ArrowLeft02Icon} size={20}></HugeiconsIcon>
+      </button>
+      <button className={`rounded-full border p-[4px]`}
+              onClick={handleNext}>
+        <HugeiconsIcon icon={ArrowRight02Icon} size={20}></HugeiconsIcon>
+      </button>
+    </div>
+  )
+}
+
+//Prop table component
+const PropTable = ({data}: PropTableProps) => {
+
+  const {definitions: {props, type, defaults}} = data!
+
+  return(
+    <table aria-label="Component Props">
+      <thead>
+        <tr>
+          <th>Prop</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>        
+      </thead>
+      <tbody>
+        <tr>{props.map(p => 
+          <td>{p}</td>)}
+        </tr>
+        <tr>{type.map(t => 
+          <td>{t}</td>)}
+        </tr>
+        <tr>{defaults.map(d => 
+          <td>{d}</td>)}
+        </tr>
+      </tbody>
+    </table>
+  )
+}
 
 //Types
 type FilterBarProps = {
@@ -317,4 +392,18 @@ type TitleBlockProps = {
     h04?: boolean,
     content: string,
   },
+}
+
+type CodeBlockProps = {
+
+ children?: React.ReactNode 
+}
+
+type PaginationArrowsProp = {
+ data: ComponentTypes[],
+ onPaginate?: () => void
+}
+
+type PropTableProps = {
+  data?: ComponentTypes
 }

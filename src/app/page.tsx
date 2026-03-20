@@ -20,7 +20,7 @@ export default function Home() {
     <div className="p-5">
       {/* <CodeBlock></CodeBlock> */}
       {/* <PaginationArrows data={components}></PaginationArrows> */}
-      <PropTable data={components[0]}></PropTable>
+      <PropTable data={components[1]}></PropTable>
     </div>
   );
 }
@@ -325,7 +325,7 @@ const PaginationArrows = ({data, onPaginate}: PaginationArrowsProp) => {
 //Prop table component
 const PropTable = ({data}: PropTableProps) => {
 
-  const {definitions: {props, type, defaults}} = data!
+  const { meta } = data!
 
   return(
     <table aria-label="Component Props">
@@ -337,15 +337,14 @@ const PropTable = ({data}: PropTableProps) => {
         </tr>        
       </thead>
       <tbody>
-        <tr>{props.map(p => 
-          <td>{p}</td>)}
-        </tr>
-        <tr>{type.map(t => 
-          <td>{t}</td>)}
-        </tr>
-        <tr>{defaults.map(d => 
-          <td>{d}</td>)}
-        </tr>
+        {
+          meta!.map(m => 
+          <tr>
+          <td>{m.prop}</td>
+          <td>{m.type}</td>
+          <td>{m.defaults}</td>
+          </tr>)
+          }
       </tbody>
     </table>
   )

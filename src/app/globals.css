@@ -33,7 +33,7 @@
   /* --- Specialty Surfaces --- */
   --color-kiwi-code-tab: hsla(0 0% 2% / 0.05);
 
-  /* --- Button Gradients (from screenshots) --- */
+  /* --- Button Gradients --- */
   --background-image-kiwi-btn: linear-gradient(180deg, #fafafa 0%, #949494 100%);
   /* Tactical inner-shadow effect for buttons */
   --shadow-kiwi-inset: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.1);

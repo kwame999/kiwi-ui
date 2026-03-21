@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Children, useState } from "react";
 import { HugeiconsIcon } from '@hugeicons/react'
-import { Github01Icon, Sun01Icon, Moon02Icon, FilterVerticalIcon, ArrowRight02Icon, ArrowLeft02Icon, FilterIcon, SoftwareLicenseIcon, CopyIcon} from '@hugeicons/core-free-icons'
+import { Github01Icon, Sun01Icon, Moon02Icon, FilterVerticalIcon, ArrowRight02Icon, ArrowLeft02Icon, FilterIcon, SoftwareLicenseIcon, CopyIcon, ArrowDown01Icon} from '@hugeicons/core-free-icons'
 import { componentCategories, components } from "./components";
 import { ComponentTypes } from "./components";
 
@@ -17,11 +17,12 @@ export default function Home() {
      
     // <TextBlock largestHead={false} heading="Inspiration" body="dfdsfsffffffffffffffffffffffff"></TextBlock>
     // <TitileHead titleHead={{h04: true, content: 'tesdfsfsft'}}></TitileHead>
-    <div className="p-5">
+    <div className="p-5 flex justify-center">
       {/* <CodeBlock></CodeBlock> */}
       {/* <PaginationArrows data={components}></PaginationArrows> */}
       {/* <PropTable data={components[1]}></PropTable> */}
-       <CliBlock/>
+       {/* <CliBlock/> */}
+       <CopyPageDrownDown></CopyPageDrownDown>
     </div>
   );
 }
@@ -381,6 +382,75 @@ const PageRoute = () => {
     </nav>
   )
 }
+
+//Copy page component dropdown
+const CopyPageDrownDown = () => {
+
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  
+  function handleOpen(){
+    setIsOpen(o => !o);
+  }
+
+  
+  return(
+    
+    
+ <div className={`relative flex bg-purple-700 w-fit text-[.9rem] py-[4px] rounded-lg pr-0`}>
+      <button className={` border-r flex items-center  gap-2 px-[8px]`}>
+        <HugeiconsIcon icon={CopyIcon} size={18} />
+        <span>Copy page</span>
+      </button>
+      <button
+        className={`py-0 p-[4px] flex items-center justify-center`}
+        onClick={handleOpen}
+      >
+        <HugeiconsIcon icon={ArrowDown01Icon} size={18} />
+      </button>
+ 
+      {isOpen && (
+        <div className={`absolute top-full right-0 mt-[2px] bg-blue-700 p-[8px] rounded-[12px] shadow-lg w-max text-[0.9rem]`}>
+          <ul className={`flex flex-col gap-[4px]`}>
+            <li className="flex items-center  gap-2 hover:bg-red-400 py-1 px-2 justify-center rounded-[4px] whitespace-nowrap">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 147 70" style={{ width: 18, height: 18, flexShrink: 0 }}>
+                <path d="M56 50.203V14h14v46.156C70 65.593 65.593 70 60.156 70c-2.596 0-5.158-1-7-2.843L0 14h19.797L56 50.203ZM147 56h-14V23.953L100.953 56H133v14H96.687C85.814 70 77 61.186 77 50.312V14h14v32.156L123.156 14H91V0h36.312C138.186 0 147 8.814 147 19.688V56Z" />
+              </svg>
+              View as Markdown
+            </li>
+            <li className="flex gap-2 items-center hover:bg-red-400 py-1 px-2  rounded-[4px] whitespace-nowrap">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 147 70" style={{ width: 18, height: 18, flexShrink: 0 }}>
+                <path d="M56 50.203V14h14v46.156C70 65.593 65.593 70 60.156 70c-2.596 0-5.158-1-7-2.843L0 14h19.797L56 50.203ZM147 56h-14V23.953L100.953 56H133v14H96.687C85.814 70 77 61.186 77 50.312V14h14v32.156L123.156 14H91V0h36.312C138.186 0 147 8.814 147 19.688V56Z" />
+              </svg>
+              Open in v0
+            </li>
+            <li className="flex gap-2 items-center hover:bg-red-400 py-1 px-2 rounded-[4px] whitespace-nowrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="" style={{ width: 16, height: 16, flexShrink: 0 }}>
+                <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.393.681zm1.097-2.365 2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5Z" />
+              </svg>
+              Open in ChatGPT
+            </li>
+            <li className="flex gap-2 items-center hover:bg-red-400 py-1 px-2 rounded-[4px] whitespace-nowrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="" style={{ width: 16, height: 16, flexShrink: 0 }}>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+              </svg>
+              Open in Claude
+            </li>
+            <li className="flex gap-2 items-center hover:bg-red-400 py-1 px-2 rounded-[4px] whitespace-nowrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="" style={{ width: 16, height: 16, flexShrink: 0 }}>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+              </svg>
+              Open in Scira
+            </li>
+          </ul>
+        </div>
+      )}
+    </div>
+
+  
+  )
+}
+
+
 //Types
 type FilterBarProps = {
   currentSort: string,

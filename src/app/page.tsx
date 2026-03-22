@@ -20,9 +20,8 @@ export default function Home() {
     <div className="p-5 flex justify-center">
       {/* <CodeBlock></CodeBlock> */}
       {/* <PaginationArrows data={components}></PaginationArrows> */}
-      {/* <PropTable data={components[1]}></PropTable> */}
+      <PropTable data={components[2]}></PropTable>
        {/* <CliBlock/> */}
-       <CopyPageDrownDown></CopyPageDrownDown>
     </div>
   );
 }
@@ -345,27 +344,46 @@ const PaginationArrows = ({data, onPaginate}: PaginationArrowsProp) => {
 const PropTable = ({data}: PropTableProps) => {
 
   const { meta } = data!
-
+  const columnHeaders = ['Prop', 'Type', 'Default']
   return(
-    <table aria-label="Component Props">
-      <thead>
-        <tr>
-          <th>Prop</th>
-          <th>Type</th>
-          <th>Default</th>
-        </tr>        
-      </thead>
-      <tbody>
-        {
-          meta!.map(m => 
-          <tr key={m.prop}>
-          <td>{m.prop}</td>
-          <td>{m.type}</td>
-          <td>{m.defaults}</td>
-          </tr>)
-          }
-      </tbody>
-    </table>
+    <div className={`rounded-lg border w-full overflow-clip`}>
+      <table aria-label="Component Props" className={`w-full bg-red-600 rounded-lg`}>
+        <thead className={`border-b border-border bg-muted/30 text-left bg-`}>
+          <tr className={`bg-blue-600`}>
+            {
+              columnHeaders.map(h => 
+              <th key={h}
+                  className={`px-4 py-3 text-sm font-medium text-muted-foreground`}>
+                {h}
+              </th>)
+            }
+          </tr>        
+        </thead>
+        <tbody>
+          {
+            meta!.map((m, i) => 
+            <tr key={m.prop}
+                className={`text-left ${ i !== meta!.length - 1  && `border-b border-border`}`}>
+            <td className={`px-4 py-3 `}>
+              <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-blue-400 text-sm">
+               {m.prop}
+              </code>
+            </td>
+            <td className={`px-4 py-3`}>
+              <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-blue-400 text-sm">
+               {m.type}
+              </code>
+            </td>
+            <td className={`px-4 py-3`}>
+              <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-blue-400 text-sm">
+               {m.defaults || '-'}
+              </code>
+            </td>
+            </tr>)
+            }
+        </tbody>
+      </table>
+    </div>
   )
 }
 

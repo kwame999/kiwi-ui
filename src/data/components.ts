@@ -1,3 +1,4 @@
+import type { ComponentTypes } from "../types";
 export const components: ComponentTypes[] = [
   {
     componentType: 'Environmental Switch',
@@ -54,19 +55,6 @@ export const components: ComponentTypes[] = [
       ]
   },
 ];
-
-
-export type ComponentTypes = {
-  componentType: string,
-  description: string,
-  category: string,
-  meta?: {
-    prop: string,
-    type: string,
-    defaults: string,
-  }[]
-  
-}
 
 
 export const componentCategories = ["All", 'Cards', 'Tools', 'Buttons', 'Inputs', 'Navigation']

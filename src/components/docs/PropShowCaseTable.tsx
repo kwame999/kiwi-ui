@@ -1,4 +1,4 @@
-import { ComponentTypes } from "@/app/types"
+import { ComponentTypes } from "@/types"
 //Prop table component
 const PropTable = ({data}: PropTableProps) => {
 
@@ -21,7 +21,7 @@ const PropTable = ({data}: PropTableProps) => {
         <tbody>
           {
             meta!.map((m, i) => 
-            <tr key={m.prop}
+            <tr key={i}
                 className={`text-left ${ i !== meta!.length - 1  && `border-b border-border`}`}>
             <td className={`px-4 py-3 `}>
               <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-blue-400 text-sm">

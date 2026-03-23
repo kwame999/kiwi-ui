@@ -1,4 +1,5 @@
 export type ComponentTypes = {
+  id: string
   componentType: string,
   description: string,
   category: string,
@@ -6,6 +7,7 @@ export type ComponentTypes = {
     prop: string,
     type: string,
     defaults: string,
-  }[]
+  }[],
+  code?: string
   
 }

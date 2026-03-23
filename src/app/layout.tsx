@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import NavigationBar from "@/components/site/NavigationBar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +33,8 @@ export default function RootLayout({
       <body
         className={`${interMain.variable} antialiased`}
       >
-        {children}
+        <NavigationBar></NavigationBar>
+        <main>{children}</main>
       </body>
     </html>
   );

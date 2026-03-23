@@ -1,15 +1,18 @@
 import type { ComponentTypes } from "../types";
 export const components: ComponentTypes[] = [
   {
+    id: 'environmental-switch',
     componentType: 'Environmental Switch',
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Buttons',
     meta: [
         {prop: 'isOpen', type: 'Boolean', defaults: ''}, 
         {prop: 'content', type: 'string', defaults: ''}
-      ]
+      ],
+    code: '<p>hello</p>'
   },
   {
+    id: 'tag-setter',
     componentType: 'Tag Setter',
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Inputs',
@@ -20,6 +23,7 @@ export const components: ComponentTypes[] = [
       ]
   },
   {
+    id: 'save-btn',
     componentType: 'Save Button',
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Buttons',
@@ -28,6 +32,7 @@ export const components: ComponentTypes[] = [
           ]
   },
   {
+    id: 'tool-bar',
     componentType: 'Tool Bar',
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Tools',
@@ -37,6 +42,7 @@ export const components: ComponentTypes[] = [
       ]
   },
   {
+    id: 'morphing-card',
     componentType: 'Morphing Card',
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Cards',
@@ -46,6 +52,7 @@ export const components: ComponentTypes[] = [
       ]
   },
   {
+    id: 'filter-table',
     componentType: 'Filter Table',
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Tools',

@@ -1,5 +1,6 @@
+'use client'
 import { useState } from "react";
-
+import { components } from "@/data/components";
 //Sidebar Readbar
 const SideBar = ({}) => {
  const [isActive, setIsActive] = useState<Boolean>(false)
@@ -18,14 +19,10 @@ const SideBar = ({}) => {
       <section className={`gap-2 flex flex-col`}>
         <p className={`text-[0.9rem] px-[8px]`}>Components</p>
         <ul className={`flex flex-col gap-[4px] cursor-pointer`}>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Environment Switch</li>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Tag Setter</li>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Tag Setter</li>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Tag Setter</li>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Tag Setter</li>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Tag Setter</li>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Tag Setter</li>
-          <li></li>
+          {
+            components.map(c => <li key={c.componentType}
+                                    className={`p-[4px] px-[8px]  rounded-[8px]`}>{c.componentType}</li>)
+          }
         </ul>
       </section>
       <section className={`gap-2 flex flex-col`}>
@@ -39,4 +36,4 @@ const SideBar = ({}) => {
   );
 }
 
-export default SideBar
+export { SideBar }

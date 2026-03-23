@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react"
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Github01Icon, Sun01Icon, Moon02Icon } from '@hugeicons/core-free-icons'

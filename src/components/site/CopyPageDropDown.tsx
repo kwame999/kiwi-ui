@@ -68,4 +68,4 @@ const CopyPageDropDown = () => {
   )
 }
 
-export default CopyPageDropDown
+export { CopyPageDropDown } 

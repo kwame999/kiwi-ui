@@ -22,14 +22,14 @@ const PaginationArrows = ({data, setActive}: PaginationArrowsProp) => {
 
   }
   return(
-    <div className={`flex gap-[8px]`}>
-      <button className={`rounded-full border p-[4px]`}
+    <div className={`flex gap-[6px] justify-center items-center border-l pl-3`}>
+      <button className={``}
               onClick={handlePrevious}>
-        <HugeiconsIcon icon={ArrowLeft02Icon} size={20}></HugeiconsIcon>
+        <HugeiconsIcon icon={ArrowLeft02Icon} size={18}></HugeiconsIcon>
       </button>
-      <button className={`rounded-full border p-[4px]`}
+      <button className={``}
               onClick={handleNext}>
-        <HugeiconsIcon icon={ArrowRight02Icon} size={20}></HugeiconsIcon>
+        <HugeiconsIcon icon={ArrowRight02Icon} size={18}></HugeiconsIcon>
       </button>
     </div>
   )

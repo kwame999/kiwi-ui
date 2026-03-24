@@ -6,7 +6,7 @@ const SideBar = ({}) => {
  const [isActive, setIsActive] = useState<Boolean>(false)
   
  return (
-    <aside className={`bg-red-500 w-[288px] py-[50px] flex  flex-col gap-[24px] px-[38px] h-screen border-r-2 border-green-500`}>
+    <aside className={`bg-red-500 w-[288px] py-6 flex flex-col gap-[24px] px-7 h-screen border-r-1 border-green-500`}>
       <section className={`gap-2 flex flex-col`}>
         <p className={`text-[0.9rem] px-[8px]`}>Getting Started</p>
         <ul className={`flex flex-col gap-[4px] cursor-pointer`}> 

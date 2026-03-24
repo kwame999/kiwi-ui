@@ -8,7 +8,7 @@ const NavigationBar = ({}) => {
   const [isLight, setIsLight] = useState<Boolean>(false)
 
   return (
-    <nav className={`flex bg-red-600  px-[28px] justify-between items-center py-[14px] border-b-2 text-[.9rem] font-medium`}>
+    <nav className={`flex bg-red-600  px-[28px] justify-between items-center py-[12px] border-b text-[.9rem] font-medium`}>
       <ul className={`flex gap-[48px]`}>
         <li>Docs</li>
         <li>Components</li>

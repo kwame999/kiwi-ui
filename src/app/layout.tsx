@@ -30,8 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${interMain.variable} antialiased`}
+      <body 
+        className={`${interMain.variable} antialiased overflow-hidden `}
       >
         <NavigationBar></NavigationBar>
         <main>{children}</main>

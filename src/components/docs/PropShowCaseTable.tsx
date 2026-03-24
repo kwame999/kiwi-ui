@@ -5,7 +5,7 @@ const PropTable = ({data}: PropTableProps) => {
   const { meta } = data!
   const columnHeaders = ['Prop', 'Type', 'Default']
   return(
-    <div className={`rounded-lg border w-full overflow-clip`}>
+    <div className={`rounded-lg border w-full overflow-clip mb-20`}>
       <table aria-label="Component Props" className={`w-full bg-red-600 rounded-lg`}>
         <thead className={`border-b border-border bg-muted/30 text-left bg-`}>
           <tr className={`bg-blue-600`}>

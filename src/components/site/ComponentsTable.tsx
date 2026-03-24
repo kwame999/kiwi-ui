@@ -6,7 +6,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { ArrowRight02Icon, ArrowLeft02Icon, FilterIcon } from '@hugeicons/core-free-icons'
 import { componentCategories } from '@/data/components';
 
-const Table = ({data, onSelect}: TableProps) => {
+const Table = ({data, onSelect,}: TableProps) => {
   const [currentSort, setCurrentSort] = useState<string>(componentCategories[0])
   
   function handleFilter(category: string){
@@ -14,7 +14,7 @@ const Table = ({data, onSelect}: TableProps) => {
   }
   
   return(
-    <div className={`max-w-[781px] flex flex-col p-5`}>
+    <div className={`max-w-[781px] flex flex-col`}>
       <FilterBar currentSort={currentSort} onFilter={handleFilter}></FilterBar>
       <div className={`grid grid-cols-3 auto-rows-auto border-1 rounded-b-[10px] text-[0.9rem] font-medium overflow-clip`}>
         {
@@ -37,7 +37,7 @@ const Table = ({data, onSelect}: TableProps) => {
   )
 }
 
-const TableChild = ({children, onSelect}: TableChildProps) => {
+const TableChild = ({children, onSelect, active}: TableChildProps) => {
   return(
     <div 
       className={`border-1 px-[14px] py-[12px] cursor-pointer hover:bg-blue-50`}
@@ -101,7 +101,8 @@ type TableProps = {
 
 type TableChildProps = {
   children: React.ReactNode
-  onSelect: () => void 
+  onSelect: () => void
+  active?: ComponentTypes
 }
 
 type FilterBarProps = {

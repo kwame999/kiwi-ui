@@ -2,24 +2,24 @@
 const TextBlock = ({heading, body, subhead, largestHead }: TextBlockProps) => {
   
   return(
-    <div className={`flex flex-col gap-[4px] `}>
+    <div className={`flex flex-col gap-3 `}>
       
       <div className={`flex flex-col`}>
         {
           largestHead ? 
           <>
-            <h1 className={`tracking-[-1.5px] font-semibold leading-[34px]`}>{heading}</h1> 
-            <p>{subhead}</p>
+            <h1 className={`tracking-[-1.5px] font-bold text-4xl leading-[34px]`}>{heading}</h1> 
+            <p className={`text-sm`}>{subhead}</p>
           </> :
           
-          <> 
-               <h3 className={`tracking-[-0.5px] font-medium leading-[24px]`}>{heading}</h3> 
-               <p>{subhead}</p>
-          </>
+          <div> 
+               <h3 className={`font-bold text-[30px] leading-[24px]`}>{heading}</h3> 
+               <p className={`text-sm`}>{subhead}</p>
+          </div>
         }
       
       </div>
-      <p className={'text-[0.9rem] leading-[24px] text-red-600 '}>{body}</p>
+      <p className={'text-md leading-[24px] text-red-600 '}>{body}</p>
     </div>
 
   )
@@ -29,10 +29,10 @@ const TitileHead = ({titleHead}: TitleBlockProps) => {
 const {h01, h02, h03, content} = titleHead
 
 return(
-h01 ? <h1>{content}</h1> : 
-h02 ? <h2>{content}</h2> : 
-h03 ? <h3>{content}</h3> : 
-<h4>{content}</h4>
+h01 ? <h1 className={`text-4xl font-medium`}>{content}</h1> : 
+h02 ? <h2 className={`text-2xl font-medium`}>{content}</h2> : 
+h03 ? <h3 className={`text-xl font-semibold mb-2`}>{content}</h3> : 
+<h4 className={`text-lg font-medium tracking-wide`}>{content}</h4>
 )
 }
 

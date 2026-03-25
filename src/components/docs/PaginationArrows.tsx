@@ -10,15 +10,17 @@ const PaginationArrows = ({data, setActive}: PaginationArrowsProp) => {
   console.log(currentPage)
   console.log(data[currentPage].componentType)
   function handleNext(){
-    if(data.length !== currentPage)
-    setCurrentPage(p => p+1)
-    setActive!(data[currentPage])
+    if((data.length -1) !== currentPage){
+      setCurrentPage(p => p+1)
+      setActive!( !currentPage ? data[+1] : data[currentPage + 1])
+    }
   }
 
   function handlePrevious(){
-    if(currentPage !== 0)
-    setCurrentPage(p => p-1)
-    setActive!(data[currentPage])
+    if(currentPage !== 0){
+      setCurrentPage(p => p-1)
+      setActive!(data[currentPage - 1])
+    }
 
   }
   return(

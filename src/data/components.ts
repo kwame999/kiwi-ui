@@ -37,8 +37,7 @@ export const components: ComponentTypes[] = [
     description: 'An environmental switch with hover animation and micro-interactions',
     category: 'Tools',
     meta: [
-        {prop: '', type: '', defaults: ''},
-        {prop: '', type: '', defaults: ''}
+      
       ]
   },
   {

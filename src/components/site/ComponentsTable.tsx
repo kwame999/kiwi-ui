@@ -14,9 +14,9 @@ const Table = ({data, onSelect,}: TableProps) => {
   }
   
   return(
-    <div className={`max-w-[781px] flex flex-col`}>
+    <div className={`max-w-[781px] flex flex-col rounded-[10px] border overflow-hidden`}>
       <FilterBar currentSort={currentSort} onFilter={handleFilter}></FilterBar>
-      <div className={`grid grid-cols-3 auto-rows-auto border-1 rounded-b-[10px] text-[0.9rem] font-medium overflow-clip`}>
+      <div className={`grid grid-cols-3 auto-rows-auto  rounded-b-[10px] text-[0.9rem] font-medium `}>
         {
           data.map(c => {
             if (currentSort === componentCategories[0] || currentSort === c.category) {
@@ -40,7 +40,7 @@ const Table = ({data, onSelect,}: TableProps) => {
 const TableChild = ({children, onSelect, active}: TableChildProps) => {
   return(
     <div 
-      className={`border-1 px-[14px] py-[12px] cursor-pointer hover:bg-blue-50`}
+      className={`border px-[14px] py-[12px] cursor-pointer hover:bg-blue-50`}
       onClick={onSelect} 
     >
       {children}
@@ -50,7 +50,7 @@ const TableChild = ({children, onSelect, active}: TableChildProps) => {
 
 const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
   return(
-    <div className={`flex gap-6 items-center px-[14px] py-[4px] border-2 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
+    <div className={`flex gap-6 items-center px-[14px] py-[4px] border-1 border-b-0 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
       <div className={`flex items-center gap-1 shrink-0`}>
         <HugeiconsIcon icon={FilterIcon} size={18}/>
         <h1 className="">Sort components by: 

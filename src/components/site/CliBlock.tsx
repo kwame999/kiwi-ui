@@ -9,13 +9,13 @@ const CliBlock = ({ data }: { data: ComponentTypes }) => {
   const [currentView, setCurrentView] = useState<string>('CLI')
   
   return (
-    <div className={'flex flex-col gap-[8px] justify-between rounded-t-md'}>
-      <div className={`flex gap-[14px] items-center `}>
+    <div className={'flex flex-col gap-[8px] justify-between rounded-t-md text-[14px]'}>
+      <div className={`flex gap-2 items-center `}>
         <button 
-          className={`cursor-pointer px-[4px] py-[2px] rounded-[8px] ${(currentView === 'CLI') && 'bg-red-500 border border-blue-500'}`}
+          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-black ${(currentView === 'CLI') && 'bg-red-500'}`}
           onClick={() => setCurrentView('CLI')}>CLI</button>
         <button 
-          className={`cursor-pointer px-[4px] py-[2px] rounded-[8px] ${(currentView === 'Manual') && 'bg-red-500 border border-blue-500'}`}
+          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-black ${(currentView === 'Manual') && 'bg-red-500'}`}
           onClick={() => setCurrentView('Manual')}>Manual</button>
       </div>
 

@@ -11,7 +11,7 @@ import { InsertColumnLeftIcon, InsertColumnRightIcon } from '@hugeicons/core-fre
 import { CopyPageDropDown } from './CopyPageDropDown';
 export default function Workbench({ data }: { data: ComponentTypes[] }) {
   const [active, setActive] = useState<ComponentTypes>(data[0]);
-  const [isExpanded, setIsExpanded] = useState<boolean>(false)
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const handleSelect = (component: ComponentTypes) => {
     setActive(component);
   };
@@ -23,15 +23,14 @@ export default function Workbench({ data }: { data: ComponentTypes[] }) {
       
       <div className="flex-[2] mx-9 overflow-y-auto flex flex-col gap-7 mt-5">
         
-        <div className='flex flex-col'>
+        <div className='flex flex-col gap-2'>
           <div className='flex justify-between items-center' >
             <h1 className="text-2xl font-bold">Components</h1>
             <CopyPageDropDown/>
           </div>
 
            <p className="text-md leading-[24px] text-red-600 w-[76%]">
-                  Collection of ready made ui for everone
-                </p>
+            Browse all available Kiwi components. Click any element to view its documentation and implementation details on the adjustable side panel</p>
         </div>
 
 

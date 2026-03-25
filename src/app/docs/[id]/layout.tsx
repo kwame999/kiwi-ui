@@ -6,7 +6,10 @@ export default function Layout({children}:  Readonly<{
   return (
     <div className={`flex h-screen overflow-hidden`}>
         <SideBar></SideBar>
-        <main className={`flex-1`}>{children}</main>
+        <main className={`flex-1`}>
+          {children}
+        </main>
+        
     </div>
     
   )

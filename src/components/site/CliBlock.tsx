@@ -19,7 +19,7 @@ const CliBlock = ({ data }: { data: ComponentTypes }) => {
           onClick={() => setCurrentView('Manual')}>Manual</button>
       </div>
 
-      <div className={`flex flex-col bg-purple-600 rounded-[8px] overflow-clip border-1`}>
+      <div className={`flex flex-col bg-purple-600 rounded-[12px] overflow-clip border-1`}>
         {/* Pass the ID/Slug down to the tabs to build the command */}
         <CliTab componentId={data.id} />
       </div>
@@ -52,20 +52,20 @@ const CliTab = ({ componentId }: { componentId: string }) => {
   
   return (
     <>
-      <div className={`flex items-center px-3.5 border-b border-red-800`}>
-        <HugeiconsIcon icon={SoftwareLicenseIcon} size={20} />
+      <div className={`flex items-center px-3 border-b border-red-800`}>
+        <HugeiconsIcon icon={SoftwareLicenseIcon} size={18} />
         <ul className={`flex gap-1 px-2 py-2 text-[0.9rem] `}>
           {tabs.map(t => (
             <li key={t} 
-                className={`px-2 cursor-pointer hover:text-blue-50 ${currentTab === t && 'bg-blue-400 rounded-[4px] border border-red-400'}`} 
+                className={`px-2 cursor-pointer font-medium hover:text-blue-50 ${currentTab === t && 'bg-blue-400 rounded-[6px] border border-red-400'}`} 
                 onClick={() => setCurrentTab(t)}>{t}</li>
           ))}
         </ul>
         <button className={`ml-auto cursor-pointer`}>
-          <HugeiconsIcon icon={CopyIcon} size={20} />
+          <HugeiconsIcon icon={CopyIcon} size={18} />
         </button>
       </div>
-      <pre className={`p-3.5 overflow-x-auto`}>
+      <pre className={`p-3 overflow-x-auto`}>
         <code className={`bg-amber-600 px-2 py-1 rounded`}>
           {getCommand(currentTab)}
         </code>

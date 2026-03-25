@@ -11,7 +11,7 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { AlignHorizontalSpaceAroundIcon } from "@hugeicons/core-free-icons"
 import { TextBlock, TitileHead } from "../docs/TextBlock"
 
-const ComponentView = ({currentView, setActive}: ComponentViewProps ) => {
+const ComponentView = ({currentView, setActive, isExpanded}: ComponentViewProps ) => {
   const [currentTab, setCurrentTab] = useState<string>('Preview')
 
   return(
@@ -19,7 +19,7 @@ const ComponentView = ({currentView, setActive}: ComponentViewProps ) => {
       <ComponentViewTab currentTab={currentTab} onCurrentTab={setCurrentTab}/>
       
       <div className={` flex-1 bg-white `}>
-        {currentTab === 'Preview' ? (
+      
           <div className="flex flex-col gap-8">
             <section className="flex flex-col gap-2">
               
@@ -29,8 +29,16 @@ const ComponentView = ({currentView, setActive}: ComponentViewProps ) => {
                     <HugeiconsIcon icon={AlignHorizontalSpaceAroundIcon} size={18}></HugeiconsIcon>
                   </button> */}
     
-            <div className="min-h-[200px] w-full border-1 border-dashed border-slate-300 rounded-[8px] flex items-center justify-center bg-slate-50">
-               <span className="text-slate-400">[ {currentView.componentType} Preview ]</span>
+            <div className="min-h-[200px] w-full border-1 border-dashed border-slate-300 rounded-[8px] flex items-center justify-center bg-slate-50"
+                  style={{height:  isExpanded ? 300 : 200}}>
+               { 
+                currentTab === 'Preview' ? <span className="text-slate-400">[ {currentView.componentType} Preview ]</span> :
+                   <div className="rounded-[8px] bg-slate-950 p-4 font-mono text-sm text-blue-300">
+                    <pre>
+                      <code>{`// Logic for ${currentView.componentType} usage...`}</code>
+                    </pre>
+                  </div>
+               }
             </div>
              
             </section>
@@ -64,11 +72,6 @@ const ComponentView = ({currentView, setActive}: ComponentViewProps ) => {
               <PropTable data={currentView} />
             </section>
           </div>
-        ) : (
-          <div className="rounded-[8px] bg-slate-950 p-4 font-mono text-sm text-blue-300">
-            <pre><code>{`// Logic for ${currentView.componentType} usage...`}</code></pre>
-          </div>
-        )}
       </div>
     </section>
   )
@@ -100,7 +103,8 @@ const ComponentViewTab = ({currentTab, onCurrentTab}: ComponentViewTabProps ) =>
 
 type ComponentViewProps = {
   currentView: ComponentTypes
-  setActive: (component: ComponentTypes)=> void
+  setActive: (component: ComponentTypes)=> void,
+  isExpanded: boolean
 }
 
 type ComponentViewTabProps = {

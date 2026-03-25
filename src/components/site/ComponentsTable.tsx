@@ -50,7 +50,7 @@ const TableChild = ({children, onSelect, active}: TableChildProps) => {
 
 const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
   return(
-    <div className={`flex gap-6 items-center px-[14px] py-[4px] border-1 border-b-0 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
+    <div className={`flex gap-6 items-center px-[14px] py-[8px] border-1 border-b-0 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
       <div className={`flex items-center gap-1 shrink-0`}>
         <HugeiconsIcon icon={FilterIcon} size={18}/>
         <h1 className="">Sort components by: 

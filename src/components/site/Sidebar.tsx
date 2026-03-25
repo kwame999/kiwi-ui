@@ -10,10 +10,8 @@ const SideBar = ({}) => {
       <section className={`gap-2 flex flex-col`}>
         <h1 className={`text-[12px] px-[8px] font-medium`}>Getting Started</h1>
         <ul className={`flex flex-col gap-[4px] cursor-pointer text-[14px]`}> 
-          <li className={`p-[4px] px-[8px] bg-blue-500 rounded-[8px]`}>Introduction</li>
+          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Introduction</li>
           <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Installation</li>
-          <li className={`p-[4px] px-[8px]  rounded-[8px]`}>Components</li>
-          <li className={`p-[5px] px-[8px]  rounded-[8px]`}>MCP</li>
         </ul>
       </section>
       <section className={`gap-2 flex flex-col`}>

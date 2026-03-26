@@ -29,6 +29,7 @@ const CliBlock = ({ data }: { data: ComponentTypes }) => {
 const CliTab = ({ componentId }: { componentId: string }) => {
   const tabs = ['pnpm', 'npm', 'yarn', 'bun'] as const
   const [currentTab, setCurrentTab] = useState<typeof tabs[number]>('pnpm')
+    const [isCopied, setIsCopied] = useState<boolean>(false)
   
   function getCommand(tab: string){
     const base = `dlx kiwi-ui@latest add @kiwi/${componentId}`
@@ -42,11 +43,10 @@ const CliTab = ({ componentId }: { componentId: string }) => {
     }
   }
 
-  const commands = {
-    pnpm: `pnpm dlx kiwi-ui add ${componentId}`,
-    npm: `npx kiwi-ui add ${componentId}`,
-    yarn: `yarn dlx kiwi-ui add ${componentId}`,
-    bun: `bun x kiwi-ui add ${componentId}`
+  async function handleCopyCommand() {
+    await navigator.clipboard.writeText(getCommand(currentTab));
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1200);
   }
   
   return (
@@ -60,7 +60,7 @@ const CliTab = ({ componentId }: { componentId: string }) => {
                 onClick={() => setCurrentTab(t)}>{t}</li>
           ))}
         </ul>
-        <button className={`ml-auto cursor-pointer`}>
+        <button className={`ml-auto cursor-pointer`} onClick={handleCopyCommand} aria-label="Copy install command">
           <HugeiconsIcon icon={CopyIcon} size={18} />
         </button>
       </div>
@@ -69,6 +69,7 @@ const CliTab = ({ componentId }: { componentId: string }) => {
           {getCommand(currentTab)}
         </code>
       </pre>
+            {isCopied && <span className="px-3 pb-2 text-[12px]">Copied!</span>}
     </>
   )
 }

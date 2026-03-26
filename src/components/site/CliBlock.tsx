@@ -10,7 +10,7 @@ const CliBlock = ({ data }: { data: ComponentTypes }) => {
   
   return (
     <div className={'flex flex-col gap-[8px] justify-between rounded-t-md text-[14px]'}>
-      <div className={`flex gap-2 items-center `}>
+      <div className={`flex gap-2 items-center font-medium `}>
         <button 
           className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-black ${(currentView === 'CLI') && 'bg-red-500'}`}
           onClick={() => setCurrentView('CLI')}>CLI</button>
@@ -20,7 +20,6 @@ const CliBlock = ({ data }: { data: ComponentTypes }) => {
       </div>
 
       <div className={`flex flex-col bg-purple-600 rounded-[12px] overflow-clip border-1`}>
-        {/* Pass the ID/Slug down to the tabs to build the command */}
         <CliTab componentId={data.id} />
       </div>
     </div>

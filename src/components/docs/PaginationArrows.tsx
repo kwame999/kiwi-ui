@@ -9,7 +9,6 @@ const PaginationArrows = ({data, setActive, currentPage, setCurrentPage}: Pagina
   function handleNext(){
     if((data.length -1) !== currentPage){
 
-      // setCurrentPage(data.findIndex(d => d.componentType === active.componentType))
       setCurrentPage(currentPage+1)
       setActive!( data[currentPage + 1])
     }

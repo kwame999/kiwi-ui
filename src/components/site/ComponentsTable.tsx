@@ -14,7 +14,7 @@ const Table = ({data, onSelect,}: TableProps) => {
   }
   
   return(
-    <div className={`max-w-[781px] flex flex-col rounded-[10px] border overflow-hidden`}>
+    <div className={`w-fit flex flex-col rounded-[10px] border overflow-hidden`}>
       <FilterBar currentSort={currentSort} onFilter={handleFilter}></FilterBar>
       <div className={`grid grid-cols-3 auto-rows-auto  rounded-b-[10px] text-[0.9rem] font-medium `}>
         {
@@ -40,7 +40,7 @@ const Table = ({data, onSelect,}: TableProps) => {
 const TableChild = ({children, onSelect, active}: TableChildProps) => {
   return(
     <div 
-      className={`border px-[14px] py-[12px] cursor-pointer hover:bg-blue-50`}
+      className={`border px-[12px] py-[8px] cursor-pointer hover:bg-blue-50`}
       onClick={onSelect} 
     >
       {children}
@@ -50,7 +50,7 @@ const TableChild = ({children, onSelect, active}: TableChildProps) => {
 
 const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
   return(
-    <div className={`flex gap-6 items-center px-[14px] py-[8px] border-1 border-b-0 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
+    <div className={`flex gap-6 items-center px-[14px] py-[4px] border-1 rounded-t-[10px] border-b-0 text-[0.8rem] font-medium w-full bg-red-600`}>
       <div className={`flex items-center gap-1 shrink-0`}>
         <HugeiconsIcon icon={FilterIcon} size={18}/>
         <h1 className="">Sort components by: 
@@ -61,7 +61,7 @@ const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
       </div>
 
       <div className={`flex justify-between flex-1 items-center`}>
-        <div className={`w-px bg-blue-600 h-auto self-stretch`}></div>
+        <div className={`w-px bg-blue-600 h-auto self-stretch mr-2`}></div>
 
         <div className="relative">
           <div className="filter-bubble"/>
@@ -80,7 +80,7 @@ const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
           </ul>
         </div>
 
-        <div className={`w-px bg-blue-600 h-auto self-stretch`}></div>
+        <div className={`w-px bg-blue-600 h-auto self-stretch mx-2`}></div>
         <div className={`flex gap-[8px] items-center justify-center`}>
           <button className={`cursor-pointer`}>
             <HugeiconsIcon icon={ArrowLeft02Icon} size={18}/>
@@ -96,7 +96,8 @@ const FilterBar = ({currentSort, onFilter}: FilterBarProps ) => {
 
 type TableProps = {
   data: ComponentTypes[]
-  onSelect: (component: ComponentTypes) => void // Fixed: Selecting ONE component
+  onSelect: (component: ComponentTypes) => void 
+  activeId: string 
 }
 
 type TableChildProps = {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Rubik } from "next/font/google";
+import NavigationBar from "@/components/site/NavigationBar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +12,16 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const interMain = Inter({
+  variable: "--font-inter-mono",
+  subsets: ["latin"],
+  fallback:["--font-geist-sans"]
+});
+
+const testtest = Rubik({
+  variable: '--font-rubik-norm',
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      <body 
+        className={`${interMain.className} antialiased overflow-hidden `}
       >
-        {children}
+        <NavigationBar></NavigationBar>
+        <main>{children}</main>
       </body>
     </html>
   );

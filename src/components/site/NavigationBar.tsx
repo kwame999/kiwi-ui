@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react"
+import Link from "next/link"
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Github01Icon, Sun01Icon, Moon02Icon } from '@hugeicons/core-free-icons'
 import { Kiwi } from "./Logo"
@@ -12,9 +13,15 @@ const NavigationBar = ({}) => {
       <div className="flex items-center gap-8">
         <Kiwi></Kiwi>
         <ul className={`flex gap-[38px] cursor-pointer`}>
-          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>Docs</li>
-          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>Components</li>
-          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>Figma files</li>
+         <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
+            <Link href="/docs/introduction">Docs</Link>
+          </li>
+          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
+            <Link href="/docs/components">Components</Link>
+          </li>
+          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
+            <Link href="/docs/figma-files">Figma files</Link>
+          </li>
         </ul>
 
       </div>

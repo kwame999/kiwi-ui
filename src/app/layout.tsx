@@ -1,15 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import NavigationBar from "@/components/site/NavigationBar";
 import "./globals.css";
-
-
-
-const interMain = Inter({
-  variable: "--font-inter-mono",
-  subsets: ["latin"],
-  fallback:["--font-geist-sans"]
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,9 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
-      <body className="overflow-hidden antialiased">
+      <body className="flex h-dvh flex-col overflow-hidden antialiased">
         <NavigationBar></NavigationBar>
-        <main>{children}</main>
+        <main className="min-h-0 flex-1">{children}</main>
       </body>
     </html>
   );

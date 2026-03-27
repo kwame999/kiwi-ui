@@ -9,7 +9,7 @@ const NavigationBar = ({}) => {
   const [isLight, setIsLight] = useState<Boolean>(false)
 
   return (
-    <nav className={`flex bg-red-600  px-[28px] justify-between items-center py-[12px] border-b text-[.9rem] font-medium`}>
+    <nav className={`flex bg-kiwi-nav-bg  px-[28px] justify-between items-center py-[12px]  border border-kiwi-border-nav text-[0.9rem] font-medium tracking-wide`}>
       <div className="flex items-center gap-8">
         <Kiwi></Kiwi>
         <ul className={`flex gap-[38px] cursor-pointer`}>

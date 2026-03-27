@@ -21,12 +21,12 @@ const TextBlock = ({ heading, body, subhead, largestHead }: TextBlockProps) => {
           </div>
         )}
       </div>
-      <p className={"text-md leading-[24px] text-red-600 "}>{body}</p>
+      <p className={"text-md leading-[24px] text-kiwi-subheading "}>{body}</p>
     </div>
   );
 };
 
-const TitileHead = ({ titleHead }: TitleBlockProps) => {
+const TitleHead = ({ titleHead }: TitleBlockProps) => {
   const { h01, h02, h03, content } = titleHead;
 
   return h01 ? (
@@ -57,4 +57,4 @@ type TitleBlockProps = {
   };
 };
 
-export { TextBlock, TitileHead };
+export { TextBlock, TitleHead };

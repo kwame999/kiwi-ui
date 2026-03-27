@@ -90,7 +90,7 @@ const CliTab = ({ componentId }: { componentId: string }) => {
         </button>
       </div>
       <pre className={`p-3 overflow-x-auto`}>
-        <code className={`bg-blue-900/35 px-2 py-1 rounded`}>
+        <code className={`bg-kiwi-code-tab px-2 py-1 rounded`}>
           {getCommand(currentTab)}
         </code>
       </pre>

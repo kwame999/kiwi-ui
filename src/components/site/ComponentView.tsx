@@ -5,16 +5,16 @@ import { ComponentTypes } from "@/types";
 import PropTable from "../docs/PropShowCaseTable";
 import CodeBlock from "../docs/CodeBlock";
 import CliBlock from "./CliBlock";
-import { TitileHead } from "../docs/TextBlock";
+import { TitleHead } from "../docs/TextBlock";
 
 const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
   const [currentTab, setCurrentTab] = useState<string>("Preview");
 
   return (
-    <section className="mt-1.5 flex h-screen flex-col rounded-[8px]">
+    <section className="mt-1.5 flex min-h-0 flex-1 flex-col rounded-[8px]">
       <ComponentViewTab currentTab={currentTab} onCurrentTab={setCurrentTab} />
 
-      <div className="flex-1 ">
+      <div className="min-h-0 flex-1 overflow-y-auto pb-12">
         <div className="flex flex-col gap-8">
           <section className="flex flex-col gap-2">
             <div
@@ -37,7 +37,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
 
           <section>
             <div className="mb-5">
-              <TitileHead titleHead={{ h03: true, content: "Installations" }} />
+              <TitleHead titleHead={{ h03: true, content: "Installations" }} />
               <hr className="border-kiwi-nav-active" />
             </div>
             <CliBlock data={currentView} />
@@ -45,7 +45,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
 
           <section>
             <div className="mb-5">
-              <TitileHead titleHead={{ h03: true, content: "Usage" }} />
+              <TitleHead titleHead={{ h03: true, content: "Usage" }} />
               <hr className="border-kiwi-nav-active" />
             </div>
             <div className="flex flex-col gap-1">
@@ -56,7 +56,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
 
           <section className="flex flex-col gap-4">
             <div>
-              <TitileHead titleHead={{ h03: true, content: "Props" }} />
+              <TitleHead titleHead={{ h03: true, content: "Props" }} />
               <hr className="border-kiwi-nav-active" />
             </div>
             <PropTable data={currentView} />
@@ -76,19 +76,19 @@ const ComponentViewTab = ({
       <ul className="flex gap-2">
         <li
           onClick={() => onCurrentTab("Preview")}
-          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors ${currentTab === "Preview" ? "bg-kiwi-nav-active text-white" : "hover:bg-red-600"}`}
+          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors ${currentTab === "Preview" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
         >
           Preview
         </li>
         <li
           onClick={() => onCurrentTab("Code")}
-          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors ${currentTab === "Code" ? "bg-kiwi-nav-active text-white" : "hover:bg-red-600"}`}
+          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors ${currentTab === "Code" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
         >
           Code
         </li>
       </ul>
 
-      <button className="rounded-[6px] px-[8px] py-[4px] transition-colors hover:bg-yellow-400">
+      <button className="rounded-[6px] px-[8px] py-[4px] transition-colors hover:bg-kiwi-code-tab">
         <svg
           width="18"
           height="18"

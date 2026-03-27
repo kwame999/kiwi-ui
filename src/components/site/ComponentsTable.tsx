@@ -44,7 +44,7 @@ const Table = ({ data, onSelect }: TableProps) => {
 const TableChild = ({ children, onSelect }: TableChildProps) => {
   return (
     <div
-      className="cursor-pointer border border-kiwi-border px-[12px] py-[8px] hover:bg-blue-50"
+      className="cursor-pointer border border-kiwi-border px-[12px] py-[8px] transition-colors hover:bg-kiwi-nav-active"
       onClick={onSelect}
     >
       {children}

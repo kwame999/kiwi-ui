@@ -1,15 +1,11 @@
 //Route to next page
 const PageRoute = () => {
-  return(
+  return (
     <nav className={`flex justify-between`}>
-      <a href="">
-
-      </a>
-      <a href="">
-
-      </a>
+      <a href=""></a>
+      <a href=""></a>
     </nav>
-  )
-}
+  );
+};
 
-export default PageRoute
+export default PageRoute;

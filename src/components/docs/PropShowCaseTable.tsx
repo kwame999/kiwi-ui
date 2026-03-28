@@ -14,7 +14,7 @@ const PropTable = ({ data }: PropTableProps) => {
       )}
       <table
         aria-label="Component Props"
-        className={`w-full  rounded-[12px]`}
+        className={`w-full rounded-[12px]`}
       >
         <thead className={`border-b border-kiwi-border-table text-left bg-kiwi-codebody`}>
           <tr className={`bg--`}>

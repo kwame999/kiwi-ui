@@ -17,7 +17,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
         <div className="flex flex-col gap-8">
           <section className="flex flex-col gap-2">
             <div
-              className="flex min-h-[200px] w-full items-center justify-center rounded-[8px] border-1 border-kiwi-border"
+              className="flex min-h-[200px] w-full items-center justify-center rounded-[8px] border-1 border-kiwi-border overflow-clip"
               style={{ height: isExpanded ? 300 : 200 }}
             >
               {currentTab === "Preview" ? (
@@ -25,9 +25,10 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
                   [ {currentView.componentType} Preview ]
                 </span>
               ) : (
-                <div className="rounded-[8px] bg-slate-950 p-4 font-mono text-sm text-blue-300">
+                <div className="rounded-[8px]  font-mono text-sm text-blue-300 w-full h-full">
                   <pre>
-                    <code>{`// Logic for ${currentView.componentType} usage...`}</code>
+                    <CodeBlock code="sasa"></CodeBlock>
+                    
                   </pre>
                 </div>
               )}
@@ -48,8 +49,8 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
               <hr className="border-kiwi-nav-active" />
             </div>
             <div className="flex flex-col gap-1">
-              <CodeBlock />
-              <CodeBlock />
+              <CodeBlock code="ssss" />
+              <CodeBlock code="d" />
             </div>
           </section>
 

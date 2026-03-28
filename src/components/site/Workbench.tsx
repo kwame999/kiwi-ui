@@ -41,7 +41,7 @@ export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
 
   return (
     <div
-      className="flex h-screen justify-center bg-kiwi-bg text-kiwi-heading"
+      className="flex h-full min-h-0 justify-center overflow-hidden bg-kiwi-bg text-kiwi-heading"
       onClick={() => {
         if (isOpen) {
           setIsOpen(false);
@@ -49,10 +49,10 @@ export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
       }}
     >
       {!isExpanded && (
-        <div className="mt-5 mx-9 flex flex-[2] flex-col gap-9 overflow-y-auto">
+        <div className="mt-11 mx-9 flex min-h-0 flex-[2] flex-col gap-9 overflow-y-auto pb-5">
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <h1 className="text-3xl font-bold">Components</h1>
+              <h1 className="text-3xl font-bold tracking-wide">Components</h1>
               <CopyPageDropDown
                 isOpen={isOpen}
                 onOpen={() => setIsOpen(!isOpen)}
@@ -69,7 +69,7 @@ export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
         </div>
       )}
 
-      <div className="flex flex-1 flex-col gap-2 overflow-y-auto border-l border-kiwi-border p-5">
+      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto border-l border-kiwi-border p-5">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">{active.componentType}</h1>
           <div className="mt-2 flex items-center justify-between gap-3">

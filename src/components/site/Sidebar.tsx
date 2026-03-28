@@ -1,35 +1,33 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { components } from "@/data/components";
+import { gettingStartedRoutes } from "@/data/docsRoutes";
 
 const SideBar = ({}) => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const activeComponentId = searchParams.get("id");
 
   const activeClass = (path: string) =>
     pathname === path ? "bg-kiwi-nav-active py-1.5" : "";
 
   return (
     <aside
-      className={`w-[288px] py-6 flex flex-col gap-[24px] px-7 border-r bg-kiwi-sidenavbg border-kiwi-border-nav font-semibold shrink-0  text-gray-200`}
+      className={`w-[288px] py-6 flex flex-col gap-[24px] px-[36px] border-r bg-kiwi-sidenavbg border-kiwi-border-nav font-semibold shrink-0  text-gray-200`}
     >
       <section className={`gap-4 flex flex-col`}>
         <h1 className={`text-[0.7rem] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Getting Started</h1>
         <ul className={`flex flex-col gap-[4px] cursor-pointer text-[0.8rem] tracking-wide`}>
-          <Link href="/docs/introduction">
-            <li
-              className={`py-[6px] px-[8px] rounded-[8px] ${activeClass("/docs/introduction")}`}
-            >
-              Introduction
-            </li>
-          </Link>
-          <Link href="/docs/installation">
-            <li
-              className={`p-[4px] px-[8px] rounded-[8px] ${activeClass("/docs/installation")}`}
-            >
-              Installation
-            </li>
-          </Link>
+          {gettingStartedRoutes.map((route) => (
+            <Link key={route.id} href={route.href}>
+              <li
+                className={`p-[4px] px-[8px] rounded-[8px] tracking-wide ${activeClass(route.href)}`}
+              >
+                {route.label}
+              </li>
+            </Link>
+          ))}
         </ul>
       </section>
 
@@ -39,7 +37,7 @@ const SideBar = ({}) => {
           {components.map((c) => (
             <Link key={c.id} href={`/docs/components?id=${c.id}`}>
               <li
-                className={`p-[4px] px-[8px] rounded-[8px] ${pathname.includes(c.id) ? "bg-blue-600 text-white" : ""}`}
+                className={`py-1.5 px-[8px] rounded-[8px] tracking-wide ${activeComponentId === c.id ? "bg-kiwi-nav-active text-kiwi-heading" : ""}`}
               >
                 {c.componentType}
               </li>

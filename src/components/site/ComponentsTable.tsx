@@ -7,6 +7,7 @@ import {
   ArrowRight02Icon,
   ArrowLeft02Icon,
   FilterIcon,
+  FilterVerticalIcon
 } from "@hugeicons/core-free-icons";
 import { componentCategories } from "@/data/components";
 
@@ -20,7 +21,7 @@ const Table = ({ data, onSelect }: TableProps) => {
   }
 
   return (
-    <div className="flex w-fit flex-col overflow-hidden rounded-[10px] border border-kiwi-border">
+    <div className="flex w-fit flex-col overflow-hidden rounded-[10px] border border-kiwi-border-table">
       <FilterBar currentSort={currentSort} onFilter={handleFilter}></FilterBar>
       <div className="grid auto-rows-auto grid-cols-3 rounded-b-[10px] text-[0.9rem] font-semibold">
         {data.map((c) => {
@@ -44,7 +45,7 @@ const Table = ({ data, onSelect }: TableProps) => {
 const TableChild = ({ children, onSelect }: TableChildProps) => {
   return (
     <div
-      className="cursor-pointer border border-kiwi-border px-[12px] py-[8px] hover:bg-blue-50"
+      className="cursor-pointer border border-kiwi-border px-[12px] py-[8px] transition-colors hover:bg-kiwi-nav-active"
       onClick={onSelect}
     >
       {children}
@@ -54,9 +55,9 @@ const TableChild = ({ children, onSelect }: TableChildProps) => {
 
 const FilterBar = ({ currentSort, onFilter }: FilterBarProps) => {
   return (
-    <div className="flex w-full items-center gap-5 rounded-t-[10px] border-1 border-kiwi-border  bg-kiwi-btn px-[14px] py-[3px] text-[0.9rem] font-semibold">
-      <div className="flex shrink-0 items-center gap-1">
-        <HugeiconsIcon icon={FilterIcon} size={18} />
+    <div className="flex w-full items-center gap-5 rounded-t-[10px] border-1 border-kiwi-border bg-kiwi-btn px-[14px] py-[2px] text-[0.9rem] font-semibold">
+      <div className="flex shrink-0 items-center justify-center gap-1.5">
+        <HugeiconsIcon icon={FilterVerticalIcon} size={18} />
         <h1 className="">
           Sort components by:
           <span className="ml-5.5">{currentSort}</span>
@@ -64,12 +65,14 @@ const FilterBar = ({ currentSort, onFilter }: FilterBarProps) => {
       </div>
 
       <div className="flex flex-1 items-center justify-between">
-        <div className="mr-2.5 h-[20px]  mt-1 w-px self-stretch bg-kiwi-border-nav"></div>
+        <div className="mr-2.5 h-[20px]  mt-1.5 w-px self-stretch bg-kiwi-border-table "></div>
 
         <div className="relative">
           <div className="filter-bubble" />
           <ul className="anchor-filter-bar flex font-semibold">
-            {componentCategories.map((c) => (
+            {componentCategories
+              .filter((category) => category !== currentSort)
+              .map((c) => (
               <li
                 key={c}
                 className="anchor-item cursor-pointer px-[18px] py-[4px] text-center"
@@ -82,7 +85,7 @@ const FilterBar = ({ currentSort, onFilter }: FilterBarProps) => {
         </div>
 
         
-        <div className="mx-2.5 h-[20px]  mt-1 w-px self-stretch bg-kiwi-border-nav"></div>
+        <div className="mx-2.5 h-[20px]  mt-1 w-px self-stretch bg-kiwi-border-table"></div>
 
         <div className="flex items-center justify-center gap-[8px]">
           <button className="cursor-pointer">

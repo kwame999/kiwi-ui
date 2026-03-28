@@ -1,26 +1,47 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Github01Icon, Sun01Icon, Moon02Icon } from '@hugeicons/core-free-icons'
 import { Kiwi } from "./Logo"
+import { docsPageRoutes } from "@/data/docsRoutes";
 //Main navigation component
 const NavigationBar = ({}) => {
-  const [isLight, setIsLight] = useState<Boolean>(false)
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") {
+      return "dark";
+    }
+    const storedTheme = localStorage.getItem("kiwi-theme");
+    if (storedTheme === "light" || storedTheme === "dark") {
+      return storedTheme;
+    }
+    return document.documentElement.getAttribute("data-theme") === "light"
+      ? "light"
+      : "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("kiwi-theme", theme);
+  }, [theme]);
+
+  const handleToggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
+  };
 
   return (
-    <nav className={`flex bg-kiwi-nav-bg  px-[28px] justify-between items-center py-[12px]  border border-kiwi-border-nav text-[0.9rem] font-medium tracking-wide`}>
-      <div className="flex items-center gap-8">
+    <nav className={`flex bg-kiwi-nav-bg  px-[36px] justify-between items-center py-[12px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
+      <div className="flex items-center gap-4.5">
         <Kiwi></Kiwi>
         <ul className={`flex gap-[38px] cursor-pointer`}>
          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
-            <Link href="/docs/introduction">Docs</Link>
+            <Link href={docsPageRoutes[0].href}>Docs</Link>
           </li>
           <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
-            <Link href="/docs/components">Components</Link>
+            <Link href={docsPageRoutes[2].href}>Components</Link>
           </li>
           <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
-            <Link href="/docs/figma-files">Figma files</Link>
+            <Link href={docsPageRoutes[3].href}>Figma files</Link>
           </li>
         </ul>
 
@@ -28,15 +49,19 @@ const NavigationBar = ({}) => {
       <ul className={`flex gap-[18px] items-center`}>
         <li className={`cursor-pointer`}>
           <button className={`cursor-pointer flex items-center`}>
-            <a href="https://github.com/kwame999/kiwi-ui" target="_brank">
+            <a
+              href="https://github.com/kwame999/kiwi-ui"
+              target="_blank"
+              rel="noreferrer"
+            >
             <HugeiconsIcon icon = {Github01Icon} size={18}></HugeiconsIcon>            
             </a>
           </button>
         </li>
         <li>
           <button className={`cursor-pointer flex items-center`}
-                  onClick={()=> setIsLight(s => !s)}>
-          <HugeiconsIcon icon = {isLight ? Moon02Icon : Sun01Icon} size={18}></HugeiconsIcon>
+                  onClick={handleToggleTheme}>
+          <HugeiconsIcon icon = {theme === "light" ? Moon02Icon : Sun01Icon} size={18}></HugeiconsIcon>
           </button>
           </li>
       </ul>

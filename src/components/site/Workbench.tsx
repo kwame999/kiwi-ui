@@ -75,7 +75,7 @@ export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
           <div className="mt-2 flex items-center justify-between gap-3">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex cursor-pointer items-center rounded-md p-0.5 transition-colors hover:bg-kiwi-code-tab"
+              className="flex cursor-pointer items-center rounded-md border border-transparent p-0.5 transition-colors hover:border-kiwi-border hover:bg-kiwi-nav-active"
             >
               <HugeiconsIcon
                 icon={

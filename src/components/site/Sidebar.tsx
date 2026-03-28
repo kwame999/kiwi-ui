@@ -14,7 +14,7 @@ const SideBar = ({}) => {
 
   return (
     <aside
-      className={`w-[288px] py-6 flex flex-col gap-[24px] px-7 border-r bg-kiwi-sidenavbg border-kiwi-border-nav font-semibold shrink-0  text-gray-200`}
+      className={`w-[288px] py-6 flex flex-col gap-[24px] px-[36px] border-r bg-kiwi-sidenavbg border-kiwi-border-nav font-semibold shrink-0  text-gray-200`}
     >
       <section className={`gap-4 flex flex-col`}>
         <h1 className={`text-[0.7rem] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Getting Started</h1>
@@ -22,7 +22,7 @@ const SideBar = ({}) => {
           {gettingStartedRoutes.map((route) => (
             <Link key={route.id} href={route.href}>
               <li
-                className={`p-[4px] px-[8px] rounded-[8px] ${activeClass(route.href)}`}
+                className={`p-[4px] px-[8px] rounded-[8px] tracking-wide ${activeClass(route.href)}`}
               >
                 {route.label}
               </li>
@@ -37,7 +37,7 @@ const SideBar = ({}) => {
           {components.map((c) => (
             <Link key={c.id} href={`/docs/components?id=${c.id}`}>
               <li
-                className={`p-[4px] px-[8px] rounded-[8px] ${activeComponentId === c.id ? "bg-kiwi-nav-active text-kiwi-heading" : ""}`}
+                className={`py-1.5 px-[8px] rounded-[8px] tracking-wide ${activeComponentId === c.id ? "bg-kiwi-nav-active text-kiwi-heading" : ""}`}
               >
                 {c.componentType}
               </li>

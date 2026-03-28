@@ -11,10 +11,9 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
   const [currentTab, setCurrentTab] = useState<string>("Preview");
 
   return (
-    <section className="mt-1.5 flex min-h-0 flex-1 flex-col rounded-[8px]">
-      <ComponentViewTab currentTab={currentTab} onCurrentTab={setCurrentTab} />
-
-      <div className="min-h-0 flex-1 overflow-y-auto pb-12">
+    <section className="mt-2 flex min-h-0 flex-1 flex-col rounded-[8px]">
+      <div className="scrollbar-hidden min-h-0 flex-1 overflow-y-auto pb-12">
+        <ComponentViewTab currentTab={currentTab} onCurrentTab={setCurrentTab} />
         <div className="flex flex-col gap-8">
           <section className="flex flex-col gap-2">
             <div

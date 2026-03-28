@@ -38,7 +38,7 @@ export default async function Page({
       : undefined;
 
   return (
-    <div className="flex flex-col gap-8 max-w-[896px] h-full mt-5 px-12 ">
+    <div className="flex flex-col gap-8 max-w-[896px] h-full mt-11 px-12 ">
       <article>
         <Content />
       </article>

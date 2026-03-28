@@ -49,10 +49,10 @@ export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
       }}
     >
       {!isExpanded && (
-        <div className="mt-5 mx-9 flex min-h-0 flex-[2] flex-col gap-9 overflow-y-auto pb-5">
+        <div className="mt-11 mx-9 flex min-h-0 flex-[2] flex-col gap-9 overflow-y-auto pb-5">
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <h1 className="text-3xl font-bold">Components</h1>
+              <h1 className="text-3xl font-bold tracking-wide">Components</h1>
               <CopyPageDropDown
                 isOpen={isOpen}
                 onOpen={() => setIsOpen(!isOpen)}

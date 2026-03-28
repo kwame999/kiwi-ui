@@ -5,7 +5,7 @@ import { ArrowLeft02Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
 const BottomPageRoute = ({ previous, next }: BottomPageRouteProps) => {
   return (
     <nav className="mt-10 border-t border-kiwi-border pt-5">
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-4 mb-16">
         {previous ? (
           <Link
             href={previous.href}

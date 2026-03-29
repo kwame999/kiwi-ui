@@ -6,6 +6,7 @@ import { Table } from "./ComponentsTable";
 import ComponentView from "./ComponentView";
 import type { ComponentTypes } from "@/types";
 import PaginationArrows from "../docs/PaginationArrows";
+import BottomPageRoute from "./BottomPageRoute";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   InsertColumnLeftIcon,
@@ -13,7 +14,12 @@ import {
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
 
-export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
+export default function Workbench({
+  data,
+  onCurrentPage,
+  previousRoute,
+  nextRoute,
+}: WorkbenchProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -66,6 +72,8 @@ export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
           </div>
 
           <Table data={data} onSelect={handleSync} />
+
+          <BottomPageRoute previous={previousRoute} next={nextRoute} />
         </div>
       )}
 
@@ -98,12 +106,23 @@ export default function Workbench({ data, onCurrentPage }: WorkbenchProps) {
         </p>
 
         <ComponentView currentView={active} isExpanded={isExpanded} />
+
+        {isExpanded && (
+          <BottomPageRoute previous={previousRoute} next={nextRoute} />
+        )}
       </div>
     </div>
   );
 }
 
+type BottomPageRouteLink = {
+  href: string;
+  label: string;
+};
+
 type WorkbenchProps = {
   data: ComponentTypes[];
   onCurrentPage?: (num: number) => void;
+  previousRoute?: BottomPageRouteLink;
+  nextRoute?: BottomPageRouteLink;
 };

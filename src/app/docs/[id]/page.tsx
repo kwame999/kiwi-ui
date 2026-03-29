@@ -7,6 +7,24 @@ import BottomPageRoute from "@/components/site/BottomPageRoute";
 import { docsPageRoutes } from "@/data/docsRoutes";
 import CopyPageAction from "@/components/site/CopyPageAction";
 
+const docsPageMeta: Record<string, { title: string; description: string }> = {
+  introduction: {
+    title: "Introduction",
+    description:
+      "Welcome to kiwi-ui, a collection of accessible, reusable, and composable React components built for high-end micro-interactions and clean implementation.",
+  },
+  installation: {
+    title: "Installation",
+    description:
+      "Install kiwi-ui into your project with your package manager of choice, then start adding components from the workbench.",
+  },
+  "figma-files": {
+    title: "Figma Files",
+    description:
+      "This section hosts shared kiwi-ui design files, component specs, and token references for design handoff.",
+  },
+};
+
 export default async function Page({
   params,
 }: {
@@ -24,16 +42,13 @@ export default async function Page({
 
   if (id === "components") {
     return (
-      <div className="flex h-full min-h-0 flex-col">
-        <div className="min-h-0 flex-1">
-          <Suspense fallback={<div>Loading Workbench...</div>}>
-            <Workbench data={components} />
-          </Suspense>
-        </div>
-        <div className="px-9">
-          <BottomPageRoute previous={previousRoute} next={nextRoute} />
-        </div>
-      </div>
+      <Suspense fallback={<div>Loading Workbench...</div>}>
+        <Workbench
+          data={components}
+          previousRoute={previousRoute}
+          nextRoute={nextRoute}
+        />
+      </Suspense>
     );
   }
 
@@ -45,11 +60,24 @@ export default async function Page({
     { loading: () => <p>Loading documentation...</p> },
   );
 
+  const pageMeta = docsPageMeta[id];
+
   return (
     <div className="mt-11 flex h-full max-w-[896px] flex-col gap-8 px-12">
-      <div className="flex justify-end">
-        <CopyPageAction />
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold tracking-wide">
+            {pageMeta?.title ?? "Documentation"}
+          </h1>
+          <CopyPageAction />
+        </div>
+        {pageMeta?.description ? (
+          <p className="w-[70%] text-[0.9rem] leading-[24px] text-kiwi-subheading">
+            {pageMeta.description}
+          </p>
+        ) : null}
       </div>
+
       <article>
         <Content />
       </article>

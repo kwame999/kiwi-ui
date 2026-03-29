@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hello-world",
+  "title": "Hello World",
+  "description": "A test component to verify the registry pipeline.",
+  "files": [
+    {
+      "path": "registry/new-york/hello-world/hello-world.tsx",
+      "content": "export function HelloWorld() {\r\n  return <div className=\"text-red-500\">Hello from Kiwi!</div>\r\n}",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:block"
+}

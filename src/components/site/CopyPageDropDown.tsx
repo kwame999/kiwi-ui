@@ -14,9 +14,9 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
   }
 
   return (
-    <div className="relative flex w-fit rounded-lg border border-kiwi-border bg-kiwi-code-tab py-[8px] pr-0 text-[.9rem]">
+    <div className="relative flex w-fit rounded-lg border border-kiwi-border bg-kiwi-code-tab py-[7px] font-medium pr-0 text-[.9rem] hover:bg-kiwi-nav-active transition-colors">
       <button
-        className="flex items-center gap-3 border-r border-kiwi-border-nav px-[8px] transition-colors hover:bg-kiwi-nav-active"
+        className="flex items-center gap-3 border-r border-kiwi-border-table px-[8px] transition-colors hover:bg-kiwi-nav-active"
         onClick={handleCopyPage}
         aria-label="Copy page URL"
       >
@@ -24,7 +24,7 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
         <span>Copy Page</span>
       </button>
       <button
-        className="flex items-center justify-center p-[4px] py-0 transition-colors hover:bg-kiwi-nav-active"
+        className="flex items-center justify-center p-[4px] py-0 transition-colors"
         onClick={(e) => {
           e.stopPropagation();
           onOpen();
@@ -36,7 +36,7 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
       {isOpen && (
         <div className="absolute top-full right-0 z-20 mt-[6px] w-max rounded-[12px] border border-kiwi-border-nav bg-kiwi-nav-bg p-[8px] text-[0.9rem] text-kiwi-heading shadow-lg">
           <ul className="flex cursor-pointer flex-col gap-[4px]">
-            <li className="flex items-center justify-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active">
+            <li className="flex items-center justify-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors">
               <svg
                 strokeLinejoin="round"
                 viewBox="0 0 22 16"

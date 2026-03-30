@@ -4,16 +4,17 @@
   "homepage": "http://localhost:3000",
   "items": [
     {
-      "name": "hello-world",
-      "type": "registry:block",
-      "title": "Hello World",
-      "description": "A test component to verify the registry pipeline.",
-      "files": [
-        {
-          "path": "registry/new-york/hello-world/hello-world.tsx",
-          "type": "registry:component"
-        }
-      ]
+  "name": "tag-setter",
+  "type": "registry:block",
+  "title": "Tag Setter",
+  "description": "An animated expandable tag input with add/remove and save confirmation.",
+  "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+  "files": [
+    {
+      "path": "registry/new-york/tag-setter/tag-setter.tsx",
+      "type": "registry:component"
     }
+  ]
+  }
   ]
 }

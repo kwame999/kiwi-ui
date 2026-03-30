@@ -77,7 +77,7 @@ export default function Workbench({
         </div>
       )}
 
-      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto border-l border-kiwi-border p-5 mt-2">
+      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto border-l border-kiwi-border p-5 pt-7">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">{active.componentType}</h1>
           <div className="mt-2 flex items-center justify-between gap-3">

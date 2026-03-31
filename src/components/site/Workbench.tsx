@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Kiwi } from "./Logo";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Table } from "./ComponentsTable";
 import ComponentView from "./ComponentView";
@@ -13,6 +14,7 @@ import {
   InsertColumnRightIcon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
+import KiwiCard from "../../../registry/new-york/radial-card/radial-card";
 
 export default function Workbench({
   data,
@@ -70,9 +72,7 @@ export default function Workbench({
               side panel!
             </p>
           </div>
-
           <Table data={data} onSelect={handleSync} />
-
           <BottomPageRoute previous={previousRoute} next={nextRoute} />
         </div>
       )}

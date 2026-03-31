@@ -11,7 +11,7 @@
   "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
   "files": [
     {
-      "path": "registry/new-york/tag-setter/tag-setter.tsx",
+      "path": "registry/new-york/kiwi/tag-setter/tag-setter.tsx",
       "type": "registry:component"
     }
   ]

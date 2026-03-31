@@ -33,7 +33,7 @@ interface TagSetterProps {
 // ─── Tag Sub-component ────────────────────────────────────────────────────────
 
 const Tag = ({ tagType, onRemoveTag }: { tagType: string; onRemoveTag: () => void }) => (
-  <motion.div
+  <motion.section
     initial={{ scale: 0.5, opacity: 0, filter: "blur(6px)" }}
     animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
     exit={{ scale: 0.5, opacity: 0, filter: "blur(6px)" }}
@@ -54,7 +54,7 @@ const Tag = ({ tagType, onRemoveTag }: { tagType: string; onRemoveTag: () => voi
       <HugeiconsIcon icon={CancelIcon} size={20} color="#ff0f0f" className="drop-shadow-lg" />
     </button>
     <p>{tagType}</p>
-  </motion.div>
+  </motion.section>
 )
 
 // ─── Save Confirmation Dialog ─────────────────────────────────────────────────
@@ -66,32 +66,22 @@ const SaveConfirmDialog = ({
   onSave: () => void
   onDiscard: () => void
 }) => (
-  <div className="w-full h-full absolute rounded-full flex justify-center items-center text-[0.9rem]">
-    <div className="flex gap-1 flex-col items-center relative z-10">
+  <div className={`w-full h-full absolute rounded-full flex justify-center items-center text-[0.9rem]`}>
+    <div className="flex gap-.5 flex-col items-center relative z-1">
       <p>Want to save your changes?</p>
       <div className="flex gap-2">
-        <button
-          className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full"
-          onClick={onDiscard}
-        >
-          Discard
-        </button>
-        <button
-          className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full"
-          onClick={onSave}
-        >
-          Save
-        </button>
+        <button className={`bg-blue-600`} onClick={onDiscard}>Discard</button>
+        <button className={`bg-blue-600`} onClick={onSave}>Save</button>
       </div>
     </div>
-    <div className="bg-red-700 w-full h-full absolute opacity-20 rounded-full" />
+    <div className={`bg-red-700 w-full h-full absolute opacity-20 rounded-full flex justify-center items-center`} />
   </div>
 )
 
 // ─── TagSetter ────────────────────────────────────────────────────────────────
 
 export function TagSetter({
-  placeholder = "Add a tag...",
+  placeholder,
   maxTags = 5,
   resizing = { expands: false, maxWidth: 880, width: 420 },
   onSave,
@@ -143,7 +133,7 @@ export function TagSetter({
   }
 
   return (
-    <section className="relative">
+    <section className={`relative `}>
       {showConfirm && (
         <SaveConfirmDialog onSave={handleSave} onDiscard={handleDiscard} />
       )}
@@ -152,9 +142,8 @@ export function TagSetter({
         initial={false}
         animate={{ width: isOpen ? Math.min(width, maxWidth) : 115 }}
         transition={{ type: "spring", stiffness: 260, damping: 32 }}
-        className={`bg-[linear-gradient(180deg,_#dadada_0%,_#d8d8d8_100%)] rounded-full flex items-center gap-1.5 shadow-[0_2px_6px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.08)] overflow-hidden p-2 ${
-          !expands && isOpen ? "py-[4px] px-[4px] rounded-[50px] border border-[rgba(0,0,0,0.18)]" : ""
-        }`}
+        className={`bg-[linear-gradient(180deg,_#dadada_0%,_#d8d8d8_100%)] rounded-full flex items-center gap-1.5 shadow-[0_2px_6px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.08)] overflow-hidden
+                     p-2 ${ (!expands && isOpen) && `py-[8px] px-[10px] rounded-[50px] border border-[rgba(0,0,0,0.18)]`}`}
       >
         {/* Main toggle button */}
         <motion.button
@@ -163,11 +152,7 @@ export function TagSetter({
           whileHover={isOpen ? { scale: 1.06, backgroundImage: "linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%)" } : {}}
           animate={{ backgroundImage: isOpen ? "linear-gradient(180deg, #818181 0%, #4a4a4a 100%)" : "none" }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          className={`flex-shrink-0 flex items-center rounded-full ${
-            isOpen
-              ? "w-8 h-8 justify-center shadow-[0_2px_4px_rgba(0,0,0,0.4),_inset_0_1px_0_rgba(255,255,255,0.15)]"
-              : "gap-2"
-          }`}
+          className={`flex-shrink-0 flex items-center rounded-full ${isOpen ? "w-9 h-9 justify-center shadow-[0_2px_4px_rgba(0,0,0,0.4),_inset_0_1px_0_rgba(255,255,255,0.15)]" : "gap-2 p-1"}`}
           aria-label={isOpen ? "Close tag setter" : "Open tag setter"}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -178,9 +163,9 @@ export function TagSetter({
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
-                style={{ display: "flex" }}
+                style={{ display: 'flex' }}
               >
-                <HugeiconsIcon icon={CancelCircleIcon} size={20} color="#AAAAAA" />
+                <HugeiconsIcon icon={CancelCircleIcon} size={24} color={`#AAAAAA`}/>
               </motion.span>
             ) : (
               <motion.span
@@ -196,9 +181,9 @@ export function TagSetter({
                   animate={{ rotate: 0 }}
                   exit={{ rotate: -90 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
-                  style={{ display: "flex" }}
+                  style={{ display: 'flex' }}
                 >
-                  <HugeiconsIcon icon={AddCircleIcon} size={20} color="black" />
+                  <HugeiconsIcon icon={AddCircleIcon} size={24} color={`black`}/>
                 </motion.span>
                 <p className="text-black/80">Add Tag</p>
               </motion.span>
@@ -207,32 +192,34 @@ export function TagSetter({
         </motion.button>
 
         {/* Tag list */}
-        {tags.length > 0 && isOpen && (
-          <div className="flex gap-[8px] items-center">
-            <AnimatePresence initial={false}>
-              {tags.map((tag) => (
-                <Tag
-                  key={tag.id}
-                  tagType={tag.name}
-                  onRemoveTag={() => removeTag(tag.id)}
-                />
-              ))}
-            </AnimatePresence>
-          </div>
-        )}
+        <div className={`flex justify-between`}>
+          {(tags.length > 0 && isOpen) && (
+            <div className={`flex gap-[8px] items-center`}>
+              <AnimatePresence initial={false}>
+                {tags.map((tag) => (
+                  <Tag
+                    key={tag.id}
+                    tagType={tag.name}
+                    onRemoveTag={() => removeTag(tag.id)}
+                  />
+                ))}
+              </AnimatePresence>
+            </div>
+          )}
+        </div>
 
         {/* Input area */}
         {isOpen && (
-          <div className="flex justify-between items-center w-full text-black/50">
+          <form className={`flex justify-between items-center w-full text-black/50`}>
             <input
-              className="text-ellipsis w-full text-[0.9rem] border-black/30 outline-0 bg-transparent"
+              className={`text-ellipsis w-full text-[0.9rem] border-black/30 outline-0`}
               type="text"
               value={tagName}
-              aria-label="Tag name input"
-              style={{ height: "20px" }}
+              name="Tag Input"
+              style={{height: '24px'}}
               onChange={(e) => setTagName(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" && tagName.trim()) {
+                if (e.key === 'Enter' && tagName.trim()) {
                   e.preventDefault()
                   addTag(tagName.trim())
                 }
@@ -240,16 +227,17 @@ export function TagSetter({
               placeholder={placeholder}
             />
 
-            <div className="flex gap-2 rounded-full ml-1">
+            <div className={`flex gap-2 rounded-full ml-1`}>
               <motion.button
                 onClick={(e) => { e.preventDefault(); removeLastTag() }}
                 whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.06, backgroundImage: "linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%)" }}
                 transition={{ type: "spring", stiffness: 500, damping: 28 }}
-                className="bg-[linear-gradient(180deg,_#818181_0%,_#4a4a4a_100%)] shadow-[0_2px_4px_rgba(0,0,0,0.4),_inset_0_1px_0_rgba(255,255,255,0.15)] rounded-full p-1.5 flex items-center justify-center"
+                className={`bg-[linear-gradient(180deg,_#818181_0%,_#4a4a4a_100%)] shadow-[0_2px_4px_rgba(0,0,0,0.4),_inset_0_1px_0_rgba(255,255,255,0.15)] rounded-full p-1.5 flex items-center justify-center`}
+                style={{ transition: "background-image 0.2s ease" }}
                 aria-label="Remove last tag"
               >
-                <HugeiconsIcon icon={RemoveCircleIcon} size={20} color="#AAAAAA" />
+                <HugeiconsIcon icon={RemoveCircleIcon} size={24} color={`#AAAAAA`}/>
               </motion.button>
 
               <motion.button
@@ -260,13 +248,14 @@ export function TagSetter({
                 whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.06, backgroundImage: "linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%)" }}
                 transition={{ type: "spring", stiffness: 500, damping: 28 }}
-                className="bg-[linear-gradient(180deg,_#818181_0%,_#4a4a4a_100%)] rounded-full p-1.5 flex items-center justify-center"
+                className={`bg-[linear-gradient(180deg,_#818181_0%,_#4a4a4a_100%)] rounded-full p-1.5 flex items-center justify-center`}
+                style={{ transition: "background-image 0.2s ease" }}
                 aria-label="Add tag"
               >
-                <HugeiconsIcon icon={AddCircleIcon} size={20} color="#AAAAAA" />
+                <HugeiconsIcon icon={AddCircleIcon} size={24} color={`#AAAAAA`}/>
               </motion.button>
             </div>
-          </div>
+          </form>
         )}
       </motion.section>
     </section>

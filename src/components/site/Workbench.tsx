@@ -14,7 +14,7 @@ import {
   InsertColumnRightIcon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
-import KiwiCard from "../../../registry/new-york/radial-card/radial-card";
+import { StatusBadge } from "../../../registry/new-york/kiwi/label/label";
 
 export default function Workbench({
   data,

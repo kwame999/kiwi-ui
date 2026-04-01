@@ -4,13 +4,13 @@ import React, { useRef, useState } from 'react';
 import { motion, useSpring, useMotionValue, useTransform } from 'framer-motion';
 import { Kiwi } from '@/components/site/Logo';
 
-type KiwiCardProps = {
+type RadalCardProps = {
     title?: string,
     description?: string,
 }
 
 
-const KiwiCard = ({ title, description }:KiwiCardProps) => {
+export const RadalCard = ({ title, description }:RadalCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Motion values 
@@ -89,5 +89,3 @@ const KiwiCard = ({ title, description }:KiwiCardProps) => {
     </motion.div>
   );
 };
-
-export default KiwiCard;

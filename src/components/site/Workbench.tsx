@@ -14,8 +14,10 @@ import {
   InsertColumnRightIcon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
-import { StatusBadge } from "../../../registry/new-york/kiwi/label/label";
-
+import { AiInput } from "../../../registry/new-york/kiwi/ai-input/ai-input";
+import { EnvSwitch } from "../../../registry/new-york/kiwi/environmental-switch/env-switch";
+import { DropDown } from "../../../registry/new-york/kiwi/dropdown/dropdown";
+import { Button } from "../../../registry/new-york/kiwi/buttons/buttons";
 export default function Workbench({
   data,
   onCurrentPage,
@@ -71,6 +73,11 @@ export default function Workbench({
               its documentation and implementation details on the adjustable
               side panel!
             </p>
+
+            {/* <AiInput></AiInput> */}
+            <EnvSwitch defaultMode="light"></EnvSwitch>
+            <DropDown title="Action"></DropDown>
+            <Button variant="muted">Checkout</Button>
           </div>
           <Table data={data} onSelect={handleSync} />
           <BottomPageRoute previous={previousRoute} next={nextRoute} />

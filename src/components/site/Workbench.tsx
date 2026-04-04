@@ -23,6 +23,8 @@ import { InputField } from "../../../registry/new-york/kiwi/inputfield/input-fie
 import { AlertToast } from "../../../registry/new-york/kiwi/alert-toast/alert-toast";
 import { InlineAlert } from "../../../registry/new-york/kiwi/inline-alert/inline-alert";
 import { UpdateToast } from "../../../registry/new-york/kiwi/update-toast/update-toast";
+import { Checkbox } from "../../../registry/new-york/kiwi/checkbox/checkbox";
+import { Toggle } from "../../../registry/new-york/kiwi/toggle/toggle";
 export default function Workbench({
   data,
   onCurrentPage,
@@ -89,6 +91,8 @@ export default function Workbench({
             <AlertToast time={10} message="asdasdada" status="update"></AlertToast>
             <InlineAlert variant="error" title="Action may be required" description="This could affect your workflow" action="Rewview now"></InlineAlert>
             <UpdateToast></UpdateToast>
+            <Checkbox></Checkbox>
+            <Toggle></Toggle>
           </div>
           <Table data={data} onSelect={handleSync} />
           <BottomPageRoute previous={previousRoute} next={nextRoute} />

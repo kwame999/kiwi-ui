@@ -18,6 +18,11 @@ import { AiInput } from "../../../registry/new-york/kiwi/ai-input/ai-input";
 import { EnvSwitch } from "../../../registry/new-york/kiwi/environmental-switch/env-switch";
 import { DropDown } from "../../../registry/new-york/kiwi/dropdown/dropdown";
 import { Button } from "../../../registry/new-york/kiwi/buttons/buttons";
+import { ColorSelector } from "../../../registry/new-york/kiwi/color-selector/color-selector";
+import { InputField } from "../../../registry/new-york/kiwi/inputfield/input-field";
+import { AlertToast } from "../../../registry/new-york/kiwi/alert-toast/alert-toast";
+import { InlineAlert } from "../../../registry/new-york/kiwi/inline-alert/inline-alert";
+import { UpdateToast } from "../../../registry/new-york/kiwi/update-toast/update-toast";
 export default function Workbench({
   data,
   onCurrentPage,
@@ -75,9 +80,15 @@ export default function Workbench({
             </p>
 
             {/* <AiInput></AiInput> */}
-            <EnvSwitch defaultMode="light"></EnvSwitch>
+            {/* <EnvSwitch defaultMode="light"></EnvSwitch>
             <DropDown title="Action"></DropDown>
             <Button variant="muted">Checkout</Button>
+            <AiInput></AiInput>
+            <ColorSelector></ColorSelector>
+            <InputField placeholder="Name"></InputField> */}
+            <AlertToast time={10} message="asdasdada" status="update"></AlertToast>
+            <InlineAlert variant="error" title="Action may be required" description="This could affect your workflow" action="Rewview now"></InlineAlert>
+            <UpdateToast></UpdateToast>
           </div>
           <Table data={data} onSelect={handleSync} />
           <BottomPageRoute previous={previousRoute} next={nextRoute} />

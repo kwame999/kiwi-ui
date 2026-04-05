@@ -35,17 +35,17 @@ const PropTable = ({ data }: PropTableProps) => {
               className={`text-left ${i !== meta!.length - 1 && `border-b border-kiwi-border`}`}
             >
               <td className={`px-4 py-2 `}>
-                <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-kiwi-code-tab border border-kiwi-border text-sm">
+                <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.prop}
                 </code>
               </td>
               <td className={`px-4 py-2`}>
-                <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-kiwi-code-tab border border-kiwi-border text-sm">
+                <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.type}
                 </code>
               </td>
               <td className={`px-4 py-2`}>
-                <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-kiwi-code-tab border border-kiwi-border text-sm">
+                <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.defaults || "-"}
                 </code>
               </td>

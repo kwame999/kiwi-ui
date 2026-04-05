@@ -14,6 +14,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
 import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/input-field";
+import { UpdateToast } from "../../../registry/new-york/kiwi/feedback/update-toast/update-toast";
 export default function Workbench({
   data,
   onCurrentPage,
@@ -69,15 +70,6 @@ export default function Workbench({
               its documentation and implementation details on the adjustable
               side panel!
             </p>
-
-            {/* <AiInput></AiInput> */}
-            {/* <EnvSwitch defaultMode="light"></EnvSwitch>
-            <DropDown title="Action"></DropDown>
-            <Button variant="muted">Checkout</Button>
-            <AiInput></AiInput>
-            <ColorSelector></ColorSelector>
-            <InputField placeholder="Name"></InputField> */}
-            <InputField></InputField>
           </div>
           <Table data={data} onSelect={handleSync} />
           <BottomPageRoute previous={previousRoute} next={nextRoute} />

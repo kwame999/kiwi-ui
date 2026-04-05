@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Kiwi } from "./Logo";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Table } from "./ComponentsTable";
 import ComponentView from "./ComponentView";
@@ -14,17 +13,7 @@ import {
   InsertColumnRightIcon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
-import { AiInput } from "../../../registry/new-york/kiwi/ai-input/ai-input";
-import { EnvSwitch } from "../../../registry/new-york/kiwi/environmental-switch/env-switch";
-import { DropDown } from "../../../registry/new-york/kiwi/dropdown/dropdown";
-import { Button } from "../../../registry/new-york/kiwi/buttons/buttons";
-import { ColorSelector } from "../../../registry/new-york/kiwi/color-selector/color-selector";
-import { InputField } from "../../../registry/new-york/kiwi/inputfield/input-field";
-import { AlertToast } from "../../../registry/new-york/kiwi/alert-toast/alert-toast";
-import { InlineAlert } from "../../../registry/new-york/kiwi/inline-alert/inline-alert";
-import { UpdateToast } from "../../../registry/new-york/kiwi/update-toast/update-toast";
-import { Checkbox } from "../../../registry/new-york/kiwi/checkbox/checkbox";
-import { Toggle } from "../../../registry/new-york/kiwi/toggle/toggle";
+import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/input-field";
 export default function Workbench({
   data,
   onCurrentPage,
@@ -88,11 +77,7 @@ export default function Workbench({
             <AiInput></AiInput>
             <ColorSelector></ColorSelector>
             <InputField placeholder="Name"></InputField> */}
-            <AlertToast time={10} message="asdasdada" status="update"></AlertToast>
-            <InlineAlert variant="error" title="Action may be required" description="This could affect your workflow" action="Rewview now"></InlineAlert>
-            <UpdateToast></UpdateToast>
-            <Checkbox></Checkbox>
-            <Toggle></Toggle>
+            <InputField></InputField>
           </div>
           <Table data={data} onSelect={handleSync} />
           <BottomPageRoute previous={previousRoute} next={nextRoute} />

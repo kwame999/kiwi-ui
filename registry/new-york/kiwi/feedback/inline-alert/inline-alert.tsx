@@ -30,43 +30,43 @@ const variantTokens: Record<AlertVariant, {
 }> = {
   info: {
     icon: InformationCircleIcon,
-    border: "linear-gradient(to bottom, oklch(0.50 0.18 240 / 0.8), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
-    bg: "oklch(0.19 0.02 240 / 0.8)",
-    iconColor: "oklch(0.65 0.18 240)",
-    titleColor: "oklch(0.92 0.004 264)",
-    descColor: "oklch(0.60 0.10 240)",
-    actionColor: "oklch(0.70 0.15 240)",
-    actionHover: "oklch(0.90 0.10 240)",
+    border: "var(--kiwi-alert-info-border)",
+    bg: "var(--kiwi-alert-info-bg)",
+    iconColor: "var(--kiwi-alert-info-icon)",
+    titleColor: "var(--kiwi-text-primary)",
+    descColor: "var(--kiwi-alert-info-desc)",
+    actionColor: "var(--kiwi-alert-info-action)",
+    actionHover: "var(--kiwi-alert-info-action-hover)",
   },
   warning: {
     icon: AlertCircleIcon,
-    border: "linear-gradient(to bottom, oklch(0.60 0.18 75 / 0.8), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
-    bg: "oklch(0.19 0.03 75 / 0.8)",
-    iconColor: "oklch(0.75 0.18 75)",
-    titleColor: "oklch(0.92 0.004 264/0.8)",
-    descColor: "oklch(0.62 0.10 75)",
-    actionColor: "oklch(0.75 0.15 75)",
-    actionHover: "oklch(0.92 0.10 75)",
+    border: "var(--kiwi-alert-warning-border)",
+    bg: "var(--kiwi-alert-warning-bg)",
+    iconColor: "var(--kiwi-alert-warning-icon)",
+    titleColor: "var(--kiwi-alert-warning-title)",
+    descColor: "var(--kiwi-alert-warning-desc)",
+    actionColor: "var(--kiwi-alert-warning-action)",
+    actionHover: "var(--kiwi-alert-warning-action-hover)",
   },
   success: {
     icon: CheckmarkCircle02Icon,
-    border: "linear-gradient(to bottom, oklch(0.55 0.18 145 / 0.8), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
-    bg: "oklch(0.19 0.03 145 / 0.8)",
-    iconColor: "oklch(0.65 0.20 145)",
-    titleColor: "oklch(0.92 0.004 264)",
-    descColor: "oklch(0.58 0.10 145)",
-    actionColor: "oklch(0.68 0.16 145)",
-    actionHover: "oklch(0.88 0.10 145)",
+    border: "var(--kiwi-alert-success-border)",
+    bg: "var(--kiwi-alert-success-bg)",
+    iconColor: "var(--kiwi-alert-success-icon)",
+    titleColor: "var(--kiwi-text-primary)",
+    descColor: "var(--kiwi-alert-success-desc)",
+    actionColor: "var(--kiwi-alert-success-action)",
+    actionHover: "var(--kiwi-alert-success-action-hover)",
   },
   error: {
     icon: AlertDiamondIcon,
-    border: "linear-gradient(to bottom, oklch(0.55 0.22 25 / 0.8), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
-    bg: "oklch(0.19 0.04 25 / 0.8)",
-    iconColor: "oklch(0.65 0.22 25)",
-    titleColor: "oklch(0.92 0.004 264)",
-    descColor: "oklch(0.58 0.12 25)",
-    actionColor: "oklch(0.70 0.18 25)",
-    actionHover: "oklch(0.88 0.12 25)",
+    border: "var(--kiwi-alert-error-border)",
+    bg: "var(--kiwi-alert-error-bg)",
+    iconColor: "var(--kiwi-alert-error-icon)",
+    titleColor: "var(--kiwi-text-primary)",
+    descColor: "var(--kiwi-alert-error-desc)",
+    actionColor: "var(--kiwi-alert-error-action)",
+    actionHover: "var(--kiwi-alert-error-action-hover)",
   },
 }
 
@@ -83,6 +83,7 @@ export const InlineAlert = ({
   return (
     <div
       className="p-px rounded-xl w-full max-w-[520px] transition-all duration-200"
+      style={{ background: t.border }}
     >
       <div
         className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl"
@@ -90,7 +91,7 @@ export const InlineAlert = ({
       >
         {/* Left: icon + text */}
         <div className="flex items-center gap-3 min-w-0">
-          <div className="flex items-baseline gap-2 min-w-0  items-center">
+          <div className="flex items-baseline gap-2 min-w-0 items-center">
           <HugeiconsIcon
             icon={t.icon}
             size={17}

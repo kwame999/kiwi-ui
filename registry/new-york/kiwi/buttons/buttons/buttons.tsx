@@ -17,28 +17,28 @@ const variantTokens: Record<ButtonVariant, {
   border: string
 }> = {
   primary: {
-    idle:   { background: "oklch(0.329 0.004 265 / 0.3)",  color: "oklch(0.92 0.004 264)" },
-    hover:  { background: "oklch(0.329 0.004 265 / 0.5)",  color: "oklch(0.97 0.004 264)" },
-    active: { background: "oklch(0.329 0.004 265 / 0.65)", color: "oklch(1 0 0)" },
-    border: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
+    idle:   { background: "var(--kiwi-btn-primary-idle-bg)",   color: "var(--kiwi-btn-primary-idle-color)" },
+    hover:  { background: "var(--kiwi-btn-primary-hover-bg)",  color: "var(--kiwi-btn-primary-hover-color)" },
+    active: { background: "var(--kiwi-btn-primary-active-bg)", color: "var(--kiwi-btn-primary-active-color)" },
+    border: "var(--kiwi-btn-primary-border)",
   },
   danger: {
-    idle:   { background: "oklch(0.22 0.06 25 / 0.4)",  color: "oklch(0.75 0.20 25)" },
-    hover:  { background: "oklch(0.22 0.06 25 / 0.6)",  color: "oklch(0.85 0.20 25)" },
-    active: { background: "oklch(0.22 0.06 25 / 0.8)",  color: "oklch(0.92 0.18 25)" },
-    border: "linear-gradient(to bottom, oklch(0.55 0.18 25 / 0.6), oklch(0.329 0.004 265 / 0.1) 60%, oklch(0.173 0.004 264))",
+    idle:   { background: "var(--kiwi-danger-surface)",        color: "var(--kiwi-danger-text)" },
+    hover:  { background: "var(--kiwi-danger-surface-hover)",  color: "var(--kiwi-danger-text-hover)" },
+    active: { background: "var(--kiwi-danger-surface-active)", color: "var(--kiwi-danger-text-active)" },
+    border: "var(--kiwi-danger-border)",
   },
   ghost: {
-    idle:   { background: "transparent",                    color: "oklch(0.72 0.004 264)" },
-    hover:  { background: "oklch(0.329 0.004 265 / 0.2)",   color: "oklch(0.92 0.004 264)" },
-    active: { background: "oklch(0.329 0.004 265 / 0.35)",  color: "oklch(0.97 0.004 264)" },
-    border: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.35), oklch(0.173 0.004 264))",
+    idle:   { background: "var(--kiwi-btn-ghost-idle-bg)",    color: "var(--kiwi-btn-ghost-idle-color)" },
+    hover:  { background: "var(--kiwi-btn-ghost-hover-bg)",   color: "var(--kiwi-btn-ghost-hover-color)" },
+    active: { background: "var(--kiwi-btn-ghost-active-bg)",  color: "var(--kiwi-btn-ghost-active-color)" },
+    border: "var(--kiwi-btn-ghost-border)",
   },
   muted: {
-    idle:   { background: "oklch(0.22 0.004 264 / 0.5)",  color: "oklch(0.52 0.004 264)" },
-    hover:  { background: "oklch(0.22 0.004 264 / 0.7)",  color: "oklch(0.72 0.004 264)" },
-    active: { background: "oklch(0.22 0.004 264 / 0.9)",  color: "oklch(0.85 0.004 264)" },
-    border: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.3), oklch(0.173 0.004 264))",
+    idle:   { background: "var(--kiwi-btn-muted-idle-bg)",    color: "var(--kiwi-btn-muted-idle-color)" },
+    hover:  { background: "var(--kiwi-btn-muted-hover-bg)",   color: "var(--kiwi-btn-muted-hover-color)" },
+    active: { background: "var(--kiwi-btn-muted-active-bg)",  color: "var(--kiwi-btn-muted-active-color)" },
+    border: "var(--kiwi-btn-muted-border)",
   },
 }
 
@@ -55,7 +55,7 @@ export const Button = ({
   const tokens = variantTokens[variant]
 
   const currentStyle = disabled
-    ? { background: "oklch(0.22 0.004 264 / 0.3)", color: "oklch(0.40 0.004 264)" }
+    ? { background: "var(--kiwi-btn-disabled-bg)", color: "var(--kiwi-btn-disabled-color)" }
     : pressed
     ? tokens.active
     : hovered
@@ -63,7 +63,7 @@ export const Button = ({
     : tokens.idle
 
   const borderGradient = disabled
-    ? "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.15), oklch(0.173 0.004 264))"
+    ? "var(--kiwi-btn-disabled-border)"
     : tokens.border
 
   return (

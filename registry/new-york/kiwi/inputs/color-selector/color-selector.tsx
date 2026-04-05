@@ -2,16 +2,16 @@ import { useState } from "react"
 
 type Color = {
   name: string
-  base: string
+  varName: string
 }
 
 const colors: Color[] = [
-  { name: "coral",  base: "oklch(0.65 0.22 25)"  },
-  { name: "pink",   base: "oklch(0.65 0.20 350)" },
-  { name: "purple", base: "oklch(0.60 0.22 290)" },
-  { name: "blue",   base: "oklch(0.60 0.20 240)" },
-  { name: "teal",   base: "oklch(0.62 0.18 185)" },
-  { name: "green",  base: "oklch(0.62 0.20 145)" },
+  { name: "coral",  varName: "var(--kiwi-color-coral)"  },
+  { name: "pink",   varName: "var(--kiwi-color-pink)"   },
+  { name: "purple", varName: "var(--kiwi-color-purple)" },
+  { name: "blue",   varName: "var(--kiwi-color-blue)"   },
+  { name: "teal",   varName: "var(--kiwi-color-teal)"   },
+  { name: "green",  varName: "var(--kiwi-color-green)"  },
 ]
 
 type ColorSelectorProps = {
@@ -30,10 +30,10 @@ export const ColorSelector = ({ defaultColor = "coral", onChange }: ColorSelecto
   return (
     <div className="flex flex-col gap-3 px-4 py-3 rounded-xl w-fit">
       <div className="flex flex-col gap-0.5">
-        <span className="text-sm font-medium" style={{ color: "oklch(0.92 0.004 264)" }}>
+        <span className="text-sm font-medium" style={{ color: "var(--kiwi-text-primary)" }}>
           Customize Primary Color
         </span>
-        <span className="text-xs" style={{ color: "oklch(0.52 0.004 264)" }}>
+        <span className="text-xs" style={{ color: "var(--kiwi-text-tertiary)" }}>
           Customize the look of your workspace
         </span>
       </div>
@@ -47,13 +47,13 @@ export const ColorSelector = ({ defaultColor = "coral", onChange }: ColorSelecto
               onClick={() => handleSelect(color)}
               className="relative flex items-center justify-center w-7 h-7 rounded-full transition-all duration-150"
               style={{
-                outline: isSelected ? `2px solid ${color.base}` : "2px solid transparent",
+                outline: isSelected ? `2px solid ${color.varName}` : "2px solid transparent",
                 outlineOffset: "2px",
               }}
             >
               <div
                 className="w-6 h-6 rounded-full"
-                style={{ background: color.base }}
+                style={{ background: color.varName }}
               />
             </button>
           )

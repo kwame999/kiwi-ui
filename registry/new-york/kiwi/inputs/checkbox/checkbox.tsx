@@ -35,11 +35,11 @@ export const Checkbox = ({
         className="w-4 h-4 rounded flex items-center justify-center shrink-0 transition-all duration-150"
         style={{
           background: checked
-            ? "oklch(0.329 0.004 265 / 0.6)"
-            : "oklch(0.22 0.004 264 / 0.6)",
+            ? "var(--kiwi-checkbox-checked-bg)"
+            : "var(--kiwi-checkbox-unchecked-bg)",
           outline: checked
-            ? "1px solid oklch(0.329 0.004 265 / 0.7)"
-            : "1px solid oklch(0.329 0.004 265 / 0.25)",
+            ? "1px solid var(--kiwi-checkbox-checked-outline)"
+            : "1px solid var(--kiwi-checkbox-unchecked-outline)",
           outlineOffset: "0px",
         }}
       >
@@ -47,7 +47,7 @@ export const Checkbox = ({
           <HugeiconsIcon
             icon={Tick01Icon}
             size={16}
-            style={{ color: "oklch(0.92 0.004 264)" }}
+            style={{ color: "var(--kiwi-text-primary)" }}
           />
         )}
       </div>
@@ -55,7 +55,7 @@ export const Checkbox = ({
       {label && (
         <span
           className="text-sm"
-          style={{ color: "oklch(0.72 0.004 264)" }}
+          style={{ color: "var(--kiwi-text-secondary)" }}
         >
           {label}
         </span>

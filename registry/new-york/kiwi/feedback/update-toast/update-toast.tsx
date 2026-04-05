@@ -31,13 +31,11 @@ export const UpdateToast = ({
   return (
     <div
       className="p-px rounded-xl w-[320px] animate-[slideUp_0.22s_cubic-bezier(0.16,1,0.3,1)_forwards]"
-      style={{
-        background: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
-      }}
+      style={{ background: "var(--kiwi-border-gradient-default)" }}
     >
       <div
         className="flex flex-col gap-3 p-3 rounded-xl"
-        style={{ background: "oklch(0.173 0.004 264)" }}
+        style={{ background: "var(--kiwi-surface)" }}
       >
         {/* Top row: icon + title + version + dismiss */}
         <div className="flex items-start justify-between gap-3">
@@ -45,18 +43,16 @@ export const UpdateToast = ({
             {/* Icon shell */}
             <div
               className="p-px rounded-lg shrink-0"
-              style={{
-                background: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
-              }}
+              style={{ background: "var(--kiwi-border-gradient-default)" }}
             >
               <div
                 className="flex items-center justify-center w-8 h-8 rounded-lg"
-                style={{ background: "oklch(0.22 0.004 264 / 0.8)" }}
+                style={{ background: "var(--kiwi-toast-icon-bg)" }}
               >
                 <HugeiconsIcon
                   icon={PackageIcon}
                   size={17}
-                  style={{ color: "oklch(0.72 0.004 264)" }}
+                  style={{ color: "var(--kiwi-text-secondary)" }}
                 />
               </div>
             </div>
@@ -64,15 +60,15 @@ export const UpdateToast = ({
             <div className="flex items-center gap-2 flex-wrap">
               <span
                 className="text-sm font-medium"
-                style={{ color: "oklch(0.92 0.004 264)" }}
+                style={{ color: "var(--kiwi-text-primary)" }}
               >
                 {title}
               </span>
               <span
                 className="text-xs px-1.5 py-0.5 rounded-md font-mono"
                 style={{
-                  background: "oklch(0.329 0.004 265 / 0.3)",
-                  color: "oklch(0.62 0.004 264)",
+                  background: "var(--kiwi-toast-version-bg)",
+                  color: "var(--kiwi-toast-version-color)",
                 }}
               >
                 {version}
@@ -83,9 +79,9 @@ export const UpdateToast = ({
           <button
             onClick={handleDismiss}
             className="shrink-0 transition-colors duration-150"
-            style={{ color: "oklch(0.45 0.004 264)" }}
-            onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.72 0.004 264)")}
-            onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.45 0.004 264)")}
+            style={{ color: "var(--kiwi-toast-dismiss-color)" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "var(--kiwi-text-secondary)")}
+            onMouseLeave={e => (e.currentTarget.style.color = "var(--kiwi-toast-dismiss-color)")}
           >
             <HugeiconsIcon icon={Cancel01Icon} size={15} />
           </button>
@@ -94,7 +90,7 @@ export const UpdateToast = ({
         {/* Description */}
         <p
           className="text-xs leading-relaxed"
-          style={{ color: "oklch(0.55 0.004 264)" }}
+          style={{ color: "var(--kiwi-toast-desc-color)" }}
         >
           {description}
         </p>
@@ -102,9 +98,7 @@ export const UpdateToast = ({
         {/* Divider */}
         <div
           className="h-px"
-          style={{
-            background: "linear-gradient(to right, oklch(0.173 0.004 264), oklch(0.329 0.004 265 / 0.6) 30%, oklch(0.329 0.004 265 / 0.6) 70%, oklch(0.173 0.004 264))",
-          }}
+          style={{ background: "var(--kiwi-toast-divider)" }}
         />
 
         {/* Actions */}
@@ -112,24 +106,22 @@ export const UpdateToast = ({
           {/* Skip — ghost */}
           <div
             className="p-px rounded-md flex-1"
-            style={{
-              background: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.5), oklch(0.329 0.004 265 / 0.15) 60%, oklch(0.173 0.004 264))",
-            }}
+            style={{ background: "var(--kiwi-border-gradient-subtle)" }}
           >
             <button
               onClick={onSkip}
               className="w-full px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-150"
               style={{
-                background: "oklch(0.22 0.004 264 / 0.5)",
-                color: "oklch(0.62 0.004 264)",
+                background: "var(--kiwi-toast-skip-bg)",
+                color: "var(--kiwi-toast-skip-color)",
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = "oklch(0.329 0.004 265 / 0.45)"
-                e.currentTarget.style.color = "oklch(0.92 0.004 264)"
+                e.currentTarget.style.background = "var(--kiwi-toast-skip-hover-bg)"
+                e.currentTarget.style.color = "var(--kiwi-text-primary)"
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = "oklch(0.22 0.004 264 / 0.5)"
-                e.currentTarget.style.color = "oklch(0.62 0.004 264)"
+                e.currentTarget.style.background = "var(--kiwi-toast-skip-bg)"
+                e.currentTarget.style.color = "var(--kiwi-toast-skip-color)"
               }}
             >
               Skip this update
@@ -139,22 +131,20 @@ export const UpdateToast = ({
           {/* Install — primary */}
           <div
             className="p-px rounded-md flex-1"
-            style={{
-              background: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.9), oklch(0.329 0.004 265 / 0.3) 60%, oklch(0.173 0.004 264))",
-            }}
+            style={{ background: "var(--kiwi-border-gradient-strong)" }}
           >
             <button
               onClick={onInstall}
               className="w-full px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-150"
               style={{
-                background: "oklch(0.329 0.004 265 / 0.45)",
-                color: "oklch(0.92 0.004 264)",
+                background: "var(--kiwi-toast-install-bg)",
+                color: "var(--kiwi-text-primary)",
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = "oklch(0.329 0.004 265 / 0.65)"
+                e.currentTarget.style.background = "var(--kiwi-toast-install-hover-bg)"
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = "oklch(0.329 0.004 265 / 0.45)"
+                e.currentTarget.style.background = "var(--kiwi-toast-install-bg)"
               }}
             >
               Install now

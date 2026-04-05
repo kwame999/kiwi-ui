@@ -6,8 +6,6 @@ type AiInputProps = {
     placeholdr?: string
 }
 
-
-
 export const AiInput = ({placeholdr = 'Whats on your mind?'}: AiInputProps) => {
 const [value, setValue] = useState("")
   const [focused, setFocused] = useState(false)
@@ -19,13 +17,13 @@ const [value, setValue] = useState("")
       className="p-px rounded-[20px] w-full max-w-[480px] transition-all duration-200"
       style={{
         background: focused
-          ? "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.9), oklch(0.329 0.004 265 / 0.3) 60%, oklch(0.173 0.004 264))"
-          : "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
+          ? "var(--kiwi-border-gradient-strong)"
+          : "var(--kiwi-border-gradient-default)",
       }}
     >
       <div
         className="flex flex-col p-3 rounded-[20px] gap-3 min-h-[160px]"
-        style={{ background: "oklch(0.173 0.004 264)" }}
+        style={{ background: "var(--kiwi-surface)" }}
       >
         {/* Text area */}
         <textarea
@@ -37,8 +35,8 @@ const [value, setValue] = useState("")
           rows={4}
           className="w-full resize-none bg-transparent outline-none text-sm leading-relaxed px-2 pt-1"
           style={{
-            color: "oklch(0.92 0.004 264)",
-            caretColor: "oklch(0.72 0.004 264)",
+            color: "var(--kiwi-text-primary)",
+            caretColor: "var(--kiwi-text-secondary)",
           }}
         />
 
@@ -50,18 +48,16 @@ const [value, setValue] = useState("")
 
             {/* Claude pill */}
             <div className="p-px rounded-full"
-              style={{
-                background: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))"
-              }}
+              style={{ background: "var(--kiwi-border-gradient-default)" }}
             >
               <button
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors duration-150"
                 style={{
-                  background: "oklch(0.22 0.004 264 / 0.6)",
-                  color: "oklch(0.72 0.004 264)",
+                  background: "var(--kiwi-surface-raised)",
+                  color: "var(--kiwi-text-secondary)",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.92 0.004 264)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.72 0.004 264)")}
+                onMouseEnter={e => (e.currentTarget.style.color = "var(--kiwi-text-primary)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "var(--kiwi-text-secondary)")}
               >
                 <HugeiconsIcon icon={ClaudeIcon} size={14} />
                 <span>Claude</span>
@@ -72,16 +68,16 @@ const [value, setValue] = useState("")
             <div className="p-px rounded-full"
               style={{
                 background: webActive
-                  ? "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.9), oklch(0.329 0.004 265 / 0.3) 60%, oklch(0.173 0.004 264))"
-                  : "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
+                  ? "var(--kiwi-border-gradient-strong)"
+                  : "var(--kiwi-border-gradient-default)",
               }}
             >
               <button
                 onClick={() => setWebActive(w => !w)}
                 className="flex items-center justify-center p-1.5 rounded-full transition-all duration-150"
                 style={{
-                  background: webActive ? "oklch(0.329 0.004 265 / 0.45)" : "oklch(0.22 0.004 264 / 0.6)",
-                  color: webActive ? "oklch(0.92 0.004 264)" : "oklch(0.52 0.004 264)",
+                  background: webActive ? "var(--kiwi-surface-overlay)" : "var(--kiwi-surface-raised)",
+                  color: webActive ? "var(--kiwi-text-primary)" : "var(--kiwi-text-tertiary)",
                 }}
               >
                 <HugeiconsIcon icon={Globe02Icon} size={15} />
@@ -96,9 +92,9 @@ const [value, setValue] = useState("")
             {/* Mic */}
             <button
               className="flex items-center justify-center p-1.5 rounded-full transition-all duration-150"
-              style={{ color: "oklch(0.52 0.004 264)" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "oklch(0.92 0.004 264)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "oklch(0.52 0.004 264)")}
+              style={{ color: "var(--kiwi-text-tertiary)" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "var(--kiwi-text-primary)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "var(--kiwi-text-tertiary)")}
             >
               <HugeiconsIcon icon={Mic01Icon} size={17} />
             </button>
@@ -108,20 +104,20 @@ const [value, setValue] = useState("")
               className="p-px rounded-lg transition-all duration-200"
               style={{
                 background: hasValue
-                  ? "linear-gradient(to bottom, oklch(0.55 0.18 25 / 0.6), oklch(0.329 0.004 265 / 0.1) 60%, oklch(0.173 0.004 264))"
-                  : "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.4), oklch(0.173 0.004 264))",
+                  ? "var(--kiwi-danger-border)"
+                  : "var(--kiwi-border-gradient-subtle)",
               }}
             >
               <button
                 disabled={!hasValue}
                 className="flex items-center justify-center p-1.5 rounded-lg transition-all duration-150"
                 style={{
-                  background: hasValue ? "oklch(0.22 0.06 25 / 0.5)" : "oklch(0.22 0.004 264 / 0.4)",
-                  color: hasValue ? "oklch(0.75 0.20 25)" : "oklch(0.40 0.004 264)",
+                  background: hasValue ? "var(--kiwi-danger-surface)" : "var(--kiwi-btn-disabled-bg)",
+                  color: hasValue ? "var(--kiwi-danger-text)" : "var(--kiwi-text-muted)",
                   cursor: hasValue ? "pointer" : "not-allowed",
                 }}
-                onMouseEnter={e => { if (hasValue) e.currentTarget.style.background = "oklch(0.22 0.06 25 / 0.75)" }}
-                onMouseLeave={e => { if (hasValue) e.currentTarget.style.background = "oklch(0.22 0.06 25 / 0.5)" }}
+                onMouseEnter={e => { if (hasValue) e.currentTarget.style.background = "var(--kiwi-danger-surface-hover)" }}
+                onMouseLeave={e => { if (hasValue) e.currentTarget.style.background = "var(--kiwi-danger-surface)" }}
               >
                 <HugeiconsIcon icon={SquareArrowUp02Icon} size={17} />
               </button>

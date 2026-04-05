@@ -29,17 +29,17 @@ export const InputField = ({
   }
 
   const borderGradient = error
-    ? "linear-gradient(to bottom, oklch(0.55 0.18 25 / 0.9), oklch(0.55 0.18 25 / 0.3) 60%, oklch(0.173 0.004 264))"
+    ? "var(--kiwi-danger-border-input)"
     : focused
-    ? "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.9), oklch(0.329 0.004 265 / 0.3) 60%, oklch(0.173 0.004 264))"
-    : "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.5), oklch(0.329 0.004 265 / 0.15) 60%, oklch(0.173 0.004 264))"
+    ? "var(--kiwi-border-gradient-strong)"
+    : "var(--kiwi-border-gradient-subtle)"
 
   return (
     <div className="flex flex-col gap-1.5 w-full max-w-[280px]">
       {label && (
         <span
           className="text-xs font-medium px-0.5"
-          style={{ color: "oklch(0.72 0.004 264)" }}
+          style={{ color: "var(--kiwi-text-secondary)" }}
         >
           {label}
         </span>
@@ -54,7 +54,7 @@ export const InputField = ({
       >
         <div
           className="rounded-md px-3 py-2 flex items-center gap-2"
-          style={{ background: "oklch(0.173 0.004 264)" }}
+          style={{ background: "var(--kiwi-surface)" }}
         >
           <input
             type="text"
@@ -66,8 +66,8 @@ export const InputField = ({
             placeholder={placeholder}
             className="w-full bg-transparent outline-none text-sm"
             style={{
-              color: "oklch(0.92 0.004 264)",
-              caretColor: "oklch(0.72 0.004 264)",
+              color: "var(--kiwi-text-primary)",
+              caretColor: "var(--kiwi-text-secondary)",
             }}
           />
         </div>
@@ -76,7 +76,7 @@ export const InputField = ({
       {error && (
         <span
           className="text-[11px] px-0.5"
-          style={{ color: "oklch(0.62 0.22 25)" }}
+          style={{ color: "var(--kiwi-danger-error-text)" }}
         >
           {error}
         </span>

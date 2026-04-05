@@ -6,7 +6,7 @@ import PropTable from "../docs/PropShowCaseTable";
 import CodeBlock from "../docs/CodeBlock";
 import CliBlock from "./CliBlock";
 import { TitleHead } from "../docs/TextBlock";
-import { TagSetter } from "../../../registry/new-york/kiwi/tag-setter/tag-setter";
+import { TagSetter } from "../../../registry/new-york/kiwi/inputs/tag-setter/tag-setter";
 
 const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
   const [currentTab, setCurrentTab] = useState<string>("Preview");

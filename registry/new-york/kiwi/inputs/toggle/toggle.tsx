@@ -30,13 +30,13 @@ export const Toggle = ({
         className="relative w-9 h-4 rounded-full transition-all duration-200 shrink-0 flex items-center"
         style={{
           background: disabled
-            ? "oklch(0.25 0.004 264)"
+            ? "var(--kiwi-toggle-disabled-bg)"
             : on
-            ? "oklch(0.329 0.004 265 / 0.9)"
-            : "oklch(0.25 0.004 264)",
+            ? "var(--kiwi-toggle-on-bg)"
+            : "var(--kiwi-toggle-off-bg)",
           outline: on && !disabled
-            ? "1px solid oklch(0.329 0.004 265 / 0.5)"
-            : "1px solid oklch(0.329 0.004 265 / 0.2)",
+            ? "1px solid var(--kiwi-toggle-on-outline)"
+            : "1px solid var(--kiwi-toggle-off-outline)",
           outlineOffset: "1px",
           cursor: disabled ? "not-allowed" : "pointer",
           opacity: disabled ? 0.5 : 1,
@@ -46,10 +46,10 @@ export const Toggle = ({
           className="absolute top-0.3 w-3.5 h-3.5 rounded-full transition-all duration-200"
           style={{
             background: disabled
-              ? "oklch(0.45 0.004 264)"
+              ? "var(--kiwi-toggle-thumb-disabled)"
               : on
-              ? "oklch(0.92 0.004 264)"
-              : "oklch(0.52 0.004 264)",
+              ? "var(--kiwi-toggle-thumb-on)"
+              : "var(--kiwi-toggle-thumb-off)",
             left: on ? "calc(100% - 16px)" : "2px",
           }}
         />
@@ -58,7 +58,7 @@ export const Toggle = ({
       {label && (
         <span
           className="text-sm"
-          style={{ color: disabled ? "oklch(0.42 0.004 264)" : "oklch(0.72 0.004 264)" }}
+          style={{ color: disabled ? "var(--kiwi-text-disabled)" : "var(--kiwi-text-secondary)" }}
         >
           {label}
         </span>
@@ -66,5 +66,3 @@ export const Toggle = ({
     </div>
   )
 }
-
-

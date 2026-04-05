@@ -44,14 +44,16 @@ const Tag = ({ tagType, onRemoveTag }: { tagType: string; onRemoveTag: () => voi
       opacity: { duration: 0.18 },
       filter: { duration: 0.18 },
     }}
-    className="relative flex justify-center text-black/90 hover:text-black/25 items-center text-center rounded-full bg-transparent tracking-[0.01em] px-3.5 overflow-clip border-dashed border text-[0.9rem] border-[#444]"
+    className="relative flex justify-center hover:text-black/25 items-center text-center rounded-full bg-transparent tracking-[0.01em] px-3.5 overflow-clip border-dashed border text-[0.9rem]"
+    style={{ color: "var(--kiwi-tag-text-color)", borderColor: "var(--kiwi-tag-border)" }}
   >
     <button
-      className="absolute opacity-0 w-full hover:opacity-100 bg-[#c600002e]/60 flex justify-center items-center h-full transition-opacity duration-200"
+      className="absolute opacity-0 w-full hover:opacity-100 flex justify-center items-center h-full transition-opacity duration-200"
       onClick={onRemoveTag}
       aria-label={`Remove tag ${tagType}`}
+      style={{ background: "var(--kiwi-tag-remove-overlay)" }}
     >
-      <HugeiconsIcon icon={CancelIcon} size={20} color="#ff0f0f" className="drop-shadow-lg" />
+      <HugeiconsIcon icon={CancelIcon} size={20} color="var(--kiwi-tag-remove-icon)" className="drop-shadow-lg" />
     </button>
     <p>{tagType}</p>
   </motion.section>
@@ -142,17 +144,23 @@ export function TagSetter({
         initial={false}
         animate={{ width: isOpen ? Math.min(width, maxWidth) : 115 }}
         transition={{ type: "spring", stiffness: 260, damping: 32 }}
-        className={`bg-[linear-gradient(180deg,_#dadada_0%,_#d8d8d8_100%)] rounded-full flex items-center gap-1.5 shadow-[0_2px_6px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.08)] overflow-hidden
-                     p-2 ${ (!expands && isOpen) && `py-[8px] px-[10px] rounded-[50px] border border-[rgba(0,0,0,0.18)]`}`}
+        className={`rounded-full flex items-center gap-1.5 overflow-hidden
+                     p-2 ${ (!expands && isOpen) && `py-[8px] px-[10px] rounded-[50px] border border-dashed`}`}
+        style={{
+          background: "var(--kiwi-tag-bg)",
+          boxShadow: "var(--kiwi-tag-shadow)",
+          borderColor: "var(--kiwi-tag-border)",
+        }}
       >
         {/* Main toggle button */}
         <motion.button
           onClick={handleMainButton}
           whileTap={{ scale: 0.88 }}
-          whileHover={isOpen ? { scale: 1.06, backgroundImage: "linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%)" } : {}}
-          animate={{ backgroundImage: isOpen ? "linear-gradient(180deg, #818181 0%, #4a4a4a 100%)" : "none" }}
+          whileHover={isOpen ? { scale: 1.06, backgroundImage: "var(--kiwi-tag-btn-hover-bg)" } : {}}
+          animate={{ backgroundImage: isOpen ? "var(--kiwi-tag-btn-bg)" : "none" }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          className={`flex-shrink-0 flex items-center rounded-full ${isOpen ? "w-9 h-9 justify-center shadow-[0_2px_4px_rgba(0,0,0,0.4),_inset_0_1px_0_rgba(255,255,255,0.15)]" : "gap-2 p-1"}`}
+          className={`flex-shrink-0 flex items-center rounded-full ${isOpen ? "w-9 h-9 justify-center" : "gap-2 p-1"}`}
+          style={isOpen ? { boxShadow: "var(--kiwi-tag-btn-shadow)" } : {}}
           aria-label={isOpen ? "Close tag setter" : "Open tag setter"}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -165,7 +173,7 @@ export function TagSetter({
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 style={{ display: 'flex' }}
               >
-                <HugeiconsIcon icon={CancelCircleIcon} size={24} color={`#AAAAAA`}/>
+                <HugeiconsIcon icon={CancelCircleIcon} size={24} color="var(--kiwi-tag-icon-color)"/>
               </motion.span>
             ) : (
               <motion.span
@@ -183,9 +191,9 @@ export function TagSetter({
                   transition={{ duration: 0.18, ease: "easeOut" }}
                   style={{ display: 'flex' }}
                 >
-                  <HugeiconsIcon icon={AddCircleIcon} size={24} color={`black`}/>
+                  <HugeiconsIcon icon={AddCircleIcon} size={24} color="black"/>
                 </motion.span>
-                <p className="text-black/80">Add Tag</p>
+                <p style={{ color: "var(--kiwi-tag-text-color)" }}>Add Tag</p>
               </motion.span>
             )}
           </AnimatePresence>
@@ -210,13 +218,13 @@ export function TagSetter({
 
         {/* Input area */}
         {isOpen && (
-          <form className={`flex justify-between items-center w-full text-black/50`}>
+          <form className={`flex justify-between items-center w-full`}>
             <input
-              className={`text-ellipsis w-full text-[0.9rem] border-black/30 outline-0`}
+              className={`text-ellipsis w-full text-[0.9rem] outline-0`}
               type="text"
               value={tagName}
               name="Tag Input"
-              style={{height: '24px'}}
+              style={{ height: '24px', color: "var(--kiwi-tag-input-color)" }}
               onChange={(e) => setTagName(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && tagName.trim()) {
@@ -231,13 +239,17 @@ export function TagSetter({
               <motion.button
                 onClick={(e) => { e.preventDefault(); removeLastTag() }}
                 whileTap={{ scale: 0.9 }}
-                whileHover={{ scale: 1.06, backgroundImage: "linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%)" }}
+                whileHover={{ scale: 1.06, backgroundImage: "var(--kiwi-tag-btn-hover-bg)" }}
                 transition={{ type: "spring", stiffness: 500, damping: 28 }}
-                className={`bg-[linear-gradient(180deg,_#818181_0%,_#4a4a4a_100%)] shadow-[0_2px_4px_rgba(0,0,0,0.4),_inset_0_1px_0_rgba(255,255,255,0.15)] rounded-full p-1.5 flex items-center justify-center`}
-                style={{ transition: "background-image 0.2s ease" }}
+                className={`rounded-full p-1.5 flex items-center justify-center`}
+                style={{
+                  backgroundImage: "var(--kiwi-tag-btn-bg)",
+                  boxShadow: "var(--kiwi-tag-btn-shadow)",
+                  transition: "background-image 0.2s ease",
+                }}
                 aria-label="Remove last tag"
               >
-                <HugeiconsIcon icon={RemoveCircleIcon} size={24} color={`#AAAAAA`}/>
+                <HugeiconsIcon icon={RemoveCircleIcon} size={24} color="var(--kiwi-tag-icon-color)"/>
               </motion.button>
 
               <motion.button
@@ -246,13 +258,16 @@ export function TagSetter({
                   if (tagName.trim()) addTag(tagName.trim())
                 }}
                 whileTap={{ scale: 0.9 }}
-                whileHover={{ scale: 1.06, backgroundImage: "linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%)" }}
+                whileHover={{ scale: 1.06, backgroundImage: "var(--kiwi-tag-btn-hover-bg)" }}
                 transition={{ type: "spring", stiffness: 500, damping: 28 }}
-                className={`bg-[linear-gradient(180deg,_#818181_0%,_#4a4a4a_100%)] rounded-full p-1.5 flex items-center justify-center`}
-                style={{ transition: "background-image 0.2s ease" }}
+                className={`rounded-full p-1.5 flex items-center justify-center`}
+                style={{
+                  backgroundImage: "var(--kiwi-tag-btn-bg)",
+                  transition: "background-image 0.2s ease",
+                }}
                 aria-label="Add tag"
               >
-                <HugeiconsIcon icon={AddCircleIcon} size={24} color={`#AAAAAA`}/>
+                <HugeiconsIcon icon={AddCircleIcon} size={24} color="var(--kiwi-tag-icon-color)"/>
               </motion.button>
             </div>
           </form>

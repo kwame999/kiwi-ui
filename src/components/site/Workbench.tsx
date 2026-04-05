@@ -13,7 +13,7 @@ import {
   InsertColumnRightIcon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
-
+import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/input-field";
 export default function Workbench({
   data,
   onCurrentPage,
@@ -69,15 +69,22 @@ export default function Workbench({
               its documentation and implementation details on the adjustable
               side panel!
             </p>
+
+            {/* <AiInput></AiInput> */}
+            {/* <EnvSwitch defaultMode="light"></EnvSwitch>
+            <DropDown title="Action"></DropDown>
+            <Button variant="muted">Checkout</Button>
+            <AiInput></AiInput>
+            <ColorSelector></ColorSelector>
+            <InputField placeholder="Name"></InputField> */}
+            <InputField></InputField>
           </div>
-
           <Table data={data} onSelect={handleSync} />
-
           <BottomPageRoute previous={previousRoute} next={nextRoute} />
         </div>
       )}
 
-      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto border-l border-kiwi-border p-5 mt-2">
+      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto border-l border-kiwi-border p-5 pt-7">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">{active.componentType}</h1>
           <div className="mt-2 flex items-center justify-between gap-3">

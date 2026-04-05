@@ -6,6 +6,7 @@ import PropTable from "../docs/PropShowCaseTable";
 import CodeBlock from "../docs/CodeBlock";
 import CliBlock from "./CliBlock";
 import { TitleHead } from "../docs/TextBlock";
+import { TagSetter } from "../../../registry/new-york/kiwi/inputs/tag-setter/tag-setter";
 
 const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
   const [currentTab, setCurrentTab] = useState<string>("Preview");
@@ -22,7 +23,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
             >
               {currentTab === "Preview" ? (
                 <span className="text-slate-400">
-                  [ {currentView.componentType} Preview ]
+                  <TagSetter></TagSetter>
                 </span>
               ) : (
                 <div className="rounded-[8px]  font-mono text-sm text-blue-300 w-full h-full">

@@ -1,0 +1,370 @@
+/*
+ * kiwi-globals.css
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Required by all kiwi-ui components
+ * @import './kiwi-globals.css';
+ * v.0.1.0. 
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+
+/* ============================================================
+   SECTION 1 — COMPONENT COLOR TOKENS
+   ============================================================ */
+
+:root {
+  /* --- Shared surface / base --- */
+  --kiwi-surface: oklch(0.173 0.004 264);
+  --kiwi-surface-raised: oklch(0.22 0.004 264 / 0.6);
+  --kiwi-surface-overlay: oklch(0.329 0.004 265 / 0.45);
+
+  /* --- Shared text levels --- */
+  --kiwi-text-primary: oklch(0.92 0.004 264);
+  --kiwi-text-secondary: oklch(0.72 0.004 264);
+  --kiwi-text-tertiary: oklch(0.52 0.004 264);
+  --kiwi-text-muted: oklch(0.40 0.004 264);
+  --kiwi-text-disabled: oklch(0.42 0.004 264);
+
+  /* --- Shared border gradients --- */
+  --kiwi-border-gradient-default: linear-gradient(
+    to bottom,
+    oklch(0.329 0.004 265 / 0.7),
+    oklch(0.329 0.004 265 / 0.2) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-border-gradient-subtle: linear-gradient(
+    to bottom,
+    oklch(0.329 0.004 265 / 0.5),
+    oklch(0.329 0.004 265 / 0.15) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-border-gradient-strong: linear-gradient(
+    to bottom,
+    oklch(0.329 0.004 265 / 0.9),
+    oklch(0.329 0.004 265 / 0.3) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-border-gradient-base: oklch(0.173 0.004 264);
+
+  /* --- Shared danger/red tokens --- */
+  --kiwi-danger-surface: oklch(0.22 0.06 25 / 0.4);
+  --kiwi-danger-surface-hover: oklch(0.22 0.06 25 / 0.6);
+  --kiwi-danger-surface-active: oklch(0.22 0.06 25 / 0.8);
+  --kiwi-danger-text: oklch(0.75 0.20 25);
+  --kiwi-danger-text-hover: oklch(0.85 0.20 25);
+  --kiwi-danger-text-active: oklch(0.92 0.18 25);
+  --kiwi-danger-border: linear-gradient(
+    to bottom,
+    oklch(0.55 0.18 25 / 0.6),
+    oklch(0.329 0.004 265 / 0.1) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-danger-border-input: linear-gradient(
+    to bottom,
+    oklch(0.55 0.18 25 / 0.9),
+    oklch(0.55 0.18 25 / 0.3) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-danger-error-text: oklch(0.62 0.22 25);
+
+  /* --- buttons component --- */
+  --kiwi-btn-primary-idle-bg: oklch(0.329 0.004 265 / 0.3);
+  --kiwi-btn-primary-idle-color: oklch(0.92 0.004 264);
+  --kiwi-btn-primary-hover-bg: oklch(0.329 0.004 265 / 0.5);
+  --kiwi-btn-primary-hover-color: oklch(0.97 0.004 264);
+  --kiwi-btn-primary-active-bg: oklch(0.329 0.004 265 / 0.65);
+  --kiwi-btn-primary-active-color: oklch(1 0 0);
+  --kiwi-btn-primary-border: linear-gradient(
+    to bottom,
+    oklch(0.329 0.004 265 / 0.7),
+    oklch(0.329 0.004 265 / 0.2) 60%,
+    oklch(0.173 0.004 264)
+  );
+
+  --kiwi-btn-ghost-idle-bg: transparent;
+  --kiwi-btn-ghost-idle-color: oklch(0.72 0.004 264);
+  --kiwi-btn-ghost-hover-bg: oklch(0.329 0.004 265 / 0.2);
+  --kiwi-btn-ghost-hover-color: oklch(0.92 0.004 264);
+  --kiwi-btn-ghost-active-bg: oklch(0.329 0.004 265 / 0.35);
+  --kiwi-btn-ghost-active-color: oklch(0.97 0.004 264);
+  --kiwi-btn-ghost-border: linear-gradient(
+    to bottom,
+    oklch(0.329 0.004 265 / 0.35),
+    oklch(0.173 0.004 264)
+  );
+
+  --kiwi-btn-muted-idle-bg: oklch(0.22 0.004 264 / 0.5);
+  --kiwi-btn-muted-idle-color: oklch(0.52 0.004 264);
+  --kiwi-btn-muted-hover-bg: oklch(0.22 0.004 264 / 0.7);
+  --kiwi-btn-muted-hover-color: oklch(0.72 0.004 264);
+  --kiwi-btn-muted-active-bg: oklch(0.22 0.004 264 / 0.9);
+  --kiwi-btn-muted-active-color: oklch(0.85 0.004 264);
+  --kiwi-btn-muted-border: linear-gradient(
+    to bottom,
+    oklch(0.329 0.004 265 / 0.3),
+    oklch(0.173 0.004 264)
+  );
+
+  --kiwi-btn-disabled-bg: oklch(0.22 0.004 264 / 0.3);
+  --kiwi-btn-disabled-color: oklch(0.40 0.004 264);
+  --kiwi-btn-disabled-border: linear-gradient(
+    to bottom,
+    oklch(0.329 0.004 265 / 0.15),
+    oklch(0.173 0.004 264)
+  );
+
+  /* --- environmental-switch component --- */
+  --kiwi-envswitch-pill-bg: oklch(0.329 0.004 265 / 0.45);
+  --kiwi-envswitch-divider: oklch(0.329 0.004 265 / 0.55);
+
+  /* --- checkbox component --- */
+  --kiwi-checkbox-checked-bg: oklch(0.329 0.004 265 / 0.6);
+  --kiwi-checkbox-unchecked-bg: oklch(0.22 0.004 264 / 0.6);
+  --kiwi-checkbox-checked-outline: oklch(0.329 0.004 265 / 0.7);
+  --kiwi-checkbox-unchecked-outline: oklch(0.329 0.004 265 / 0.25);
+
+  /* --- toggle component --- */
+  --kiwi-toggle-on-bg: oklch(0.329 0.004 265 / 0.9);
+  --kiwi-toggle-off-bg: oklch(0.25 0.004 264);
+  --kiwi-toggle-disabled-bg: oklch(0.25 0.004 264);
+  --kiwi-toggle-on-outline: oklch(0.329 0.004 265 / 0.5);
+  --kiwi-toggle-off-outline: oklch(0.329 0.004 265 / 0.2);
+  --kiwi-toggle-thumb-on: oklch(0.92 0.004 264);
+  --kiwi-toggle-thumb-off: oklch(0.52 0.004 264);
+  --kiwi-toggle-thumb-disabled: oklch(0.45 0.004 264);
+
+  /* --- update-toast component --- */
+  --kiwi-toast-icon-bg: oklch(0.22 0.004 264 / 0.8);
+  --kiwi-toast-version-bg: oklch(0.329 0.004 265 / 0.3);
+  --kiwi-toast-version-color: oklch(0.62 0.004 264);
+  --kiwi-toast-dismiss-color: oklch(0.45 0.004 264);
+  --kiwi-toast-desc-color: oklch(0.55 0.004 264);
+  --kiwi-toast-divider: linear-gradient(
+    to right,
+    oklch(0.173 0.004 264),
+    oklch(0.329 0.004 265 / 0.6) 30%,
+    oklch(0.329 0.004 265 / 0.6) 70%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-toast-skip-bg: oklch(0.22 0.004 264 / 0.5);
+  --kiwi-toast-skip-color: oklch(0.62 0.004 264);
+  --kiwi-toast-skip-hover-bg: oklch(0.329 0.004 265 / 0.45);
+  --kiwi-toast-install-bg: oklch(0.329 0.004 265 / 0.45);
+  --kiwi-toast-install-hover-bg: oklch(0.329 0.004 265 / 0.65);
+
+  /* --- dropdown component --- */
+  --kiwi-dropdown-trigger-color: oklch(0.92 0.004 264);
+  --kiwi-dropdown-trigger-bg: oklch(0.173 0.004 264);
+  --kiwi-dropdown-trigger-border: oklch(0.329 0.004 265 / 0.5);
+  --kiwi-dropdown-trigger-border-hover: oklch(0.329 0.004 265 / 0.8);
+  --kiwi-dropdown-icon-color: oklch(0.72 0.004 264);
+  --kiwi-dropdown-section-label: oklch(0.55 0.004 264);
+  --kiwi-dropdown-danger-label: oklch(0.55 0.18 25);
+  --kiwi-dropdown-item-label: oklch(0.92 0.004 264);
+  --kiwi-dropdown-item-sub: oklch(0.52 0.004 264);
+  --kiwi-dropdown-item-hover-bg: oklch(0.329 0.004 265 / 0.45);
+  --kiwi-dropdown-item-icon: oklch(0.72 0.004 264);
+  --kiwi-dropdown-danger-item-hover-bg: oklch(0.22 0.06 25 / 0.5);
+  --kiwi-dropdown-danger-item-icon: oklch(0.62 0.22 25);
+  --kiwi-dropdown-danger-item-label: oklch(0.75 0.20 25);
+  --kiwi-dropdown-danger-item-sub: oklch(0.52 0.14 25);
+  --kiwi-dropdown-kbd-color: oklch(0.48 0.004 264);
+  --kiwi-dropdown-kbd-bg: oklch(0.22 0.004 264);
+  --kiwi-dropdown-kbd-border: oklch(0.30 0.004 264);
+  --kiwi-dropdown-danger-kbd-color: oklch(0.48 0.14 25);
+  --kiwi-dropdown-danger-kbd-border: oklch(0.28 0.06 25);
+  --kiwi-dropdown-divider: oklch(0.329 0.004 265 / 0.55);
+  --kiwi-dropdown-shadow: oklch(0.05 0.004 264 / 0.7);
+
+  /* --- color-selector component --- */
+  --kiwi-color-coral: oklch(0.65 0.22 25);
+  --kiwi-color-pink: oklch(0.65 0.20 350);
+  --kiwi-color-purple: oklch(0.60 0.22 290);
+  --kiwi-color-blue: oklch(0.60 0.20 240);
+  --kiwi-color-teal: oklch(0.62 0.18 185);
+  --kiwi-color-green: oklch(0.62 0.20 145);
+
+  /* --- tag-setter component --- */
+  --kiwi-tag-bg: linear-gradient(180deg, #dadada 0%, #d8d8d8 100%);
+  --kiwi-tag-shadow: 0 2px 6px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.08);
+  --kiwi-tag-border: rgba(0,0,0,0.18);
+  --kiwi-tag-btn-bg: linear-gradient(180deg, #818181 0%, #4a4a4a 100%);
+  --kiwi-tag-btn-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+  --kiwi-tag-btn-hover-bg: linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%);
+  --kiwi-tag-icon-color: #AAAAAA;
+  --kiwi-tag-text-color: rgba(0,0,0,0.8);
+  --kiwi-tag-input-color: rgba(0,0,0,0.5);
+  --kiwi-tag-remove-overlay: rgba(198, 0, 0, 0.18);
+  --kiwi-tag-remove-icon: #ff0f0f;
+
+  /* --- label (StatusBadge) component --- */
+  --kiwi-label-pending-bg: hsl(44.15 87.16% 21.83%);
+  --kiwi-label-success-bg: hsl(146.14 100% 19.54%);
+  --kiwi-label-alert-bg: hsl(357.63 72.37% 25.05%);
+  --kiwi-label-error-bg: hsl(220.31 14.04% 8.89%);
+
+  /* --- radial-card component --- */
+  --kiwi-card-surface: #0e0e0e;
+  --kiwi-card-border: rgba(255, 255, 255, 0.1);
+  --kiwi-card-glow-color: rgba(59, 130, 246, 0.15);
+  --kiwi-card-title-color: rgba(255, 255, 255, 0.3);
+  --kiwi-card-text-color: rgba(255, 255, 255, 0.4);
+
+  /* --- inline-alert component --- */
+  --kiwi-alert-info-border: linear-gradient(
+    to bottom,
+    oklch(0.50 0.18 240 / 0.8),
+    oklch(0.329 0.004 265 / 0.2) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-alert-info-bg: oklch(0.19 0.02 240 / 0.8);
+  --kiwi-alert-info-icon: oklch(0.65 0.18 240);
+  --kiwi-alert-info-desc: oklch(0.60 0.10 240);
+  --kiwi-alert-info-action: oklch(0.70 0.15 240);
+  --kiwi-alert-info-action-hover: oklch(0.90 0.10 240);
+
+  --kiwi-alert-warning-border: linear-gradient(
+    to bottom,
+    oklch(0.60 0.18 75 / 0.8),
+    oklch(0.329 0.004 265 / 0.2) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-alert-warning-bg: oklch(0.19 0.03 75 / 0.8);
+  --kiwi-alert-warning-icon: oklch(0.75 0.18 75);
+  --kiwi-alert-warning-title: oklch(0.92 0.004 264 / 0.8);
+  --kiwi-alert-warning-desc: oklch(0.62 0.10 75);
+  --kiwi-alert-warning-action: oklch(0.75 0.15 75);
+  --kiwi-alert-warning-action-hover: oklch(0.92 0.10 75);
+
+  --kiwi-alert-success-border: linear-gradient(
+    to bottom,
+    oklch(0.55 0.18 145 / 0.8),
+    oklch(0.329 0.004 265 / 0.2) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-alert-success-bg: oklch(0.19 0.03 145 / 0.8);
+  --kiwi-alert-success-icon: oklch(0.65 0.20 145);
+  --kiwi-alert-success-desc: oklch(0.58 0.10 145);
+  --kiwi-alert-success-action: oklch(0.68 0.16 145);
+  --kiwi-alert-success-action-hover: oklch(0.88 0.10 145);
+
+  --kiwi-alert-error-border: linear-gradient(
+    to bottom,
+    oklch(0.55 0.22 25 / 0.8),
+    oklch(0.329 0.004 265 / 0.2) 60%,
+    oklch(0.173 0.004 264)
+  );
+  --kiwi-alert-error-bg: oklch(0.19 0.04 25 / 0.8);
+  --kiwi-alert-error-icon: oklch(0.65 0.22 25);
+  --kiwi-alert-error-desc: oklch(0.58 0.12 25);
+  --kiwi-alert-error-action: oklch(0.70 0.18 25);
+  --kiwi-alert-error-action-hover: oklch(0.88 0.12 25);
+}
+
+/* ============================================================
+   SECTION 2 — COMPONENT CSS CLASSES
+   ============================================================ */
+
+/* filter-bar — CSS Anchor Positioning */
+.anchor-filter-bar {
+  anchor-name: --filter-bar, --hovered-item;
+}
+
+.anchor-item {
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    anchor-name: --hovered-item;
+  }
+}
+
+.filter-bubble {
+  position: absolute;
+  position-anchor: --hovered-item;
+  top: anchor(top);
+  left: anchor(left);
+  right: anchor(right);
+  bottom: anchor(bottom);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.123);
+  background: rgba(51, 50, 50, 0.61);
+  transition:
+    top 0.2s ease,
+    left 0.2s ease,
+    right 0.2s ease,
+    bottom 0.2s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.anchor-item:hover {
+  anchor-name: --hovered-item;
+}
+
+/* Scrollbar utilities */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-kiwi-scrollbar-thumb) var(--color-kiwi-scrollbar-track);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-kiwi-scrollbar-track);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  border: 2px solid var(--color-kiwi-scrollbar-track);
+  background: var(--color-kiwi-scrollbar-thumb);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--color-kiwi-scrollbar-thumb) 88%, white 12%);
+}
+
+/* ============================================================
+   SECTION 3 — ANIMATIONS
+   ============================================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "kiwi-ui",
+  "homepage": "http://localhost:3000",
+  "items": [
+    {
+      "name": "kiwi-globals",
+      "type": "registry:lib",
+      "title": "Kiwi Global Styles",
+      "description": "CSS variables, Tailwind tokens, and utility classes required by all kiwi-ui components. Install once and import into your root CSS.",
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/kiwi-globals/kiwi-globals.css",
+          "type": "registry:style"
+        }
+      ]
+    },
+    {
+      "name": "ai-input",
+      "type": "registry:block",
+      "title": "AI Input",
+      "description": "An AI-powered textarea with model selector, web search toggle, mic, and send button.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/inputs/ai-input/ai-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inputfield",
+      "type": "registry:block",
+      "title": "Input Field",
+      "description": "A styled text input with optional label, placeholder, disabled, and error states.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/inputs/inputfield/input-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tag-setter",
+      "type": "registry:block",
+      "title": "Tag Setter",
+      "description": "An animated expandable tag input with add/remove and save confirmation.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/inputs/tag-setter/tag-setter.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "color-selector",
+      "type": "registry:block",
+      "title": "Color Selector",
+      "description": "A color picker with six predefined color swatches and selection indicator.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/inputs/color-selector/color-selector.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:block",
+      "title": "Checkbox",
+      "description": "A checkbox with optional label, disabled state, and onChange callback.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/inputs/checkbox/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:block",
+      "title": "Toggle",
+      "description": "A binary on/off toggle switch with optional label and disabled state.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/inputs/toggle/toggle.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "filter-bar",
+      "type": "registry:block",
+      "title": "Filter Bar",
+      "description": "An animated sort/filter selector with CSS anchor-positioned hover bubble and animated text transitions.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["framer-motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/inputs/filter-bar/filter-bar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "buttons",
+      "type": "registry:block",
+      "title": "Buttons",
+      "description": "Button variants: primary, danger, ghost, and muted — each with idle, hover, active, and disabled states.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/buttons/buttons/buttons.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "environmental-switch",
+      "type": "registry:block",
+      "title": "Environmental Switch",
+      "description": "A light/dark mode toggle with an animated sliding pill indicator.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/buttons/environmental-switch/env-switch.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "alert-toast",
+      "type": "registry:block",
+      "title": "Alert Toast",
+      "description": "A dismissible toast notification with countdown auto-dismiss timer.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/feedback/alert-toast/alert-toast.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "update-toast",
+      "type": "registry:block",
+      "title": "Update Toast",
+      "description": "An update notification toast with version badge, description, and skip/install actions.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/feedback/update-toast/update-toast.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inline-alert",
+      "type": "registry:block",
+      "title": "Inline Alert",
+      "description": "Inline alert with four variants (info, warning, success, error), icon, description, and optional action.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/feedback/inline-alert/inline-alert.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dropdown",
+      "type": "registry:block",
+      "title": "Dropdown",
+      "description": "An animated dropdown menu with action and danger sections, keyboard shortcut hints.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/navigation/dropdown/dropdown.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:block",
+      "title": "Status Badge",
+      "description": "A status badge with four semantic variants: pending, success, alert, and error.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/display/label/label.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "radial-card",
+      "type": "registry:block",
+      "title": "Radial Card",
+      "description": "A 3D perspective card with mouse-tracked radial gradient glow using Framer Motion.",
+      "registryDependencies": ["kiwi-globals"],
+      "dependencies": ["framer-motion"],
+      "files": [
+        {
+          "path": "registry/new-york/kiwi/display/radial-card/radial-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

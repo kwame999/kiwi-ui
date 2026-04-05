@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "kiwi-ui",
+  "homepage": "http://localhost:3000",
+  "items": [
+    {
+  "name": "tag-setter",
+  "type": "registry:block",
+  "title": "Tag Setter",
+  "description": "An animated expandable tag input with add/remove and save confirmation.",
+  "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+  "files": [
+    {
+      "path": "registry/new-york/kiwi/tag-setter/tag-setter.tsx",
+      "type": "registry:component"
+    }
+  ]
+  }
+  ]
+}

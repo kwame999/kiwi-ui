@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import BottomPageRoute from "@/components/site/BottomPageRoute";
 import { docsPageRoutes } from "@/data/docsRoutes";
 import CopyPageAction from "@/components/site/CopyPageAction";
+import Breadcrumb from "@/components/site/Breadcrumb";
 
 const docsPageMeta: Record<string, { title: string; description: string }> = {
   introduction: {
@@ -62,13 +63,20 @@ export default async function Page({
 
   const pageMeta = docsPageMeta[id];
 
+  const breadcrumbItems = previousRoute
+    ? [{ label: previousRoute.label, href: previousRoute.href }, { label: pageMeta?.title ?? "Documentation" }]
+    : [{ label: "Docs" }, { label: pageMeta?.title ?? "Documentation" }];
+
   return (
-    <div className="mt-11 flex h-full max-w-[896px] flex-col gap-8 px-12">
+    <div className="mt-12 flex h-full max-w-[896px] flex-col gap-8 px-12">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold tracking-wide">
-            {pageMeta?.title ?? "Documentation"}
-          </h1>
+          <div className="flex flex-col">
+            <Breadcrumb items={breadcrumbItems} />
+            <h1 className="text-3xl font-bold tracking-wide">
+              {pageMeta?.title ?? "Documentation"}
+            </h1>
+          </div>
           <CopyPageAction />
         </div>
         {pageMeta?.description ? (

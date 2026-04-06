@@ -14,7 +14,7 @@ const SideBar = ({}) => {
 
   return (
     <aside
-      className={`w-[276px] py-6 flex flex-col gap-[16px] px-[36px] border-r  border-kiwi-border-nav  shrink-0`}
+      className={`w-[276px] py-6 flex flex-col gap-[16px] px-5 border-r  border-kiwi-border-nav  shrink-0`}
     >
       <section className={`gap-3 flex flex-col`}>
         <h1 className={`text-[0.75rem] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Getting Started</h1>

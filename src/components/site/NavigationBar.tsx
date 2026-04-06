@@ -31,7 +31,7 @@ const NavigationBar = ({}) => {
   };
 
   return (
-    <nav className={`flex bg-kiwi-nav-bg  px-[36px] justify-between items-center py-[8.5px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
+    <nav className={`flex bg-kiwi-nav-bg  px-5 justify-between items-center py-[8.5px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
       <div className="flex items-center gap-6">
         <Kiwi></Kiwi>
         <ul className={`flex gap-[38px] cursor-pointer`}>

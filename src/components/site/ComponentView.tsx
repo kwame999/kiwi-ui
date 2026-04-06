@@ -6,10 +6,12 @@ import PropTable from "../docs/PropShowCaseTable";
 import CodeBlock from "../docs/CodeBlock";
 import CliBlock from "./CliBlock";
 import { TitleHead } from "../docs/TextBlock";
-import { TagSetter } from "../../../registry/new-york/kiwi/inputs/tag-setter/tag-setter";
+import { componentRegistry } from "./componentRegistry";
 
 const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
   const [currentTab, setCurrentTab] = useState<string>("Preview");
+
+  const preview = componentRegistry[currentView.id];
 
   return (
     <section className="mt-2 flex min-h-0 flex-1 flex-col rounded-[8px]">
@@ -17,23 +19,20 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
         <ComponentViewTab currentTab={currentTab} onCurrentTab={setCurrentTab} />
         <div className="flex flex-col gap-8">
           <section className="flex flex-col gap-2">
-            <div
-              className="flex min-h-[200px] w-full items-center justify-center rounded-[8px] border-1 border-kiwi-border overflow-clip"
-              style={{ height: isExpanded ? 300 : 200 }}
-            >
-              {currentTab === "Preview" ? (
-                <span className="text-slate-400">
-                  <TagSetter></TagSetter>
-                </span>
-              ) : (
-                <div className="rounded-[8px]  font-mono text-sm text-blue-300 w-full h-full">
-                  <pre>
-                    <CodeBlock code="sasa"></CodeBlock>
-                    
-                  </pre>
-                </div>
-              )}
-            </div>
+            {currentTab === "Preview" ? (
+              <div
+                className="flex min-h-[200px] w-full items-center justify-center rounded-[8px] border border-kiwi-border overflow-clip"
+                style={{ height: isExpanded ? 300 : 200 }}
+              >
+                {preview ?? (
+                  <span className="text-sm text-kiwi-subheading">
+                    No preview available
+                  </span>
+                )}
+              </div>
+            ) : (
+              <CodeBlock code={currentView.code ?? ""} />
+            )}
           </section>
 
           <section>
@@ -49,10 +48,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
               <TitleHead titleHead={{ h03: true, content: "Usage" }} />
               <hr className="border-kiwi-nav-active" />
             </div>
-            <div className="flex flex-col gap-1">
-              <CodeBlock code="ssss" />
-              <CodeBlock code="d" />
-            </div>
+            <CodeBlock code={currentView.code ?? ""} />
           </section>
 
           <section className="flex flex-col gap-4">

@@ -10,6 +10,11 @@ export const components: ComponentTypes[] = [
     meta: [
       { prop: "placeholdr", type: "string", defaults: "'Whats on your mind?'" },
     ],
+    code: `import { AiInput } from "@/components/kiwi/ai-input"
+
+export default function Example() {
+  return <AiInput placeholdr="What's on your mind?" />
+}`,
   },
   {
     id: "inputfield",
@@ -24,6 +29,17 @@ export const components: ComponentTypes[] = [
       { prop: "disabled", type: "boolean", defaults: "false" },
       { prop: "error", type: "string", defaults: "" },
     ],
+    code: `import { InputField } from "@/components/kiwi/inputfield"
+
+export default function Example() {
+  return (
+    <InputField
+      label="Email"
+      placeholder="you@example.com"
+      onChange={(value) => console.log(value)}
+    />
+  )
+}`,
   },
   {
     id: "tag-setter",
@@ -36,6 +52,17 @@ export const components: ComponentTypes[] = [
       { prop: "resizing", type: "{ expands?: boolean; maxWidth?: number; width?: number }", defaults: "{ expands: false, maxWidth: 880, width: 420 }" },
       { prop: "onSave", type: "(tags: TagItem[]) => void", defaults: "" },
     ],
+    code: `import { TagSetter } from "@/components/kiwi/tag-setter"
+
+export default function Example() {
+  return (
+    <TagSetter
+      placeholder="Add a tag"
+      maxTags={5}
+      onSave={(tags) => console.log(tags)}
+    />
+  )
+}`,
   },
   {
     id: "color-selector",
@@ -46,6 +73,16 @@ export const components: ComponentTypes[] = [
       { prop: "defaultColor", type: "string", defaults: "'coral'" },
       { prop: "onChange", type: "(color: string) => void", defaults: "" },
     ],
+    code: `import { ColorSelector } from "@/components/kiwi/color-selector"
+
+export default function Example() {
+  return (
+    <ColorSelector
+      defaultColor="coral"
+      onChange={(color) => console.log(color)}
+    />
+  )
+}`,
   },
   {
     id: "checkbox",
@@ -58,6 +95,16 @@ export const components: ComponentTypes[] = [
       { prop: "disabled", type: "boolean", defaults: "false" },
       { prop: "onChange", type: "(checked: boolean) => void", defaults: "" },
     ],
+    code: `import { Checkbox } from "@/components/kiwi/checkbox"
+
+export default function Example() {
+  return (
+    <Checkbox
+      label="Accept terms and conditions"
+      onChange={(checked) => console.log(checked)}
+    />
+  )
+}`,
   },
   {
     id: "toggle",
@@ -70,6 +117,17 @@ export const components: ComponentTypes[] = [
       { prop: "disabled", type: "boolean", defaults: "false" },
       { prop: "onChange", type: "(checked: boolean) => void", defaults: "" },
     ],
+    code: `import { Toggle } from "@/components/kiwi/toggle"
+
+export default function Example() {
+  return (
+    <Toggle
+      label="Enable notifications"
+      defaultChecked
+      onChange={(checked) => console.log(checked)}
+    />
+  )
+}`,
   },
   {
     id: "filter-bar",
@@ -79,6 +137,11 @@ export const components: ComponentTypes[] = [
     meta: [
       { prop: "list", type: "string[]", defaults: "" },
     ],
+    code: `import { FilterBar } from "@/components/kiwi/filter-bar"
+
+export default function Example() {
+  return <FilterBar list={["All", "Active", "Archived"]} />
+}`,
   },
 
   // ─── Buttons ─────────────────────────────────────────────────────────────────
@@ -94,6 +157,18 @@ export const components: ComponentTypes[] = [
       { prop: "disabled", type: "boolean", defaults: "false" },
       { prop: "type", type: "'button' | 'submit' | 'reset'", defaults: "'button'" },
     ],
+    code: `import { Button } from "@/components/kiwi/buttons"
+
+export default function Example() {
+  return (
+    <div className="flex gap-3">
+      <Button variant="primary">Save</Button>
+      <Button variant="ghost">Cancel</Button>
+      <Button variant="danger">Delete</Button>
+      <Button variant="muted">Muted</Button>
+    </div>
+  )
+}`,
   },
   {
     id: "environmental-switch",
@@ -103,6 +178,11 @@ export const components: ComponentTypes[] = [
     meta: [
       { prop: "defaultMode", type: "'light' | 'dark'", defaults: "" },
     ],
+    code: `import { EnvSwitch } from "@/components/kiwi/environmental-switch"
+
+export default function Example() {
+  return <EnvSwitch defaultMode="dark" />
+}`,
   },
 
   // ─── Feedback ────────────────────────────────────────────────────────────────
@@ -116,6 +196,17 @@ export const components: ComponentTypes[] = [
       { prop: "status", type: "'update' | 'success' | 'caution' | 'failed'", defaults: "" },
       { prop: "time", type: "number", defaults: "" },
     ],
+    code: `import { AlertToast } from "@/components/kiwi/alert-toast"
+
+export default function Example() {
+  return (
+    <AlertToast
+      message="Changes saved successfully"
+      status="success"
+      time={4000}
+    />
+  )
+}`,
   },
   {
     id: "update-toast",
@@ -130,6 +221,19 @@ export const components: ComponentTypes[] = [
       { prop: "onInstall", type: "() => void", defaults: "" },
       { prop: "onDismiss", type: "() => void", defaults: "" },
     ],
+    code: `import { UpdateToast } from "@/components/kiwi/update-toast"
+
+export default function Example() {
+  return (
+    <UpdateToast
+      version="v4.2"
+      title="A new update is available"
+      description="Bug fixes and performance improvements."
+      onInstall={() => console.log("Installing...")}
+      onSkip={() => console.log("Skipped")}
+    />
+  )
+}`,
   },
   {
     id: "inline-alert",
@@ -144,6 +248,17 @@ export const components: ComponentTypes[] = [
       { prop: "onAction", type: "() => void", defaults: "" },
       { prop: "onDismiss", type: "() => void", defaults: "" },
     ],
+    code: `import { InlineAlert } from "@/components/kiwi/inline-alert"
+
+export default function Example() {
+  return (
+    <InlineAlert
+      variant="info"
+      title="Heads up"
+      description="Your session will expire in 5 minutes."
+    />
+  )
+}`,
   },
 
   // ─── Navigation ──────────────────────────────────────────────────────────────
@@ -155,6 +270,11 @@ export const components: ComponentTypes[] = [
     meta: [
       { prop: "title", type: "string", defaults: "" },
     ],
+    code: `import { DropDown } from "@/components/kiwi/dropdown"
+
+export default function Example() {
+  return <DropDown title="Options" />
+}`,
   },
 
   // ─── Display ─────────────────────────────────────────────────────────────────
@@ -167,6 +287,18 @@ export const components: ComponentTypes[] = [
       { prop: "variant", type: "'pending' | 'success' | 'alert' | 'error'", defaults: "'pending'" },
       { prop: "label", type: "string", defaults: "" },
     ],
+    code: `import { StatusBadge } from "@/components/kiwi/label"
+
+export default function Example() {
+  return (
+    <div className="flex gap-2">
+      <StatusBadge variant="pending" label="Pending" />
+      <StatusBadge variant="success" label="Published" />
+      <StatusBadge variant="alert" label="Review" />
+      <StatusBadge variant="error" label="Failed" />
+    </div>
+  )
+}`,
   },
   {
     id: "radial-card",
@@ -177,6 +309,16 @@ export const components: ComponentTypes[] = [
       { prop: "title", type: "string", defaults: "" },
       { prop: "description", type: "string", defaults: "" },
     ],
+    code: `import { RadalCard } from "@/components/kiwi/radial-card"
+
+export default function Example() {
+  return (
+    <RadalCard
+      title="Kiwi UI"
+      description="Radial glow card with mouse tracking."
+    />
+  )
+}`,
   },
 ];
 

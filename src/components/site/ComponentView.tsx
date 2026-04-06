@@ -13,7 +13,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
 
   return (
     <section className="mt-2 flex min-h-0 flex-1 flex-col rounded-[8px]">
-      <div className="scrollbar-hidden min-h-0 flex-1 overflow-y-auto pb-12">
+      <div className="scrollbar-hidden min-h-0 flex-1 overflow-y-auto pb-4">
         <ComponentViewTab currentTab={currentTab} onCurrentTab={setCurrentTab} />
         <div className="flex flex-col gap-8">
           <section className="flex flex-col gap-2">

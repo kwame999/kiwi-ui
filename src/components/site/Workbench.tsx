@@ -11,6 +11,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import {
   InsertColumnLeftIcon,
   InsertColumnRightIcon,
+  ArrowRight01Icon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
 import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/input-field";
@@ -56,10 +57,19 @@ export default function Workbench({
       }}
     >
       {!isExpanded && (
-        <div className="mt-11 mx-9 flex min-h-0 flex-[2] flex-col gap-12 overflow-y-auto pb-5">
-          <div className="flex flex-col gap-2">
+        <div className="mt-12 mx-6 flex min-h-0 flex-[2] flex-col gap-12 overflow-y-auto pb-5">
+          <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
+              <div className="flex flex-col">
+              <span className="flex items-center gap-2">
+                <p className="text-[0.9rem] text-white/30">
+                Installation
+                </p>
+                <HugeiconsIcon icon={ArrowRight01Icon} size={16} color="#ffffff4d"></HugeiconsIcon>
+                Components
+              </span>
               <h1 className="text-3xl font-bold tracking-wide">Components</h1>
+              </div>
               <CopyPageDropDown
                 isOpen={isOpen}
                 onOpen={() => setIsOpen(!isOpen)}

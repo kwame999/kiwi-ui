@@ -5,7 +5,7 @@ const PropTable = ({ data }: PropTableProps) => {
   const columnHeaders = ["Prop", "Type", "Default"];
   return (
     <div
-      className={`rounded-[12px] border border-kiwi-border-table w-full overflow-clip mb-20 relative`}
+      className={`rounded-[12px] border border-kiwi-border-table w-full overflow-clip mb-3 relative`}
     >
       {!meta?.length && (
         <div className="absolute bg-kiwi z-0 w-full h-full opacity-70">

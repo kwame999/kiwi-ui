@@ -5,6 +5,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { Github01Icon, Sun01Icon, Moon02Icon } from '@hugeicons/core-free-icons'
 import { Kiwi } from "./Logo"
 import { docsPageRoutes } from "@/data/docsRoutes";
+import { Github } from "./SVGs"
 //Main navigation component
 const NavigationBar = ({}) => {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
@@ -30,8 +31,8 @@ const NavigationBar = ({}) => {
   };
 
   return (
-    <nav className={`flex bg-kiwi-nav-bg  px-[36px] justify-between items-center py-[12px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
-      <div className="flex items-center gap-4.5">
+    <nav className={`flex bg-kiwi-nav-bg  px-[36px] justify-between items-center py-[8.5px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
+      <div className="flex items-center gap-6">
         <Kiwi></Kiwi>
         <ul className={`flex gap-[38px] cursor-pointer`}>
          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
@@ -54,7 +55,7 @@ const NavigationBar = ({}) => {
               target="_blank"
               rel="noreferrer"
             >
-            <HugeiconsIcon icon = {Github01Icon} size={18}></HugeiconsIcon>            
+            <Github></Github>           
             </a>
           </button>
         </li>

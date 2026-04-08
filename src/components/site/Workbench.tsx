@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Table } from "./ComponentsTable";
 import ComponentView from "./ComponentView";
@@ -14,9 +13,9 @@ import {
   InsertColumnRightIcon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
+import Breadcrumb from "./Breadcrumb";
 import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/input-field";
 import { UpdateToast } from "../../../registry/new-york/kiwi/feedback/update-toast/update-toast";
-import Breadcrumb from "./Breadcrumb";
 export default function Workbench({
   data,
   onCurrentPage,
@@ -25,10 +24,6 @@ export default function Workbench({
 }: WorkbenchProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
-
-  const currentBread = usePathname()
-  const serialized = currentBread.split("/").filter(b => b !== "")
-  console.log(serialized)
 
   const componentId = searchParams.get("id") || data[0].id;
   const activeIndex = data.findIndex((d) => d.id === componentId);
@@ -62,13 +57,16 @@ export default function Workbench({
       }}
     >
       {!isExpanded && (
-        <div className="mt-12 mx-6 flex min-h-0 flex-[2] flex-col gap-12 overflow-y-auto pb-5">
-          <div className="flex flex-col gap-2">
+        <div className="mt-6 mx-6 flex min-h-0 flex-[2] flex-col gap-12 overflow-y-auto pb-5">
+          <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <div className="flex flex-col">
-            
-                <Breadcrumb items={[{ label: "Installation", href: "/docs/installation" }, { label: "Components" }]} />
-          
+              <Breadcrumb
+                items={[
+                  { label: "Installation", href: "/docs/installation" },
+                  { label: "Components" },
+                ]}
+              />
               <h1 className="text-3xl font-bold tracking-wide">Components</h1>
               </div>
               <CopyPageDropDown
@@ -87,9 +85,9 @@ export default function Workbench({
         </div>
       )}
 
-      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto border-l border-kiwi-border p-5 pt-7">
+      <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto border-l border-kiwi-border p-5.5 pt-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">{active.componentType}</h1>
+          <h1 className="text-3xl font-bold tracking-wide">{active.componentType}</h1>
           <div className="mt-2 flex items-center justify-between gap-3">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
@@ -115,7 +113,7 @@ export default function Workbench({
           {active.description}
         </p>
 
-        <ComponentView currentView={active} isExpanded={isExpanded} />
+        <ComponentView key={active.id} currentView={active} isExpanded={isExpanded} />
 
         {isExpanded && (
           <BottomPageRoute previous={previousRoute} next={nextRoute} />

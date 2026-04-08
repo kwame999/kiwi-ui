@@ -14,11 +14,11 @@ const SideBar = ({}) => {
 
   return (
     <aside
-      className={`w-[276px] py-6 flex flex-col gap-[16px] px-5 border-r  border-kiwi-border-nav  shrink-0`}
+      className={`w-[276px] py-6 flex flex-col gap-6 px-5 border-r  border-kiwi-border-nav  shrink-0`}
     >
       <section className={`gap-3 flex flex-col`}>
-        <h1 className={`text-[0.75rem] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Getting Started</h1>
-        <ul className={`flex flex-col gap-[6px] cursor-pointer text-[0.8rem] font-medium tracking-wide`}>
+        <h1 className={`text-[0.75rem] px-[8px] font-medium text-kiwi-subheading`}>Getting Started</h1>
+        <ul className={`flex flex-col gap-[6px] cursor-pointer text-[0.8rem] font-medium`}>
           {gettingStartedRoutes.map((route) => (
             <Link key={route.id} href={route.href}>
               <li
@@ -32,8 +32,8 @@ const SideBar = ({}) => {
       </section>
 
       <section className={`gap-3 flex flex-col`}>
-        <h1 className={`text-[0.75rem] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Components</h1>
-        <ul className={`flex flex-col gap-[6px] cursor-pointer text-[0.8rem] tracking-wide font-medium`}>
+        <h1 className={`text-[0.75rem] px-[8px] font-medium text-kiwi-subheading`}>Components</h1>
+        <ul className={`flex flex-col gap-[6px] cursor-pointer text-[0.8rem] font-medium`}>
           {components.map((c) => (
             <Link key={c.id} href={`/docs/components?id=${c.id}`}>
               <li

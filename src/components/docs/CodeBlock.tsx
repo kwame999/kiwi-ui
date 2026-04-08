@@ -14,6 +14,7 @@ export default function CodeBlock({ code }: { code: string }) {
       const highlightedHtml = await codeToHtml(code, {
         lang: 'tsx',
         theme: 'one-dark-pro',
+        defaultColor: false
       });
 
       if (isMounted) {

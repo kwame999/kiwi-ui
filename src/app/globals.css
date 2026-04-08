@@ -338,3 +338,7 @@ html:not([data-theme]) {
 }
 
 
+.shiki
+{
+  background-color: transparent !important;
+}

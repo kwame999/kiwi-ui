@@ -129,7 +129,7 @@ html:not([data-theme]) {
   --color-kiwi-subheading: hsla(0 0% 90% / 0.55);
   --color-kiwi-icon: hsla(0 0% 98% / 0.73);
   --color-kiwi-inactive: hsla(216 13% 84% / 0.41);
-  --color-kiwi-code-tab: hsla(0 0% 2% / 0.35);
+  --color-kiwi-code-tab: hsla(0, 0%, 2%, 0.911);
   --color-kiwi-scrollbar-track: hsla(0 0% 100% / 0.05);
   --color-kiwi-scrollbar-thumb: hsla(0 0% 100% / 0.22);
 }

@@ -21,7 +21,7 @@ const PropTable = ({ data }: PropTableProps) => {
             {columnHeaders.map((h) => (
               <th
                 key={h}
-                className={`px-4 py-2 text-sm font-medium text-muted-foreground`}
+                className={`px-4 py-3 text-sm font-bold text-muted-foreground`}
               >
                 {h}
               </th>
@@ -34,17 +34,17 @@ const PropTable = ({ data }: PropTableProps) => {
               key={i}
               className={`text-left ${i !== meta!.length - 1 && `border-b border-kiwi-border`}`}
             >
-              <td className={`px-4 py-2 `}>
+              <td className={`px-4 py-3 `}>
                 <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.prop}
                 </code>
               </td>
-              <td className={`px-4 py-2`}>
+              <td className={`px-4 py-3`}>
                 <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.type}
                 </code>
               </td>
-              <td className={`px-4 py-2`}>
+              <td className={`px-4 py-3`}>
                 <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.defaults || "-"}
                 </code>

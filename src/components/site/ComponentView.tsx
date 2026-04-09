@@ -17,11 +17,11 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
     <section className="mt-2 flex min-h-0 flex-1 flex-col rounded-[8px]">
       <div className="scrollbar-hidden min-h-0 flex-1 overflow-y-auto pb-4">
         <ComponentViewTab currentTab={currentTab} onCurrentTab={setCurrentTab} />
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-12">
           <section className="flex flex-col gap-2">
             {currentTab === "Preview" ? (
               <div
-                className="flex min-h-[200px] w-full items-center justify-center rounded-[8px] border border-kiwi-border overflow-clip"
+                className="flex min-h-[340px] w-full items-center justify-center rounded-[8px] border border-kiwi-border overflow-clip"
                 style={{ height: isExpanded ? 300 : 200 }}
               >
                 {preview ?? (
@@ -87,8 +87,8 @@ const ComponentViewTab = ({
 
       <button className="rounded-[6px] px-[8px] py-[4px] transition-colors hover:bg-kiwi-code-tab">
         <svg
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

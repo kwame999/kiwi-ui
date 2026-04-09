@@ -13,6 +13,7 @@ import { FilterBar } from "../../../registry/new-york/kiwi/inputs/filter-bar/fil
 import { RadalCard } from "../../../registry/new-york/kiwi/display/radial-card/radial-card"
 import { Checkbox } from "../../../registry/new-york/kiwi/inputs/checkbox/checkbox"
 import { Button } from "../../../registry/new-york/kiwi/buttons/buttons/buttons"
+
 function BentoCard({
   className = "",
   children,
@@ -42,7 +43,6 @@ function CardLabel({ children }: { children: React.ReactNode }) {
   )
 }
 
-
 function HeroCard() {
   return (
     <BentoCard className="[grid-column:span_5] [grid-row:span_4] p-7 justify-end relative">
@@ -50,41 +50,38 @@ function HeroCard() {
       <span className="absolute top-5 right-5 text-[48px] font-extrabold text-white/[0.04] tracking-[-3px] leading-none pointer-events-none select-none">
         {components.length}+
       </span>
-      <p className="text-[10px] font-medium tracking-[0.08em] uppercase text-white/30 mb-2.5 relative">
-      </p>
       <h2 className="text-[36px] font-bold tracking-[-1.5px] leading-none text-white relative mb-2.5">
-      Kiwi<br/> UI
+        Kiwi<br />UI
       </h2>
       <p className="text-[12.5px] text-white/35 leading-relaxed relative max-w-[340px]">
-        A collection of open-source UI Components built with Motion and TailwindV4
+        A collection of open-source UI components built with Motion and Tailwind v4.
       </p>
-    </BentoCard>
-  )
-}
-
-function ButtonCard() {
-  return (
-    <BentoCard className="[grid-column:span_4] [grid-row:span_2]">
-      <CardLabel>Badge</CardLabel>
-      <div className="flex-1 flex items-center justify-center gap-2 px-4 pb-3 flex-wrap">
-        <StatusBadge/>
-        <StatusBadge variant="alert"/>
-        <StatusBadge variant="error"/>
-        <StatusBadge variant="alert"/>
-        <StatusBadge variant="success"/>
-      </div>
     </BentoCard>
   )
 }
 
 function BadgeCard() {
   return (
+    <BentoCard className="[grid-column:span_4] [grid-row:span_2]">
+      <CardLabel>Badge</CardLabel>
+      <div className="flex-1 flex items-center justify-center gap-2 px-4 pb-3 flex-wrap">
+        <StatusBadge />
+        <StatusBadge variant="alert" />
+        <StatusBadge variant="error" />
+        <StatusBadge variant="success" />
+      </div>
+    </BentoCard>
+  )
+}
+
+function ButtonCard() {
+  return (
     <BentoCard className="[grid-column:span_3] [grid-row:span_2]">
-      <CardLabel>Bautton</CardLabel>
+      <CardLabel>Button</CardLabel>
       <div className="flex-1 flex items-center justify-center gap-1.5 flex-wrap px-4 pb-3">
-      <Button variant="primary" children='explore'/>
-      <Button variant="muted" children='name'/>
-      <Button variant="danger" children='name'/>
+        <Button variant="primary">Explore</Button>
+        <Button variant="ghost">Cancel</Button>
+        <Button variant="danger">Delete</Button>
       </div>
     </BentoCard>
   )
@@ -95,8 +92,8 @@ function ToggleCard() {
     <BentoCard className="[grid-column:span_3] [grid-row:span_2]">
       <CardLabel>Toggle</CardLabel>
       <div className="flex-1 flex flex-col justify-center gap-3 pl-5 pb-3">
-      <Toggle></Toggle>
-      <Toggle defaultChecked = {true}></Toggle>
+        <Toggle label="Notifications" defaultChecked />
+        <Toggle label="Dark mode" />
       </div>
     </BentoCard>
   )
@@ -107,61 +104,64 @@ function InputCard() {
     <BentoCard className="[grid-column:span_4] [grid-row:span_2]">
       <CardLabel>Input</CardLabel>
       <div className="flex-1 flex flex-col justify-center gap-1.5 px-4 pb-3">
-      <InputField/>
-      <InputField/>
+        <InputField placeholder="Search..." />
+        <InputField placeholder="Email address" error="Invalid email" />
       </div>
     </BentoCard>
   )
 }
 
-function AvatarCard() {
+function ColorCard() {
   return (
     <BentoCard className="[grid-column:span_5] [grid-row:span_2]">
-      <CardLabel>Color Picker:</CardLabel>
+      <CardLabel>Color Picker</CardLabel>
       <div className="flex-1 flex items-center justify-center gap-3 px-4 pb-4">
-      <ColorSelector/>
+        <ColorSelector />
       </div>
     </BentoCard>
   )
 }
 
-function ProgressCard() {
+function InlineAlertCard() {
   return (
     <BentoCard className="[grid-column:span_4] [grid-row:span_2]">
-      <CardLabel>Progress</CardLabel>
-      
+      <CardLabel>Inline Alert</CardLabel>
+      <div className="flex-1 flex flex-col justify-center gap-2 px-4 pb-3">
+        <InlineAlert variant="success" title="Changes saved" />
+        <InlineAlert variant="warning" title="Review required" />
+      </div>
     </BentoCard>
   )
 }
 
-function AlertCard() {
+function RadialCard() {
   return (
     <BentoCard className="[grid-column:span_3] [grid-row:span_3]">
-      <CardLabel>Alert</CardLabel>
+      <CardLabel>Radial Card</CardLabel>
       <div className="flex-1 flex flex-col justify-center gap-1.5 px-3.5 pb-3.5">
-      <RadalCard title="Edgar Allan Poe" description="To be or not to be..that is indeed, za question"/>
+        <RadalCard title="Edgar Allan Poe" description="To be or not to be — that is indeed the question." />
       </div>
     </BentoCard>
   )
 }
 
-function CardCard() {
+function ToastCard() {
   return (
     <BentoCard className="[grid-column:span_4] [grid-row:span_3]">
-      <CardLabel>Card</CardLabel>
+      <CardLabel>Toast</CardLabel>
       <div className="flex-1 flex items-center px-3.5 pb-3.5">
-        <UpdateToast/>
+        <UpdateToast />
       </div>
     </BentoCard>
   )
 }
 
-function TabsCard() {
+function FilterCard() {
   return (
     <BentoCard className="[grid-column:span_5] [grid-row:span_2]">
-      <CardLabel>Tabs</CardLabel>
+      <CardLabel>Filter Bar</CardLabel>
       <div className="flex-1 flex flex-col px-4 pb-3.5 gap-0 items-center justify-center">
-      <FilterBar list={['the', 'quick']}/>
+        <FilterBar list={["Design", "Motion", "Code", "Docs"]} />
       </div>
     </BentoCard>
   )
@@ -183,10 +183,10 @@ function CheckboxCard() {
     <BentoCard className="[grid-column:span_3] [grid-row:span_3]">
       <CardLabel>Checkbox</CardLabel>
       <div className="flex-1 flex flex-col justify-center gap-2.5 pl-[18px] pb-3.5">
-      <Checkbox defaultChecked={true}/>
-      <Checkbox defaultChecked={true}/>
-      <Checkbox/>
-      <Checkbox/>
+        <Checkbox label="Accept terms" defaultChecked />
+        <Checkbox label="Subscribe to updates" defaultChecked />
+        <Checkbox label="Remember me" />
+        <Checkbox label="Enable analytics" />
       </div>
     </BentoCard>
   )
@@ -196,15 +196,15 @@ export function BentoGrid() {
   return (
     <div className="grid grid-cols-12 auto-rows-[80px] gap-2.5 animate-fade-up [animation-delay:100ms]">
       <HeroCard />
-      <ButtonCard />
       <BadgeCard />
+      <ButtonCard />
       <ToggleCard />
       <InputCard />
-      <AvatarCard />
-      <ProgressCard />
-      <AlertCard />
-      <CardCard />
-      <TabsCard />
+      <ColorCard />
+      <InlineAlertCard />
+      <RadialCard />
+      <ToastCard />
+      <FilterCard />
       <StatsCard />
       <CheckboxCard />
     </div>

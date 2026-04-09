@@ -33,7 +33,9 @@ const NavigationBar = ({}) => {
   return (
     <nav className={`flex bg-kiwi-nav-bg  px-5 justify-between items-center py-[8.5px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
       <div className="flex items-center gap-6">
-        <Kiwi></Kiwi>
+       <Link href={"/test"}>
+        <Kiwi/>       
+       </Link>
         <ul className={`flex gap-[38px] cursor-pointer`}>
          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
             <Link href={docsPageRoutes[0].href}>Docs</Link>
@@ -41,8 +43,8 @@ const NavigationBar = ({}) => {
           <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
             <Link href={docsPageRoutes[2].href}>Components</Link>
           </li>
-          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
-            <Link href={docsPageRoutes[3].href}>Figma files</Link>
+          <li className="text-kiwi-inactive cursor-not-allowed select-none">
+            Figma Components
           </li>
         </ul>
 

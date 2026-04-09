@@ -45,13 +45,6 @@ const SideBar = ({}) => {
           ))}
         </ul>
       </section>
-
-      <section className={`gap-3 flex flex-col`}>
-        <h1 className={`text-[0.75rem] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Figma Components</h1>
-        <ul className={`flex flex-col gap-[4px] cursor-pointer text-[14px]`}>
-          <li className={`p-[4px] px-[8px] rounded-[8px] cursor-not-allowed`}>-</li>
-        </ul>
-      </section>
     </aside>
   );
 };

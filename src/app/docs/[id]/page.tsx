@@ -69,7 +69,7 @@ export default async function Page({
 
   return (
     <div className="mt-6 flex h-full max-w-[896px] flex-col gap-8 px-6">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <Breadcrumb items={breadcrumbItems} />

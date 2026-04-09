@@ -58,7 +58,7 @@ export default function Workbench({
     >
       {!isExpanded && (
         <div className="mt-6 mx-6 flex min-h-0 flex-[2] flex-col gap-12 overflow-y-auto pb-5">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <div className="flex flex-col">
               <Breadcrumb
@@ -85,10 +85,10 @@ export default function Workbench({
         </div>
       )}
 
-      <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto border-l border-kiwi-border p-5.5 pt-6">
+      <div className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto border-l border-kiwi-border p-5.5 pt-6">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold tracking-wide">{active.componentType}</h1>
-          <div className="mt-2 flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-2">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="flex cursor-pointer items-center rounded-md border border-transparent p-0.5 transition-colors hover:border-kiwi-border hover:bg-kiwi-nav-active"
@@ -97,7 +97,7 @@ export default function Workbench({
                 icon={
                   !isExpanded ? InsertColumnLeftIcon : InsertColumnRightIcon
                 }
-                size={18}
+                size={16}
               />
             </button>
 
@@ -109,7 +109,7 @@ export default function Workbench({
           </div>
         </div>
 
-        <p className="w-[76%] text-[0.9rem] leading-[24px] text-kiwi-subheading">
+        <p className="w-[96%] text-[0.9rem] leading-[24px] text-kiwi-subheading">
           {active.description}
         </p>
 

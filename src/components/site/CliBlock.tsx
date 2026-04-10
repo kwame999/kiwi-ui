@@ -6,7 +6,7 @@ import { SoftwareLicenseIcon, CopyIcon } from "@hugeicons/core-free-icons";
 import { ComponentTypes } from "@/types";
 import CodeBlock from "../docs/CodeBlock";
 
-const CliBlock = ({ data }: { data: ComponentTypes }) => {
+const CliBlock = ({ data, source }: { data: ComponentTypes; source: string | null }) => {
   const [currentView, setCurrentView] = useState<string>("CLI");
 
   return (
@@ -31,7 +31,7 @@ const CliBlock = ({ data }: { data: ComponentTypes }) => {
           <CliTab componentId={data.id} />
         </div>
       ) : (
-        <CodeBlock code={data.code ?? ""} />
+        <CodeBlock code={ source ?? data.code ?? ""} />
       )}
     </div>
   );

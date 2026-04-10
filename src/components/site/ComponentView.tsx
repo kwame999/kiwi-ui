@@ -10,7 +10,7 @@ import { componentRegistry } from "./componentRegistry";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Refresh03Icon } from "@hugeicons/core-free-icons";
 
-const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
+const ComponentView = ({ currentView, isExpanded, source }: ComponentViewProps) => {
   const [currentTab, setCurrentTab] = useState<string>("Preview");
 
   const [reload, setReload] = useState<number>(0);
@@ -47,7 +47,7 @@ const ComponentView = ({ currentView, isExpanded }: ComponentViewProps) => {
               <TitleHead titleHead={{ h03: true, content: "Installations" }} />
               <hr className="border-kiwi-nav-active" />
             </div>
-            <CliBlock data={currentView} />
+            <CliBlock data={currentView} source={source} />
           </section>
 
           <section>
@@ -123,6 +123,7 @@ const ComponentViewTab = ({
 type ComponentViewProps = {
   currentView: ComponentTypes;
   isExpanded: boolean;
+  source: string | null;
 };
 
 type ComponentViewTabProps = {

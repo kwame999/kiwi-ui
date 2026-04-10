@@ -18,6 +18,7 @@ import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/in
 import { UpdateToast } from "../../../registry/new-york/kiwi/feedback/update-toast/update-toast";
 export default function Workbench({
   data,
+  sources,
   onCurrentPage,
   previousRoute,
   nextRoute,
@@ -113,7 +114,7 @@ export default function Workbench({
           {active.description}
         </p>
 
-        <ComponentView key={active.id} currentView={active} isExpanded={isExpanded} />
+        <ComponentView key={active.id} currentView={active} isExpanded={isExpanded} source={sources[active.id] ?? null} />
 
         {isExpanded && (
           <BottomPageRoute previous={previousRoute} next={nextRoute} />
@@ -130,6 +131,7 @@ type BottomPageRouteLink = {
 
 type WorkbenchProps = {
   data: ComponentTypes[];
+  sources: Record<string, string>;
   onCurrentPage?: (num: number) => void;
   previousRoute?: BottomPageRouteLink;
   nextRoute?: BottomPageRouteLink;

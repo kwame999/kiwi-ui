@@ -21,7 +21,7 @@ const PropTable = ({ data }: PropTableProps) => {
             {columnHeaders.map((h) => (
               <th
                 key={h}
-                className={`px-4 py-3 text-sm font-bold text-muted-foreground`}
+                className={`px-4 py-2 text-[0.8rem] font-bold text-muted-foreground`}
               >
                 {h}
               </th>

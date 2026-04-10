@@ -83,7 +83,7 @@ export default async function Page({
           <CopyPageAction />
         </div>
         {pageMeta?.description ? (
-          <p className="w-[70%] text-[0.9rem] leading-[24px] text-kiwi-subheading">
+          <p className="w-[70%] text-[0.8rem] leading-[24px] text-kiwi-subheading">
             {pageMeta.description}
           </p>
         ) : null}

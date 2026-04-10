@@ -10,16 +10,16 @@ const CliBlock = ({ data, source }: { data: ComponentTypes; source: string | nul
   const [currentView, setCurrentView] = useState<string>("CLI");
 
   return (
-    <div className="flex flex-col gap-[8px] justify-between rounded-t-md text-[14px]">
-      <div className="flex gap-2 items-center font-medium">
+    <div className="flex flex-col gap-[8px] justify-between rounded-t-md text-[0.8rem]">
+      <div className="flex gap-2 items-center font-medium mb-1">
         <button
-          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors ${currentView === "CLI" && "bg-kiwi-nav-active"}`}
+          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "CLI" && "bg-kiwi-nav-active"}`}
           onClick={() => setCurrentView("CLI")}
         >
           CLI
         </button>
         <button
-          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors ${currentView === "Manual" && "bg-kiwi-nav-active"}`}
+          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "Manual" && "bg-kiwi-nav-active"}`}
           onClick={() => setCurrentView("Manual")}
         >
           Manual
@@ -78,7 +78,7 @@ const CliTab = ({ componentId }: { componentId: string }) => {
     <>
       <div className="flex items-center px-3 border-b border-kiwi-border bg-kiwi-code-tab">
         <HugeiconsIcon icon={SoftwareLicenseIcon} size={16} />
-        <ul className="flex gap-1 px-2 py-2 text-[0.9rem]">
+        <ul className="flex gap-1 px-2 py-2 text-[0.8rem]">
           {tabs.map((t) => (
             <li
               key={t}

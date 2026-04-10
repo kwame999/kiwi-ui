@@ -77,17 +77,17 @@ const ComponentViewTab = ({
   onRefresh,
 }: ComponentViewTabProps) => {
   return (
-    <div className="flex items-center justify-between rounded-t-[8px] py-[8px] text-[0.9rem] font-medium">
-      <ul className="flex gap-2">
+    <div className="flex items-center justify-between rounded-t-[8px] py-[8px] text-[0.8rem] font-medium">
+      <ul className="flex gap-2 mb-1">
         <li
           onClick={() => onCurrentTab("Preview")}
-          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors ${currentTab === "Preview" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
+          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors text-kiwi-inactive ${currentTab === "Preview" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
         >
           Preview
         </li>
         <li
           onClick={() => onCurrentTab("Code")}
-          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors ${currentTab === "Code" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
+          className={`cursor-pointer rounded-[8px] px-[8px] py-[4px] transition-colors text-kiwi-inactive ${currentTab === "Code" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
         >
           Code
         </li>

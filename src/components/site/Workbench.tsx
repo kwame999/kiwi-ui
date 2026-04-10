@@ -9,8 +9,8 @@ import PaginationArrows from "../docs/PaginationArrows";
 import BottomPageRoute from "./BottomPageRoute";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  InsertColumnLeftIcon,
-  InsertColumnRightIcon,
+  SidebarLeft01Icon,
+  SidebarRight01Icon,
 } from "@hugeicons/core-free-icons";
 import { CopyPageDropDown } from "./CopyPageDropDown";
 import Breadcrumb from "./Breadcrumb";
@@ -58,7 +58,7 @@ export default function Workbench({
       }}
     >
       {!isExpanded && (
-        <div className="mt-6 mx-6 flex min-h-0 flex-[2] flex-col gap-12 overflow-y-auto pb-5">
+        <div className="mt-6 mx-6 flex min-h-0 flex-[2] flex-col gap-9 overflow-y-auto pb-5">
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <div className="flex flex-col">
@@ -75,7 +75,7 @@ export default function Workbench({
                 onOpen={() => setIsOpen(!isOpen)}
               />
             </div>
-            <p className="w-[70%] text-[0.9rem] leading-[24px] text-kiwi-subheading">
+            <p className="w-[70%] text-[0.8rem] leading-[24px] text-kiwi-inactive">
               Browse all available Kiwi components. Click any element to view
               its documentation and implementation details on the adjustable
               side panel!
@@ -96,9 +96,10 @@ export default function Workbench({
             >
               <HugeiconsIcon
                 icon={
-                  !isExpanded ? InsertColumnLeftIcon : InsertColumnRightIcon
+                  !isExpanded ? SidebarLeft01Icon : SidebarRight01Icon
                 }
                 size={16}
+                stroke="1"
               />
             </button>
 
@@ -110,7 +111,7 @@ export default function Workbench({
           </div>
         </div>
 
-        <p className="w-[96%] text-[0.9rem] leading-[24px] text-kiwi-subheading">
+        <p className="w-[96%] text-[0.8rem] leading-[24px] text-kiwi-inactive">
           {active.description}
         </p>
 

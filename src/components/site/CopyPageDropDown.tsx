@@ -27,7 +27,7 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
         aria-label="Copy page URL"
       >
         <HugeiconsIcon icon={isCopied ? Tick01Icon : CopyIcon} size={16} />
-        <span>{isCopied ? "Copied!" : "Copy Page"}</span>
+        <span className="text-[0.8rem]">{isCopied ? "Copied!" : "Copy Page"}</span>
       </button>
       <button
         className="flex items-center justify-center p-[4px] py-0 transition-colors"
@@ -41,7 +41,7 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
 
       {isOpen && (
         <div className="absolute top-full right-0 z-20 mt-[6px] w-max rounded-[12px] border border-kiwi-border-nav bg-kiwi-nav-bg p-[8px] text-[0.9rem] text-kiwi-heading shadow-lg">
-          <ul className="flex cursor-pointer flex-col gap-[4px]">
+          <ul className="flex cursor-pointer flex-col gap-[4px] text-[0.75rem]">
             <li className="flex items-center justify-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active">
               <svg
                 strokeLinejoin="round"

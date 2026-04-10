@@ -18,7 +18,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-white/30 transition-colors hover:text-white/50"
+                className="text-kiwi-inactive transition-colors hover:text-white/50"
               >
                 {item.label}
               </Link>

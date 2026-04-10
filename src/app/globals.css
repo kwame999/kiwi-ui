@@ -64,7 +64,7 @@ html[data-theme="dark"] {
   --color-kiwi-heading: hsl(0, 17%, 92%);
   --color-kiwi-subheading: oklch(75.751% 0.00149 285.504);
   --color-kiwi-icon: hsla(0 0% 98% / 0.73);
-  --color-kiwi-inactive: hsla(216 13% 84% / 0.41);
+  --color-kiwi-inactive: hsla(0, 0%, 55%, 0.733);
 
   --color-kiwi-code-tab: hsla(0 0% 2% / 0.35);
   --color-kiwi-scrollbar-track: hsla(0 0% 100% / 0.05);

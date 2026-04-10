@@ -35,7 +35,7 @@ export const componentRegistry: Record<string, React.ReactNode> = {
   ),
   "environmental-switch": <EnvSwitch defaultMode="dark" />,
   "alert-toast": (
-    <AlertToast message="Changes saved successfully" status="success" time={5000} />
+    <AlertToast message="Changes saved successfully" status="success" time={5} />
   ),
   "update-toast": (
     <UpdateToast

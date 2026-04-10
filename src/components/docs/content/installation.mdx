@@ -1,13 +1,48 @@
-<h3 className="text-lg font-semibold mb-2.5 tracking-wide">Quick Start</h3>
-<ol className="list-decimal ml-5 pl-6 mb-6 text-[0.9rem] leading-[24px] text-kiwi-subheading">
-  <li>Open the Components page.</li>
-  <li>Choose a component from the table.</li>
-  <li>Copy the install command and usage snippet.</li>
-</ol>
+import PackageBlock from '@/components/docs/PackageBlock'
+import CodeBlock from '@/components/docs/CodeBlock'
 
-<h3 className="text-lg font-semibold mb-2.5 tracking-wide">Requirements</h3>
-<ul className="list-disc ml-5 pl-6 text-[0.9rem] leading-[24px] text-kiwi-subheading">
-  <li>React + Next.js app</li>
-  <li>Tailwind CSS configured</li>
-  <li>TypeScript recommended</li>
-</ul>
+<div className="rounded-lg border border-kiwi-border bg-kiwi-nav-active/40 px-4 py-3 text-[0.85rem] text-kiwi-subheading">
+  <span className="font-semibold text-kiwi-heading">Note: </span>
+  kiwi-ui follows the same installation pattern as <a href="https://ui.shadcn.com" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-kiwi-heading transition-colors">shadcn/ui</a>. If you're already set up with shadcn, you're good to go.
+</div>
+
+<div className="flex flex-col gap-10 mt-8">
+
+  <div className="flex items-start gap-4">
+    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-kiwi-border text-[0.8rem] font-bold">1</span>
+    <div className="flex flex-col gap-3 flex-1 -mt-0.5">
+      <h3 className="text-[1.05rem] font-semibold tracking-wide">Create project</h3>
+      <p className="text-[0.875rem] text-kiwi-subheading leading-relaxed">
+        Run the <code className="rounded bg-kiwi-nav-active px-1.5 py-0.5 text-[0.8rem] font-mono">init</code> command to create a new Next.js project or configure an existing one:
+      </p>
+      <PackageBlock base="dlx shadcn@latest init" />
+    </div>
+  </div>
+
+  <div className="flex items-start gap-4">
+    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-kiwi-border text-[0.8rem] font-bold">2</span>
+    <div className="flex flex-col gap-3 flex-1 -mt-0.5">
+      <h3 className="text-[1.05rem] font-semibold tracking-wide">Add components</h3>
+      <p className="text-[0.875rem] text-kiwi-subheading leading-relaxed">
+        Install any kiwi-ui component with the <code className="rounded bg-kiwi-nav-active px-1.5 py-0.5 text-[0.8rem] font-mono">add</code> command, or grab the exact command from the Components page:
+      </p>
+      <PackageBlock base="dlx kiwi-ui@latest add @kiwi/button" />
+    </div>
+  </div>
+
+  <div className="flex items-start gap-4">
+    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-kiwi-border text-[0.8rem] font-bold">3</span>
+    <div className="flex flex-col gap-3 flex-1 -mt-0.5">
+      <h3 className="text-[1.05rem] font-semibold tracking-wide">Import & use</h3>
+      <p className="text-[0.875rem] text-kiwi-subheading leading-relaxed">
+        The component is added directly to your project. Import and use it like this:
+      </p>
+      <CodeBlock lang="tsx" code={`import { Button } from "@/components/kiwi/button"
+
+export default function Example() {
+  return <Button variant="primary">Hello</Button>
+}`} />
+    </div>
+  </div>
+
+</div>

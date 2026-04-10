@@ -58,7 +58,7 @@ export default function Workbench({
       }}
     >
       {!isExpanded && (
-        <div className="mt-6 mx-6 flex min-h-0 flex-[2] flex-col gap-9 overflow-y-auto pb-5">
+        <div className="mt-6 mx-6 flex min-h-0 flex-[2] flex-col gap-9 overflow-y-auto">
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <div className="flex flex-col">

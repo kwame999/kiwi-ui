@@ -71,7 +71,7 @@ export default async function Page({
     : [{ label: "Docs" }, { label: pageMeta?.title ?? "Documentation" }];
 
   return (
-    <div className="mt-11 flex h-full max-w-[896px] flex-col gap-8 px-12">
+    <div className="mt-6 flex h-full max-w-[896px] flex-col gap-8 px-12">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">

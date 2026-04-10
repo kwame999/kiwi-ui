@@ -41,14 +41,14 @@ export default function PackageBlock({ base }: { base: string }) {
   }
 
   return (
-    <div className="flex flex-col bg-kiwi-codebody rounded-[12px] overflow-clip border border-kiwi-border text-[14px]">
+    <div className="flex flex-col bg-kiwi-codebody rounded-[12px] overflow-clip border border-kiwi-border ">
       <div className="flex items-center px-3 border-b border-kiwi-border bg-kiwi-code-tab">
-        <HugeiconsIcon icon={SoftwareLicenseIcon} size={18} />
-        <ul className="flex gap-1 px-2 py-2 text-[0.9rem]">
+        <HugeiconsIcon icon={SoftwareLicenseIcon} size={16} />
+        <ul className="flex gap-1 px-2 py-2 text-[0.8rem]">
           {tabs.map((t) => (
             <li
               key={t}
-              className={`px-2 cursor-pointer font-medium hover:text-blue-50 ${currentTab === t && "rounded-[6px] border border-kiwi-border bg-kiwi-nav-active"}`}
+              className={`px-2 cursor-pointer font-medium hover:text-blue-50 ${currentTab === t && "rounded-[6px] border-kiwi-border bg-kiwi-nav-active"}`}
               onClick={() => setCurrentTab(t)}
             >
               {t}
@@ -60,7 +60,7 @@ export default function PackageBlock({ base }: { base: string }) {
           onClick={handleCopy}
           aria-label="Copy command"
         >
-          <HugeiconsIcon icon={CopyIcon} size={18} />
+          <HugeiconsIcon icon={CopyIcon} size={16} />
         </button>
       </div>
       <div

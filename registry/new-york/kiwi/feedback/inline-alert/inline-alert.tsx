@@ -83,18 +83,18 @@ export const InlineAlert = ({
   return (
     <div
       className="p-px rounded-xl w-full max-w-[520px] transition-all duration-200"
-      style={{ background: t.border }}
+      style={{ borderColor: t.border }}
     >
       <div
-        className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl"
+        className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg"
         style={{ background: t.bg }}
       >
         {/* Left: icon + text */}
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center justify-center gap-3 min-w-0">
           <div className="flex items-baseline gap-2 min-w-0 items-center">
           <HugeiconsIcon
             icon={t.icon}
-            size={17}
+            size={16}
             className="shrink-0"
             style={{ color: t.iconColor }}
           />
@@ -135,7 +135,7 @@ export const InlineAlert = ({
             onMouseEnter={e => (e.currentTarget.style.color = t.titleColor)}
             onMouseLeave={e => (e.currentTarget.style.color = t.descColor)}
           >
-            <HugeiconsIcon icon={Cancel01Icon} size={15} />
+            <HugeiconsIcon icon={Cancel01Icon} size={16} />
           </button>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { Github01Icon, Sun01Icon, Moon02Icon } from '@hugeicons/core-free-icons'
 import { Kiwi } from "./Logo"
 import { docsPageRoutes } from "@/data/docsRoutes";
+import { Github } from "./SVGs"
 //Main navigation component
 const NavigationBar = ({}) => {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
@@ -30,9 +31,11 @@ const NavigationBar = ({}) => {
   };
 
   return (
-    <nav className={`flex bg-kiwi-nav-bg  px-[36px] justify-between items-center py-[12px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
-      <div className="flex items-center gap-4.5">
-        <Kiwi></Kiwi>
+    <nav className={`flex bg-kiwi-nav-bg  px-5 justify-between items-center py-[8.5px] border border-kiwi-border-nav text-[0.8rem] font-medium tracking-wide`}>
+      <div className="flex items-center gap-6">
+       <Link href={"/test"}>
+        <Kiwi/>       
+       </Link>
         <ul className={`flex gap-[38px] cursor-pointer`}>
          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
             <Link href={docsPageRoutes[0].href}>Docs</Link>
@@ -40,8 +43,8 @@ const NavigationBar = ({}) => {
           <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
             <Link href={docsPageRoutes[2].href}>Components</Link>
           </li>
-          <li className={`cursor-pointer transition-colors hover:text-amber-50`}>
-            <Link href={docsPageRoutes[3].href}>Figma files</Link>
+          <li className="text-kiwi-inactive cursor-not-allowed select-none">
+            Figma Components
           </li>
         </ul>
 
@@ -54,7 +57,7 @@ const NavigationBar = ({}) => {
               target="_blank"
               rel="noreferrer"
             >
-            <HugeiconsIcon icon = {Github01Icon} size={18}></HugeiconsIcon>            
+            <Github></Github>           
             </a>
           </button>
         </li>

@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useSpring, useMotionValue, useTransform } from 'framer-motion';
+import { Kiwi } from '@/components/site/Logo';
 
 type RadalCardProps = {
     title?: string,
@@ -67,9 +68,10 @@ export const RadalCard = ({ title, description }: RadalCardProps) => {
           {title}
         </span>
         <p style={{ transform: "translateZ(30px)", color: "var(--kiwi-card-text-color)" }}
-          className="text-[12.5px] leading-relaxed max-w-[240px]">
+          className="text-[12.5px] leading-relaxed max-w-[240px] mb-2">
           {description}
         </p>
+        <Kiwi></Kiwi>
       </div>
     </motion.div>
   );

@@ -5,7 +5,7 @@ const PropTable = ({ data }: PropTableProps) => {
   const columnHeaders = ["Prop", "Type", "Default"];
   return (
     <div
-      className={`rounded-[12px] border border-kiwi-border-table w-full overflow-clip mb-20 relative`}
+      className={`rounded-[12px] border border-kiwi-border-table w-full overflow-clip mb-3 relative`}
     >
       {!meta?.length && (
         <div className="absolute bg-kiwi z-0 w-full h-full opacity-70">
@@ -21,7 +21,7 @@ const PropTable = ({ data }: PropTableProps) => {
             {columnHeaders.map((h) => (
               <th
                 key={h}
-                className={`px-4 py-2 text-sm font-medium text-muted-foreground`}
+                className={`px-4 py-2 text-[0.8rem] font-bold text-muted-foreground`}
               >
                 {h}
               </th>
@@ -34,18 +34,18 @@ const PropTable = ({ data }: PropTableProps) => {
               key={i}
               className={`text-left ${i !== meta!.length - 1 && `border-b border-kiwi-border`}`}
             >
-              <td className={`px-4 py-2 `}>
-                <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-kiwi-code-tab border border-kiwi-border text-sm">
+              <td className={`px-4 py-3 `}>
+                <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.prop}
                 </code>
               </td>
-              <td className={`px-4 py-2`}>
-                <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-kiwi-code-tab border border-kiwi-border text-sm">
+              <td className={`px-4 py-3`}>
+                <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.type}
                 </code>
               </td>
-              <td className={`px-4 py-2`}>
-                <code className="rounded-md dark:bg-muted/50 bg-muted/75 px-1 py-0.5 font-mono bg-kiwi-code-tab border border-kiwi-border text-sm">
+              <td className={`px-4 py-3`}>
+                <code className="rounded-md px-1 py-0.5 font-mono border border-kiwi-border text-sm">
                   {m.defaults || "-"}
                 </code>
               </td>

@@ -3,48 +3,14 @@
 import { useState, useEffect } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { SoftwareLicenseIcon, CopyIcon } from "@hugeicons/core-free-icons";
-import { ComponentTypes } from "@/types";
-import CodeBlock from "../docs/CodeBlock";
 
-const CliBlock = ({ data, source }: { data: ComponentTypes; source: string | null }) => {
-  const [currentView, setCurrentView] = useState<string>("CLI");
-
-  return (
-    <div className="flex flex-col gap-[8px] justify-between rounded-t-md text-[0.8rem]">
-      <div className="flex gap-2 items-center font-medium mb-1">
-        <button
-          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "CLI" && "bg-kiwi-nav-active"}`}
-          onClick={() => setCurrentView("CLI")}
-        >
-          CLI
-        </button>
-        <button
-          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "Manual" && "bg-kiwi-nav-active"}`}
-          onClick={() => setCurrentView("Manual")}
-        >
-          Manual
-        </button>
-      </div>
-
-      {currentView === "CLI" ? (
-        <div className="flex flex-col bg-kiwi-codebody rounded-[12px] overflow-clip border border-kiwi-border">
-          <CliTab componentId={data.id} />
-        </div>
-      ) : (
-        <CodeBlock code={ source ?? data.code ?? ""} />
-      )}
-    </div>
-  );
-};
-
-const CliTab = ({ componentId }: { componentId: string }) => {
+export default function PackageBlock({ base }: { base: string }) {
   const tabs = ["pnpm", "npm", "yarn", "bun"] as const;
   const [currentTab, setCurrentTab] = useState<(typeof tabs)[number]>("pnpm");
-  const [isCopied, setIsCopied] = useState<boolean>(false);
-  const [html, setHtml] = useState<string>("");
+  const [isCopied, setIsCopied] = useState(false);
+  const [html, setHtml] = useState("");
 
   function getCommand(tab: string) {
-    const base = `dlx kiwi-ui@latest add @kiwi/${componentId}`;
     switch (tab) {
       case "pnpm": return `pnpm ${base}`;
       case "npm":  return `npx ${base}`;
@@ -66,16 +32,16 @@ const CliTab = ({ componentId }: { componentId: string }) => {
     };
     void renderCode();
     return () => { isMounted = false; };
-  }, [currentTab, componentId]);
+  }, [currentTab, base]);
 
-  async function handleCopyCommand() {
+  async function handleCopy() {
     await navigator.clipboard.writeText(getCommand(currentTab));
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 1200);
   }
 
   return (
-    <>
+    <div className="flex flex-col bg-kiwi-codebody rounded-[12px] overflow-clip border border-kiwi-border ">
       <div className="flex items-center px-3 border-b border-kiwi-border bg-kiwi-code-tab">
         <HugeiconsIcon icon={SoftwareLicenseIcon} size={16} />
         <ul className="flex gap-1 px-2 py-2 text-[0.8rem]">
@@ -91,8 +57,8 @@ const CliTab = ({ componentId }: { componentId: string }) => {
         </ul>
         <button
           className="ml-auto cursor-pointer"
-          onClick={handleCopyCommand}
-          aria-label="Copy install command"
+          onClick={handleCopy}
+          aria-label="Copy command"
         >
           <HugeiconsIcon icon={CopyIcon} size={16} />
         </button>
@@ -102,8 +68,6 @@ const CliTab = ({ componentId }: { componentId: string }) => {
         dangerouslySetInnerHTML={{ __html: html }}
       />
       {isCopied && <span className="px-3 pb-2 text-[12px]">Copied!</span>}
-    </>
+    </div>
   );
-};
-
-export default CliBlock;
+}

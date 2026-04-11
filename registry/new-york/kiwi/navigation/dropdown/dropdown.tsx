@@ -31,7 +31,7 @@ const dangerItems = [
   {
     icon: FileXIcon,
     label: "Delete File",
-    sub: "Permanently delete the file",
+    sub: "Permanently delete",
     kbd: ["⌘", "⇧", "D"],
   },
 ]

@@ -23,7 +23,7 @@ const Table = ({ data, onSelect }: TableProps) => {
   return (
     <div className="flex flex-col overflow-hidden rounded-[10px] border border-kiwi-border-table">
       <FilterBar currentSort={currentSort} onFilter={handleFilter}></FilterBar>
-      <div className="grid auto-rows-auto grid-cols-3 rounded-b-[10px] text-[0.9rem] font-semibold">
+      <div className="grid auto-rows-auto grid-cols-3 rounded-b-[10px] text-[0.8rem] font-medium">
         {data.map((c) => {
           if (
             currentSort === componentCategories[0] ||
@@ -58,7 +58,7 @@ const FilterBar = ({ currentSort, onFilter }: FilterBarProps) => {
     <div className="flex w-full items-center gap-5 rounded-t-[10px] border-1 border-kiwi-border bg-kiwi-btn px-[16px] py-[8px] text-[0.9rem] font-semibold">
       <div className="flex shrink-0 items-center justify-center gap-1.5">
         {/* <HugeiconsIcon icon={FilterVerticalIcon} size={18} className="text-kiwi-subheading" /> */}
-        <h1 className="text-kiwi-subheading">
+        <h1 className="text-kiwi-subheading text-[0.8rem]">
           Sort by:
           <span className="ml-5.5 text-kiwi-heading">{currentSort}</span>
         </h1>
@@ -69,13 +69,13 @@ const FilterBar = ({ currentSort, onFilter }: FilterBarProps) => {
 
         <div className="relative">
           <div className="filter-bubble" />
-          <ul className="anchor-filter-bar flex font-semibold">
+          <ul className="anchor-filter-bar flex font-semibold text-[0.8rem]">
             {componentCategories
               .filter((category) => category !== currentSort)
               .map((c) => (
               <li
                 key={c}
-                className="anchor-item cursor-pointer px-[18px] py-[4px] text-center hover:text-kiwi-heading transition-colors"
+                className="anchor-item cursor-pointer px-[16px] py-[4px] text-center hover:text-kiwi-heading transition-colors"
                 onClick={() => onFilter(c)}
               >
                 {c}

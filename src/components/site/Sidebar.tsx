@@ -10,19 +10,19 @@ const SideBar = ({}) => {
   const activeComponentId = searchParams.get("id");
 
   const activeClass = (path: string) =>
-    pathname === path ? "bg-kiwi-nav-active py-1.5" : "";
+    pathname === path ? "bg-kiwi-nav-active" : "";
 
   return (
     <aside
-      className={`w-[288px] py-6 flex flex-col gap-[24px] px-[36px] border-r bg-kiwi-sidenavbg border-kiwi-border-nav font-semibold shrink-0  text-gray-200`}
+      className={`w-[276px] py-6 flex flex-col gap-6 px-5 border-r  border-kiwi-border-nav  shrink-0`}
     >
-      <section className={`gap-4 flex flex-col`}>
-        <h1 className={`text-[0.7rem] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Getting Started</h1>
-        <ul className={`flex flex-col gap-[4px] cursor-pointer text-[0.8rem] tracking-wide`}>
+      <section className={`gap-3 flex flex-col`}>
+        <h1 className={`text-[0.8rem] px-[8px] font-medium text-kiwi-inactive`}>Quick Start</h1>
+        <ul className={`flex flex-col gap-[6px] cursor-pointer text-[0.75rem] font-medium`}>
           {gettingStartedRoutes.map((route) => (
             <Link key={route.id} href={route.href}>
               <li
-                className={`p-[4px] px-[8px] rounded-[8px] tracking-wide ${activeClass(route.href)}`}
+                className={`py-[6px] px-[8px] rounded-[6px] tracking-wide ${activeClass(route.href)}`}
               >
                 {route.label}
               </li>
@@ -31,25 +31,18 @@ const SideBar = ({}) => {
         </ul>
       </section>
 
-      <section className={`gap-4 flex flex-col`}>
-        <h1 className={`text-[12px] px-[8px] font-medium text-kiwi-subheading tracking-wide`}>Components</h1>
-        <ul className={`flex flex-col gap-[4px] cursor-pointer text-[0.8rem] tracking-wide`}>
+      <section className={`gap-3 flex flex-col`}>
+        <h1 className={`text-[0.8rem] px-[8px] font-medium text-kiwi-inactive`}>Components</h1>
+        <ul className={`flex flex-col gap-[6px] cursor-pointer text-[0.75rem] font-medium`}>
           {components.map((c) => (
             <Link key={c.id} href={`/docs/components?id=${c.id}`}>
               <li
-                className={`py-1.5 px-[8px] rounded-[8px] tracking-wide ${activeComponentId === c.id ? "bg-kiwi-nav-active text-kiwi-heading" : ""}`}
+                className={`py-1.5 px-[8px] rounded-[6px] tracking-wide ${activeComponentId === c.id ? "bg-kiwi-nav-active text-kiwi-heading" : ""}`}
               >
                 {c.componentType}
               </li>
             </Link>
           ))}
-        </ul>
-      </section>
-
-      <section className={`gap-2 flex flex-col`}>
-        <h1 className={`text-[12px] px-[8px] font-medium`}>Figma Components</h1>
-        <ul className={`flex flex-col gap-[4px] cursor-pointer text-[14px]`}>
-          <li className={`p-[4px] px-[8px] rounded-[8px]`}>Tag</li>
         </ul>
       </section>
     </aside>

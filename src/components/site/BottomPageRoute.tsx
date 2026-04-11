@@ -4,14 +4,14 @@ import { ArrowLeft02Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
 
 const BottomPageRoute = ({ previous, next }: BottomPageRouteProps) => {
   return (
-    <nav className="mt-10 border-t border-kiwi-border pt-5">
-      <div className="flex items-center justify-between gap-4 mb-16">
+    <nav className="border-t border-kiwi-border mt-auto pt-6">
+      <div className="flex items-center justify-between gap-4 mb-6">
         {previous ? (
           <Link
             href={previous.href}
             className="group flex items-center gap-2 rounded-[8px] border border-kiwi-border px-3 py-2 text-[0.9rem] text-kiwi-subheading transition-colors hover:bg-kiwi-nav-active hover:text-kiwi-heading"
           >
-            <HugeiconsIcon icon={ArrowLeft02Icon} size={18} />
+            <HugeiconsIcon icon={ArrowLeft02Icon} size={16} />
             <span className="text-[0.8rem] uppercase tracking-wide opacity-70">
               Previous
             </span>
@@ -30,7 +30,7 @@ const BottomPageRoute = ({ previous, next }: BottomPageRouteProps) => {
             <span className="text-[0.8rem] uppercase tracking-wide opacity-70">
               Next
             </span>
-            <HugeiconsIcon icon={ArrowRight02Icon} size={18} />
+            <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
           </Link>
         ) : (
           <div />

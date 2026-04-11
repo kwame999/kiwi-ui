@@ -1,16 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   CopyIcon,
+  Tick01Icon,
   ArrowDown01Icon,
   ClaudeIcon,
   ChatGptIcon,
 } from "@hugeicons/core-free-icons";
 
 const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
+  const [isCopied, setIsCopied] = useState(false);
+
   async function handleCopyPage() {
     await navigator.clipboard.writeText(window.location.href);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
   }
 
   return (
@@ -20,8 +26,8 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
         onClick={handleCopyPage}
         aria-label="Copy page URL"
       >
-        <HugeiconsIcon icon={CopyIcon} size={18} />
-        <span>Copy Page</span>
+        <HugeiconsIcon icon={isCopied ? Tick01Icon : CopyIcon} size={16} />
+        <span className="text-[0.8rem]">{isCopied ? "Copied!" : "Copy Page"}</span>
       </button>
       <button
         className="flex items-center justify-center p-[4px] py-0 transition-colors"
@@ -30,17 +36,17 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
           onOpen();
         }}
       >
-        <HugeiconsIcon icon={ArrowDown01Icon} size={18} />
+        <HugeiconsIcon icon={ArrowDown01Icon} size={16} />
       </button>
 
       {isOpen && (
         <div className="absolute top-full right-0 z-20 mt-[6px] w-max rounded-[12px] border border-kiwi-border-nav bg-kiwi-nav-bg p-[8px] text-[0.9rem] text-kiwi-heading shadow-lg">
-          <ul className="flex cursor-pointer flex-col gap-[4px]">
-            <li className="flex items-center justify-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors">
+          <ul className="flex cursor-pointer flex-col gap-[4px] text-[0.75rem]">
+            <li className="flex items-center justify-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active">
               <svg
                 strokeLinejoin="round"
                 viewBox="0 0 22 16"
-                style={{ width: 18, height: 18, flexShrink: 0 }}
+                style={{ width: 16, height: 16, flexShrink: 0 }}
               >
                 <path
                   fillRule="evenodd"
@@ -54,9 +60,9 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
             <li className="flex items-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill=""
                 viewBox="0 0 147 70"
-                style={{ width: 18, height: 18, flexShrink: 0 }}
+                style={{ width: 16, height: 16, flexShrink: 0 }}
+                fill="currentColor"
               >
                 <path d="M56 50.203V14h14v46.156C70 65.593 65.593 70 60.156 70c-2.596 0-5.158-1-7-2.843L0 14h19.797L56 50.203ZM147 56h-14V23.953L100.953 56H133v14H96.687C85.814 70 77 61.186 77 50.312V14h14v32.156L123.156 14H91V0h36.312C138.186 0 147 8.814 147 19.688V56Z" />
               </svg>
@@ -64,20 +70,16 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
             </li>
             <li
               className="flex items-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active"
-              onClick={() => {
-                onOpen();
-              }}
+              onClick={() => onOpen()}
             >
-              <HugeiconsIcon icon={ChatGptIcon} size={18} />
+              <HugeiconsIcon icon={ChatGptIcon} size={16} />
               Open in ChatGPT
             </li>
             <li
               className="flex items-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active"
-              onClick={() => {
-                onOpen();
-              }}
+              onClick={() => onOpen()}
             >
-              <HugeiconsIcon icon={ClaudeIcon} size={18} />
+              <HugeiconsIcon icon={ClaudeIcon} size={16} />
               Open in Claude
             </li>
           </ul>

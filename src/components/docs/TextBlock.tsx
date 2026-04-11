@@ -34,7 +34,7 @@ const TitleHead = ({ titleHead }: TitleBlockProps) => {
   ) : h02 ? (
     <h2 className={`text-2xl font-medium`}>{content}</h2>
   ) : h03 ? (
-    <h3 className={`text-xl font-semibold mb-2`}>{content}</h3>
+    <h3 className={`text-xl font-medium  mb-3`}>{content}</h3>
   ) : (
     <h4 className={`text-lg font-medium tracking-wide`}>{content}</h4>
   );

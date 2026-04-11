@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { gridPattern } from "@/components/site/Patterns"
 
 type Color = {
   name: string
@@ -29,33 +31,31 @@ export const ColorSelector = ({ defaultColor = "coral", onChange }: ColorSelecto
 
   return (
     <div className="flex flex-col gap-3 px-4 py-3 rounded-xl w-fit">
-      <div className="flex flex-col gap-0.5">
-        <span className="text-sm font-medium" style={{ color: "var(--kiwi-text-primary)" }}>
-          Customize Primary Color
-        </span>
-        <span className="text-xs" style={{ color: "var(--kiwi-text-tertiary)" }}>
-          Customize the look of your workspace
-        </span>
-      </div>
-
       <div className="flex items-center gap-2.5">
         {colors.map((color) => {
           const isSelected = selected === color.name
           return (
-            <button
+            <motion.button
               key={color.name}
               onClick={() => handleSelect(color)}
-              className="relative flex items-center justify-center w-7 h-7 rounded-full transition-all duration-150"
-              style={{
-                outline: isSelected ? `2px solid ${color.varName}` : "2px solid transparent",
-                outlineOffset: "2px",
-              }}
+              className="relative flex items-center justify-center w-5 h-5 rounded-full"
+              whileTap={{scale: 0.8}}
+              whileHover={{scale: 1.1}}
             >
+              {isSelected && (
+                <motion.div
+                  layoutId="color-ring"
+                  className="absolute inset-0 rounded-full"
+                  style={{ outline: `2px solid ${color.varName}`, outlineOffset: "2px", backgroundImage: gridPattern }}
+                  transition={{ type: "spring", stiffness: 440, damping: 46 }}
+                />
+              )}
+
               <div
-                className="w-6 h-6 rounded-full"
+                className="w-5 h-5 rounded-full"
                 style={{ background: color.varName }}
               />
-            </button>
+            </motion.button>
           )
         })}
       </div>

@@ -1,12 +1,15 @@
 'use client'
+type KiwiProps = {
+  size?: string
+}
 
-export const Kiwi = () => {
+export const Kiwi = ({size = '30'}: KiwiProps) => {
 
     return(
             
  <svg
-      width="30"
-      height="30"
+      width={size}
+      height= {size}
       viewBox="0 0 423 420"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

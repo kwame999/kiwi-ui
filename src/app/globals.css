@@ -1,8 +1,7 @@
 @import "tailwindcss";
 @import "prism-themes/themes/prism-vsc-dark-plus.css";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "./kiwi-globals.css";
+/* @import "shadcn/tailwind.css"; */
+@import "../../registry/new-york/kiwi/kiwi-globals/kiwi-globals.css";
 
 :root {
   padding: 0;
@@ -65,7 +64,7 @@ html[data-theme="dark"] {
   --color-kiwi-heading: hsl(0, 17%, 92%);
   --color-kiwi-subheading: oklch(75.751% 0.00149 285.504);
   --color-kiwi-icon: hsla(0 0% 98% / 0.73);
-  --color-kiwi-inactive: hsla(216 13% 84% / 0.41);
+  --color-kiwi-inactive: hsla(0, 0%, 55%, 0.733);
 
   --color-kiwi-code-tab: hsla(0 0% 2% / 0.35);
   --color-kiwi-scrollbar-track: hsla(0 0% 100% / 0.05);
@@ -130,7 +129,7 @@ html:not([data-theme]) {
   --color-kiwi-subheading: hsla(0 0% 90% / 0.55);
   --color-kiwi-icon: hsla(0 0% 98% / 0.73);
   --color-kiwi-inactive: hsla(216 13% 84% / 0.41);
-  --color-kiwi-code-tab: hsla(0 0% 2% / 0.35);
+  --color-kiwi-code-tab: hsla(0, 0%, 2%, 0.911);
   --color-kiwi-scrollbar-track: hsla(0 0% 100% / 0.05);
   --color-kiwi-scrollbar-thumb: hsla(0 0% 100% / 0.22);
 }
@@ -339,3 +338,12 @@ html:not([data-theme]) {
 }
 
 
+.shiki
+{
+  background-color: transparent !important;
+}
+
+@keyframes shrink {
+    from { width: 100%; }
+    to   { width: 0%; }
+}

@@ -13,7 +13,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
           return <span key={item.label}>{item.label}</span>;
         }
         return (
-          <>
+          <div key={item.label} className="flex gap-1 items-center">
             {item.href ? (
               <Link
                 key={item.label}
@@ -28,7 +28,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
               </span>
             )}
             <HugeiconsIcon icon={ArrowRight01Icon} size={16} color="#ffffff4d" />
-          </>
+          </div>
         );
       })}
     </span>

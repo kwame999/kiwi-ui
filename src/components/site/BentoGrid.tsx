@@ -2,17 +2,17 @@
 
 import { useState } from "react"
 import { components } from "@/data/components"
-import { AlertToast } from "../../../registry/new-york/kiwi/feedback/alert-toast/alert-toast"
 import { InlineAlert } from "../../../registry/new-york/kiwi/feedback/inline-alert/inline-alert"
 import { UpdateToast } from "../../../registry/new-york/kiwi/feedback/update-toast/update-toast"
 import { StatusBadge } from "../../../registry/new-york/kiwi/display/label/label"
 import { Toggle } from "../../../registry/new-york/kiwi/inputs/toggle/toggle"
 import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/input-field"
 import { ColorSelector } from "../../../registry/new-york/kiwi/inputs/color-selector/color-selector"
-import { FilterBar } from "../../../registry/new-york/kiwi/inputs/filter-bar/filter-bar"
 import { RadalCard } from "../../../registry/new-york/kiwi/display/radial-card/radial-card"
 import { Checkbox } from "../../../registry/new-york/kiwi/inputs/checkbox/checkbox"
 import { Button } from "../../../registry/new-york/kiwi/buttons/buttons/buttons"
+import { TagSetter } from "../../../registry/new-york/kiwi/inputs/tag-setter/tag-setter"
+import { FilterBar } from "../../../registry/new-york/kiwi/inputs/filter-bar/filter-bar"
 
 function BentoCard({
   className = "",
@@ -65,10 +65,7 @@ function BadgeCard() {
     <BentoCard className="[grid-column:span_4] [grid-row:span_2]">
       <CardLabel>Badge</CardLabel>
       <div className="flex-1 flex items-center justify-center gap-2 px-4 pb-3 flex-wrap">
-        <StatusBadge />
-        <StatusBadge variant="alert" />
-        <StatusBadge variant="error" />
-        <StatusBadge variant="success" />
+        <FilterBar list={['All', 'Active', 'Archived']}/>
       </div>
     </BentoCard>
   )
@@ -156,12 +153,12 @@ function ToastCard() {
   )
 }
 
-function FilterCard() {
+function TagSet() {
   return (
     <BentoCard className="[grid-column:span_5] [grid-row:span_2]">
-      <CardLabel>Filter Bar</CardLabel>
+      <CardLabel>Tag Setter</CardLabel>
       <div className="flex-1 flex flex-col px-4 pb-3.5 gap-0 items-center justify-center">
-        <FilterBar list={["Design", "Motion", "Code", "Docs"]} />
+        <TagSetter/>
       </div>
     </BentoCard>
   )
@@ -204,7 +201,7 @@ export function BentoGrid() {
       <InlineAlertCard />
       <RadialCard />
       <ToastCard />
-      <FilterCard />
+      <TagSet />
       <StatsCard />
       <CheckboxCard />
     </div>

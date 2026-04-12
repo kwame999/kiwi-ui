@@ -1,59 +1,94 @@
-import { useState } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { FilterVerticalIcon } from "@hugeicons/core-free-icons";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { FilterVerticalIcon } from "@hugeicons/core-free-icons"
+import { motion, AnimatePresence } from "framer-motion"
+
+type FilterBarProps = {
+  list: string[]
+}
 
 export const FilterBar = ({ list }: FilterBarProps) => {
-  const [currentSort, setCurrentSort] = useState<string>(list[0] || "");
-
-  function handleFilter(currentList: string) {
-    setCurrentSort(currentList);
-  }
+  const [currentSort, setCurrentSort] = useState<string>(list[0] || "")
 
   return (
-    <div className="flex w-fit items-center gap-5 rounded-[10px] border-1 border-kiwi-border bg-kiwi-btn px-[16px] py-[8px] text-[0.9rem] font-semibold">
-      <div className="flex shrink-0 items-center justify-center gap-1.5">
-        <HugeiconsIcon icon={FilterVerticalIcon} size={16} className="text-kiwi-subheading" />
-        <h1 className="flex items-center text-kiwi-subheading">
-          Sort by:
-          <span className="relative ml-1.5 inline-flex h-[20px] items-center overflow-hidden font-bold text-kiwi-heading">
+    <div
+      className="p-px rounded-xl w-fit"
+      style={{
+        background: "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))",
+      }}
+    >
+      <div
+        className="flex items-center gap-3 px-3 py-2 rounded-xl"
+        style={{ background: "oklch(0.173 0.004 264)" }}
+      >
+        {/* Label */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          <HugeiconsIcon icon={FilterVerticalIcon} size={14} style={{ color: "oklch(0.52 0.004 264)" }} />
+          <span className="text-xs" style={{ color: "oklch(0.52 0.004 264)" }}>
+            Sort by:
+          </span>
+          <span className="relative inline-flex h-[16px] items-center overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
-                key={currentSort} 
-                initial={{ y: 15, opacity: 0 }}
+                key={currentSort}
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -15, opacity: 0 }}
+                exit={{ y: -12, opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeInOut" }}
+                className="text-xs font-medium"
+                style={{ color: "oklch(0.92 0.004 264)" }}
               >
                 {currentSort}
               </motion.span>
             </AnimatePresence>
           </span>
-        </h1>
-      </div>
-
-      <div className="flex flex-1 items-center text-kiwi-inactive">
-        <div className="mr-2.5 mt-1.5 h-[16px] w-px self-stretch bg-kiwi-border-table"></div>
-
-        <div className="relative">
-          <div className="filter-bubble" />
-          <ul className="anchor-filter-bar flex font-semibold">
-            {list.map((c) => (
-              <li
-                key={c}
-                className="anchor-item cursor-pointer px-[18px] py-[4px] text-center transition-colors hover:text-kiwi-heading"
-                onClick={() => handleFilter(c)}
-              >
-                {c}
-              </li>
-            ))}
-          </ul>
         </div>
+
+        {/* Divider */}
+        <div
+          className="w-px self-stretch"
+          style={{ background: "oklch(0.329 0.004 265 / 0.5)" }}
+        />
+
+        {/* Filter items */}
+        <ul className="flex items-center relative">
+          {/* Sliding pill */}
+          {list.map((item) =>
+            item === currentSort ? (
+              <motion.div
+                key="pill"
+                layoutId="filter-pill"
+                className="absolute inset-y-0 rounded-lg"
+                style={{ background: "oklch(0.329 0.004 265 / 0.35)" }}
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            ) : null
+          )}
+
+          {list.map((item) => (
+            <li
+              key={item}
+              onClick={() => setCurrentSort(item)}
+              className="relative z-10 px-3 py-1 text-xs cursor-pointer rounded-lg transition-colors duration-150 select-none"
+              style={{
+                color: item === currentSort
+                  ? "oklch(0.92 0.004 264)"
+                  : "oklch(0.52 0.004 264)",
+              }}
+              onMouseEnter={e => {
+                if (item !== currentSort)
+                  (e.currentTarget as HTMLElement).style.color = "oklch(0.72 0.004 264)"
+              }}
+              onMouseLeave={e => {
+                if (item !== currentSort)
+                  (e.currentTarget as HTMLElement).style.color = "oklch(0.52 0.004 264)"
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-  );
-};
-
-type FilterBarProps = {
-  list: string[];
-};
+  )
+}

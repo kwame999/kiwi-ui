@@ -13,13 +13,13 @@ const CliBlock = ({ data, source }: { data: ComponentTypes; source: string | nul
     <div className="flex flex-col gap-[8px] justify-between rounded-t-md text-[0.8rem]">
       <div className="flex gap-2 items-center font-medium mb-1">
         <button
-          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "CLI" && "bg-kiwi-nav-active"}`}
+          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "CLI" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
           onClick={() => setCurrentView("CLI")}
         >
           CLI
         </button>
         <button
-          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "Manual" && "bg-kiwi-nav-active"}`}
+          className={`cursor-pointer px-[8px] py-[4px] rounded-[8px] transition-colors text-kiwi-inactive ${currentView === "Manual" ? "bg-kiwi-nav-active text-white" : "hover:bg-kiwi-nav-active"}`}
           onClick={() => setCurrentView("Manual")}
         >
           Manual
@@ -82,7 +82,7 @@ const CliTab = ({ componentId }: { componentId: string }) => {
           {tabs.map((t) => (
             <li
               key={t}
-              className={`px-2 cursor-pointer font-medium hover:text-blue-50 ${currentTab === t && "rounded-[6px] border-kiwi-border bg-kiwi-nav-active"}`}
+              className={`px-2 cursor-pointer font-medium hover:text-kiwi-heading ${currentTab === t && "rounded-[6px] border-kiwi-border bg-kiwi-nav-active"}`}
               onClick={() => setCurrentTab(t)}
             >
               {t}

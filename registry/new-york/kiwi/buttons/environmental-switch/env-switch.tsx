@@ -11,7 +11,7 @@ export const EnvSwitch = ({ defaultMode }: EnvSwitchProps) => {
 
   return (
     <div
-      className="p-px rounded-md w-fit"
+      className="p-px rounded-lg w-fit"
       style={{ background: "var(--kiwi-border-gradient-default)" }}
     >
       <div
@@ -33,7 +33,7 @@ export const EnvSwitch = ({ defaultMode }: EnvSwitchProps) => {
           className="relative z-10 px-3 py-1.5 rounded-md transition-colors duration-200"
           style={{ color: env === 'light' ? "var(--kiwi-text-primary)" : "var(--kiwi-text-tertiary)" }}
         >
-          <HugeiconsIcon icon={Sun02Icon} size={18} />
+          <HugeiconsIcon icon={Sun02Icon} size={16} />
         </button>
 
         <div className="relative z-10 w-px h-4 rounded-full transition-opacity duration-200"
@@ -48,7 +48,7 @@ export const EnvSwitch = ({ defaultMode }: EnvSwitchProps) => {
           className="relative z-10 px-3 py-1.5 rounded-md flex items-center transition-colors duration-200"
           style={{ color: env === 'dark' ? "var(--kiwi-text-primary)" : "var(--kiwi-text-tertiary)" }}
         >
-          <HugeiconsIcon icon={Moon02Icon} size={18} />
+          <HugeiconsIcon icon={Moon02Icon} size={16} />
         </button>
       </div>
     </div>

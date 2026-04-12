@@ -2,14 +2,11 @@
 import Link from "next/link";
 import { BentoGrid } from "@/components/site/BentoGrid";
 import { Kiwi } from "@/components/site/Logo";
-import { gridPattern } from "@/components/site/Patterns";
 
 export default function Page() {
   return (
     <main
-      className="min-h-screen text-[#e8e8e8] bg-kiwi-bg"
-      style={{ backgroundImage: gridPattern }}
-    >
+      className="min-h-screen text-[#e8e8e8] bg-kiwi-bg">
       <div className="max-w-[1080px] mx-auto px-6 pt-6 pb-20">
         <div className="flex items-center gap-3 py-[52px] animate-fade-up">
           <div className="border p-5 rounded-md border-kiwi-border-table">

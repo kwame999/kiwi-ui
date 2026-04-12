@@ -82,7 +82,7 @@ const CliTab = ({ componentId }: { componentId: string }) => {
           {tabs.map((t) => (
             <li
               key={t}
-              className={`px-2 cursor-pointer font-medium hover:text-kiwi-heading ${currentTab === t && "rounded-[6px] border-kiwi-border bg-kiwi-nav-active"}`}
+              className={`px-2 cursor-pointer rounded-[6px] font-medium text-kiwi-inactive transition-colors hover:text-kiwi-heading ${currentTab === t && "bg-kiwi-nav-active text-white hover:bg-kiwi-nav-active"}`}
               onClick={() => setCurrentTab(t)}
             >
               {t}

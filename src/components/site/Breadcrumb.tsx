@@ -13,22 +13,22 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
           return <span key={item.label}>{item.label}</span>;
         }
         return (
-          <div key={item.label} className="flex gap-1 items-center">
+          <>
             {item.href ? (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-kiwi-inactive transition-colors hover:text-white/50"
+                className="text-kiwi-inactive transition-colors hover:text-kiwi-heading"
               >
                 {item.label}
               </Link>
             ) : (
-              <span key={item.label} className="text-white/30">
+              <span key={item.label} className="text-kiwi-inactive">
                 {item.label}
               </span>
             )}
-            <HugeiconsIcon icon={ArrowRight01Icon} size={16} color="#ffffff4d" />
-          </div>
+            <HugeiconsIcon icon={ArrowRight01Icon} size={16} className="text-kiwi-inactive" />
+          </>
         );
       })}
     </span>

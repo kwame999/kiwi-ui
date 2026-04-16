@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Frame 203 (3)](https://github.com/user-attachments/assets/9efd3bbc-6b1d-4c1d-b8b5-43df6727ca84)
+![Frame 200 (2)](https://github.com/user-attachments/assets/c0ab8f3c-d55a-4edb-8018-b6f01f42d2be)
 
-## Getting Started
+# Kiwi UI
 
-First, run the development server:
+An open-source React component library built with high-end micro-interactions and modern design. Built on top of React 19, Tailwind CSS v4, and Motion.
 
+## Components
+
+| Category | Components |
+|---|---|
+| Inputs | AI Input, Input Field, Tag Setter, Color Selector, Checkbox, Toggle, Filter Bar |
+| Buttons | Buttons, Environmental Switch |
+| Feedback | Alert Toast, Update Toast, Inline Alert |
+| Navigation | Dropdown |
+| Display | Status Badge, Radial Card |
+
+## Installation
+
+Each component is installed individually via the Kiwi CLI.
+
+**pnpm**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm dlx kiwi-ui@latest add @kiwi/<component-name>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**npm**
+```bash
+npx kiwi-ui@latest add @kiwi/<component-name>
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**yarn**
+```bash
+yarn dlx kiwi-ui@latest add @kiwi/<component-name>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**bun**
+```bash
+bun x kiwi-ui@latest add @kiwi/<component-name>
+```
 
-## Learn More
+### Example
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dlx kiwi-ui@latest add @kiwi/ai-input
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```tsx
+import { AiInput } from "@/components/kiwi/ai-input"
 
-## Deploy on Vercel
+export default function Page() {
+  return <AiInput placeholder="What's on your mind?" />
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Requirements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- React 19+
+- Tailwind CSS v4
+- Next.js 13+ (App Router)
+
+## Contributing
+
+Contributions are welcome. Open an issue or submit a pull request at [github.com/kwame999/kiwi-ui](https://github.com/kwame999/kiwi-ui).
+
+## License
+
+MIT

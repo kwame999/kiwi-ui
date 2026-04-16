@@ -1,13 +1,15 @@
-'use client'
+
 type KiwiProps = {
-  size?: string
+  size?: string,
+  type?: 'light' | 'dark'
 }
 
-export const Kiwi = ({size = '30'}: KiwiProps) => {
+export const Kiwi = ({size = '30', type = 'light'}: KiwiProps) => {
 
     return(
-            
- <svg
+ type === 'dark' ? <>
+ 
+  <svg
       width={size}
       height= {size}
       viewBox="0 0 423 420"
@@ -127,6 +129,50 @@ export const Kiwi = ({size = '30'}: KiwiProps) => {
         fill="#111111"
       />
     </svg>
+ </>  : <>
+ 
+ 
+
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" 
+     width={size} 
+     height={size}>
+  <g transform="translate(100,100)">
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(20)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(40)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(80)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(100)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(140)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(160)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(200)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(220)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(260)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(280)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(300)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(320)"/>
+    <ellipse cx="0" cy="-58" rx="9" ry="18" fill="#ffffff" transform="rotate(340)"/>
+    <circle cx="0" cy="0" r="28" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="10" fill="#111111"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-20" rx="2.5" ry="5" fill="#111111" transform="rotate(315)"/>
+  </g>
+</svg>
+
+
+
+ </>         
+
                     
     )
 

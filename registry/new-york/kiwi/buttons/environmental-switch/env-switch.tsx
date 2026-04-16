@@ -11,16 +11,16 @@ export const EnvSwitch = ({ defaultMode }: EnvSwitchProps) => {
 
   return (
     <div
-      className="p-px rounded-lg w-fit"
+      className="p-px rounded-full w-fit"
       style={{ background: "var(--kiwi-border-gradient-default)" }}
     >
       <div
-        className="relative flex items-center gap-1 px-1 py-1 rounded-md"
+        className="relative flex items-center gap-0 px-1 py-1 rounded-full"
         style={{ background: "var(--kiwi-surface)" }}
       >
         {/* Sliding pill */}
         <div
-          className="absolute top-1 bottom-1 rounded-md transition-all duration-200 ease-in-out"
+          className="absolute top-1 bottom-1 rounded-full transition-all duration-200 ease-in-out"
           style={{
             background: "var(--kiwi-envswitch-pill-bg)",
             width: "calc(50% - 6px)",
@@ -30,7 +30,7 @@ export const EnvSwitch = ({ defaultMode }: EnvSwitchProps) => {
 
         <button
           onClick={() => setEnv('light')}
-          className="relative z-10 px-3 py-1.5 rounded-md transition-colors duration-200"
+          className="relative z-10 px-3 py-1.5 rounded-full transition-colors duration-200"
           style={{ color: env === 'light' ? "var(--kiwi-text-primary)" : "var(--kiwi-text-tertiary)" }}
         >
           <HugeiconsIcon icon={Sun02Icon} size={16} />
@@ -45,10 +45,10 @@ export const EnvSwitch = ({ defaultMode }: EnvSwitchProps) => {
 
         <button
           onClick={() => setEnv('dark')}
-          className="relative z-10 px-3 py-1.5 rounded-md flex items-center transition-colors duration-200"
+          className="relative z-10 px-3 py-1.5 rounded-full flex items-center transition-colors duration-200"
           style={{ color: env === 'dark' ? "var(--kiwi-text-primary)" : "var(--kiwi-text-tertiary)" }}
         >
-          <HugeiconsIcon icon={Moon02Icon} size={16} />
+          <HugeiconsIcon icon={Moon02Icon} size={14} />
         </button>
       </div>
     </div>

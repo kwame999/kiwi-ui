@@ -43,13 +43,13 @@ export const StatusBadge = ({ variant = "pending", label }: StatusBadgeProps) =>
     <button
       className={`
         flex gap-1 border-2 items-center justify-center drop-shadow-2xl
-        w-fit px-2 py-1 rounded-md tracking-wide text-[0.9rem]
+        w-fit px-2 py-1 rounded-md tracking-wide text-[0.8rem]
         transition-opacity hover:opacity-90 active:opacity-75
         text-white/90 ${v.borderClass}
       `}
       style={{ background: v.bgVar }}
     >
-      <HugeiconsIcon icon={v.icon} size={18} color="white" />
+      <HugeiconsIcon icon={v.icon} size={14} color="white" />
       <span>{label ?? defaultLabel}</span>
     </button>
   );

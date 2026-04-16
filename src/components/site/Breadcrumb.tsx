@@ -1,3 +1,4 @@
+import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
@@ -13,22 +14,21 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
           return <span key={item.label}>{item.label}</span>;
         }
         return (
-          <>
+          <React.Fragment key={item.label}>
             {item.href ? (
               <Link
-                key={item.label}
                 href={item.href}
-                className="text-kiwi-inactive transition-colors hover:text-kiwi-heading"
+                className="text-kiwi-inactive transition-colors hover:text-white/50"
               >
                 {item.label}
               </Link>
             ) : (
-              <span key={item.label} className="text-kiwi-inactive">
+              <span className="text-white/30">
                 {item.label}
               </span>
             )}
-            <HugeiconsIcon icon={ArrowRight01Icon} size={16} className="text-kiwi-inactive" />
-          </>
+            <HugeiconsIcon icon={ArrowRight01Icon} size={16} color="#ffffff4d" />
+          </React.Fragment>
         );
       })}
     </span>

@@ -19,6 +19,11 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
     setTimeout(() => setIsCopied(false), 2000);
   }
 
+  function handleOpenAI(baseUrl: string) {
+    const prompt = `Read from this URL: ${window.location.href} and help me install and use this Kiwi UI component in my project.`;
+    window.open(`${baseUrl}${encodeURIComponent(prompt)}`, '_blank');
+  }
+
   return (
     <div className="relative flex w-fit rounded-lg border border-kiwi-border bg-kiwi-code-tab py-[7px] font-medium pr-0 text-[.9rem] hover:bg-kiwi-nav-active transition-colors">
       <button
@@ -57,7 +62,10 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
               </svg>
               View as Markdown
             </li>
-            <li className="flex items-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active">
+            <li
+              className="flex items-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active"
+              onClick={() => { handleOpenAI('https://v0.dev/chat?q='); onOpen(); }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 147 70"
@@ -70,14 +78,14 @@ const CopyPageDropDown = ({ isOpen, onOpen }: CopyPageProp) => {
             </li>
             <li
               className="flex items-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active"
-              onClick={() => onOpen()}
+              onClick={() => { handleOpenAI('https://chatgpt.com/?q='); onOpen(); }}
             >
               <HugeiconsIcon icon={ChatGptIcon} size={16} />
               Open in ChatGPT
             </li>
             <li
               className="flex items-center gap-2 whitespace-nowrap rounded-[6px] px-2 py-1 transition-colors hover:bg-kiwi-nav-active"
-              onClick={() => onOpen()}
+              onClick={() => { handleOpenAI('https://claude.ai/new?q='); onOpen(); }}
             >
               <HugeiconsIcon icon={ClaudeIcon} size={16} />
               Open in Claude

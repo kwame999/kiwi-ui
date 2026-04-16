@@ -198,7 +198,7 @@
   --kiwi-tag-remove-icon: #ff0f0f;
 
   /* --- label (StatusBadge) component --- */
-  --kiwi-label-pending-bg: hsl(44.15 87.16% 21.83%);
+  --kiwi-label-pending-bg: hsla(51, 75%, 42%, 0.637);
   --kiwi-label-success-bg: hsl(146.14 100% 19.54%);
   --kiwi-label-alert-bg: hsl(357.63 72.37% 25.05%);
   --kiwi-label-error-bg: hsl(220.31 14.04% 8.89%);

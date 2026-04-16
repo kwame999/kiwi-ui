@@ -44,7 +44,7 @@ const ComponentView = ({ currentView, isExpanded, source }: ComponentViewProps) 
 
           <section>
             <div className="mb-5">
-              <TitleHead titleHead={{ h03: true, content: "Installations" }} />
+              <TitleHead titleHead={{ h03: true, content: "Installation" }} />
               <hr className="border-kiwi-nav-active" />
             </div>
             <CliBlock data={currentView} source={source} />
@@ -76,6 +76,14 @@ const ComponentViewTab = ({
   onCurrentTab,
   onRefresh,
 }: ComponentViewTabProps) => {
+  const [isSpinning, setIsSpinning] = useState(false);
+
+  function handleRefresh() {
+    setIsSpinning(true);
+    onRefresh();
+    setTimeout(() => setIsSpinning(false), 500);
+  }
+
   return (
     <div className="flex items-center justify-between rounded-t-[8px] py-[8px] text-[0.8rem] font-medium">
       <ul className="flex gap-2 mb-1">
@@ -93,7 +101,7 @@ const ComponentViewTab = ({
         </li>
       </ul>
 
-      <div className=" flex items-center">
+      <div className="flex items-center">
         <button className="rounded-[6px] px-[8px] py-[4px] transition-colors hover:bg-kiwi-code-tab">
           <svg
             width="16"
@@ -112,8 +120,12 @@ const ComponentViewTab = ({
             />
           </svg>
         </button>
-        <button className="px-1" onClick={onRefresh}>
-          <HugeiconsIcon icon={Refresh03Icon} size={16}></HugeiconsIcon>
+        <button className="px-1 cursor-pointer" onClick={handleRefresh}>
+          <HugeiconsIcon
+            icon={Refresh03Icon}
+            size={16}
+            className={isSpinning ? "animate-spin-once" : ""}
+          />
         </button>
       </div>
     </div>

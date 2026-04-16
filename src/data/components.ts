@@ -8,12 +8,12 @@ export const components: ComponentTypes[] = [
     description: "An AI-powered textarea with model selector, web search toggle, mic button, and animated send button.",
     category: "Inputs",
     meta: [
-      { prop: "placeholdr", type: "string", defaults: "'Whats on your mind?'" },
+      { prop: "placeholder", type: "string", defaults: "'Whats on your mind?'" },
     ],
     code: `import { AiInput } from "@/components/kiwi/ai-input"
 
 export default function Example() {
-  return <AiInput placeholdr="What's on your mind?" />
+  return <AiInput placeholder="What's on your mind?" />
 }`,
   },
   {
@@ -309,11 +309,11 @@ export default function Example() {
       { prop: "title", type: "string", defaults: "" },
       { prop: "description", type: "string", defaults: "" },
     ],
-    code: `import { RadalCard } from "@/components/kiwi/radial-card"
+    code: `import { RadialCard } from "@/components/kiwi/radial-card"
 
 export default function Example() {
   return (
-    <RadalCard
+    <RadialCard
       title="Kiwi UI"
       description="Radial glow card with mouse tracking."
     />

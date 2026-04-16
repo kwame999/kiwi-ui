@@ -32,7 +32,7 @@ export default function CodeBlock({ code }: { code: string }) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-kiwi-border bg-kiwi-codebody p-[14px] group">
       <div
-        className="custom-scrollbar max-h-[420px] overflow-auto text-sm"
+        className="scrollbar-hidden max-h-[420px] overflow-auto text-sm"
         dangerouslySetInnerHTML={{ __html: html }}
       />
 

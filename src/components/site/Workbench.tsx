@@ -15,7 +15,6 @@ import {
 import { CopyPageDropDown } from "./CopyPageDropDown";
 import Breadcrumb from "./Breadcrumb";
 import { InputField } from "../../../registry/new-york/kiwi/inputs/inputfield/input-field";
-import { UpdateToast } from "../../../registry/new-york/kiwi/feedback/update-toast/update-toast";
 export default function Workbench({
   data,
   sources,

@@ -2,20 +2,12 @@
 
 import { useState } from "react";
 import type { ComponentTypes } from "@/types";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  ArrowRight02Icon,
-  ArrowLeft02Icon,
-  FilterIcon,
-  FilterVerticalIcon
-} from "@hugeicons/core-free-icons";
 import { componentCategories } from "@/data/components";
 
 const Table = ({ data, onSelect }: TableProps) => {
   const [currentSort, setCurrentSort] = useState<string>(
     componentCategories[0],
   );
-  console.log(currentSort)
   function handleFilter(category: string) {
     setCurrentSort(category);
   }
@@ -57,7 +49,6 @@ const FilterBar = ({ currentSort, onFilter }: FilterBarProps) => {
   return (
     <div className="flex w-full items-center gap-5 rounded-t-[10px] border-1 border-kiwi-border bg-kiwi-btn px-[16px] py-[8px] text-[0.9rem] font-semibold">
       <div className="flex shrink-0 items-center justify-center gap-1.5">
-        {/* <HugeiconsIcon icon={FilterVerticalIcon} size={18} className="text-kiwi-subheading" /> */}
         <h1 className="text-kiwi-subheading text-[0.8rem]">
           Sort by:
           <span className="ml-5.5 text-kiwi-heading">{currentSort}</span>
@@ -84,17 +75,6 @@ const FilterBar = ({ currentSort, onFilter }: FilterBarProps) => {
           </ul>
         </div>
 
-        
-        {/* <div className="mx-2.5 h-[16px]  m-1.5 w-px self-stretch bg-kiwi-border-table"></div> */}
-
-        {/* <div className="flex items-center justify-center gap-[8px] ml-auto">
-          <button className="cursor-pointer">
-            <HugeiconsIcon icon={ArrowLeft02Icon} size={18} />
-          </button>
-          <button className="cursor-pointer">
-            <HugeiconsIcon icon={ArrowRight02Icon} size={18} />
-          </button>
-        </div> */}
       </div>
     </div>
   );

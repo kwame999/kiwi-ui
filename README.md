@@ -1,2 +1,70 @@
 ![Frame 203 (3)](https://github.com/user-attachments/assets/9efd3bbc-6b1d-4c1d-b8b5-43df6727ca84)
 ![Frame 200 (2)](https://github.com/user-attachments/assets/c0ab8f3c-d55a-4edb-8018-b6f01f42d2be)
+
+# Kiwi UI
+
+An open-source React component library built with high-end micro-interactions and modern design. Built on top of React 19, Tailwind CSS v4, and Motion.
+
+## Components
+
+| Category | Components |
+|---|---|
+| Inputs | AI Input, Input Field, Tag Setter, Color Selector, Checkbox, Toggle, Filter Bar |
+| Buttons | Buttons, Environmental Switch |
+| Feedback | Alert Toast, Update Toast, Inline Alert |
+| Navigation | Dropdown |
+| Display | Status Badge, Radial Card |
+
+## Installation
+
+Each component is installed individually via the Kiwi CLI.
+
+**pnpm**
+```bash
+pnpm dlx kiwi-ui@latest add @kiwi/<component-name>
+```
+
+**npm**
+```bash
+npx kiwi-ui@latest add @kiwi/<component-name>
+```
+
+**yarn**
+```bash
+yarn dlx kiwi-ui@latest add @kiwi/<component-name>
+```
+
+**bun**
+```bash
+bun x kiwi-ui@latest add @kiwi/<component-name>
+```
+
+### Example
+
+```bash
+pnpm dlx kiwi-ui@latest add @kiwi/ai-input
+```
+
+## Usage
+
+```tsx
+import { AiInput } from "@/components/kiwi/ai-input"
+
+export default function Page() {
+  return <AiInput placeholder="What's on your mind?" />
+}
+```
+
+## Requirements
+
+- React 19+
+- Tailwind CSS v4
+- Next.js 13+ (App Router)
+
+## Contributing
+
+Contributions are welcome. Open an issue or submit a pull request at [github.com/kwame999/kiwi-ui](https://github.com/kwame999/kiwi-ui).
+
+## License
+
+MIT

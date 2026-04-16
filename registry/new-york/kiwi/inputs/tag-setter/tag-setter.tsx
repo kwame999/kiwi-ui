@@ -37,18 +37,18 @@ const Tag = ({ tagType, onRemoveTag }: { tagType: string; onRemoveTag: () => voi
     transition={{ type: "spring", stiffness: 500, damping: 30, opacity: { duration: 0.18 }, filter: { duration: 0.18 } }}
     className="relative flex items-center justify-center rounded-full px-3 py-0.5 overflow-hidden text-xs shrink-0"
     style={{
-      color: "oklch(0.72 0.004 264)",
-      border: "1px dashed oklch(0.329 0.004 265 / 0.5)",
-      background: "oklch(0.22 0.004 264 / 0.5)",
+      color: "var(--kiwi-text-secondary)",
+      border: "1px dashed var(--kiwi-tag-item-border)",
+      background: "var(--kiwi-tag-item-bg)",
     }}
   >
     <button
       className="absolute opacity-0 w-full hover:opacity-100 flex justify-center items-center h-full transition-opacity duration-200 rounded-full"
       onClick={onRemoveTag}
       aria-label={`Remove tag ${tagType}`}
-      style={{ background: "oklch(0.173 0.004 264 / 0.85)" }}
+      style={{ background: "var(--kiwi-tag-remove-bg)" }}
     >
-      <HugeiconsIcon icon={CancelIcon} size={12} style={{ color: "oklch(0.62 0.22 25)" }} />
+      <HugeiconsIcon icon={CancelIcon} size={12} style={{ color: "var(--kiwi-danger-error-text)" }} />
     </button>
     <span>{tagType}</span>
   </motion.div>
@@ -63,7 +63,7 @@ const SaveConfirmDialog = ({ onSave, onDiscard }: { onSave: () => void; onDiscar
     exit={{ opacity: 0 }}
     transition={{ duration: 0.15 }}
     className="absolute inset-0 z-10 flex items-center justify-center rounded-full"
-    style={{ backdropFilter: "blur(6px)", background: "oklch(0.173 0.004 264 / 0.80)" }}
+    style={{ backdropFilter: "blur(6px)", background: "var(--kiwi-tag-dialog-backdrop)" }}
   >
     <motion.div
       initial={{ scale: 0.92, opacity: 0 }}
@@ -72,7 +72,7 @@ const SaveConfirmDialog = ({ onSave, onDiscard }: { onSave: () => void; onDiscar
       transition={{ type: "spring", stiffness: 400, damping: 28 }}
       className="flex items-center gap-3"
     >
-      <p className="text-xs" style={{ color: "oklch(0.62 0.004 264)" }}>
+      <p className="text-xs" style={{ color: "var(--kiwi-tag-dialog-text)" }}>
         Save changes?
       </p>
 
@@ -81,8 +81,8 @@ const SaveConfirmDialog = ({ onSave, onDiscard }: { onSave: () => void; onDiscar
         <div className="p-px rounded-md text-xs">
           <button
             onClick={onDiscard}
-            onMouseEnter={e => { e.currentTarget.style.background = "oklch(0.329 0.004 265 / 0.45)"; e.currentTarget.style.color = "oklch(0.92 0.004 264)" }}
-            onMouseLeave={e => { e.currentTarget.style.background = "oklch(0.22 0.004 264 / 0.5)"; e.currentTarget.style.color = "oklch(0.62 0.004 264)" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "var(--kiwi-surface-overlay)"; e.currentTarget.style.color = "var(--kiwi-text-primary)" }}
+            onMouseLeave={e => { e.currentTarget.style.background = "var(--kiwi-tag-item-bg)"; e.currentTarget.style.color = "var(--kiwi-tag-dialog-text)" }}
           >
             Discard
           </button>
@@ -92,8 +92,8 @@ const SaveConfirmDialog = ({ onSave, onDiscard }: { onSave: () => void; onDiscar
         <div className="p-px rounded-md text-xs">
           <button
             onClick={onSave}
-            onMouseEnter={e => (e.currentTarget.style.background = "oklch(0.329 0.004 265 / 0.65)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "oklch(0.329 0.004 265 / 0.45)")}
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--kiwi-btn-primary-active-bg)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "var(--kiwi-surface-overlay)")}
           >
             Save
           </button>
@@ -157,8 +157,8 @@ export function TagSetter({
         className="p-px rounded-full"
         style={{
           background: isOpen
-            ? "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.7), oklch(0.329 0.004 265 / 0.2) 60%, oklch(0.173 0.004 264))"
-            : "linear-gradient(to bottom, oklch(0.329 0.004 265 / 0.4), oklch(0.173 0.004 264))",
+            ? "var(--kiwi-border-gradient-default)"
+            : "var(--kiwi-tag-border-closed)",
         }}
       >
         <motion.section
@@ -166,7 +166,7 @@ export function TagSetter({
           animate={{ width: isOpen ? Math.min(width, maxWidth) : 105 }}
           transition={{ type: "spring", stiffness: 260, damping: 32 }}
           className="relative rounded-full flex items-center gap-2 overflow-hidden p py-1.5"
-          style={{ background: "oklch(0.173 0.004 264)", paddingLeft: isOpen ? '6px' : 0, paddingRight: isOpen ? '6px' : 0 }}
+          style={{ background: "var(--kiwi-surface)", paddingLeft: isOpen ? '6px' : 0, paddingRight: isOpen ? '6px' : 0 }}
         >
           <AnimatePresence>
             {showConfirm && (
@@ -182,7 +182,7 @@ export function TagSetter({
             className="flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-150"
             style={
               isOpen
-                ? { width: 24, height: 24, background: "oklch(0.22 0.004 264 / 0.6)" }
+                ? { width: 24, height: 24, background: "var(--kiwi-surface-raised)" }
                 : { width: 101, height: 28 }
             }
             aria-label={isOpen ? "Close tag setter" : "Open tag setter"}
@@ -197,7 +197,7 @@ export function TagSetter({
                   transition={{ duration: 0.18, ease: "easeOut" }}
                   style={{ display: "flex" }}
                 >
-                  <HugeiconsIcon icon={CancelCircleIcon} size={16} style={{ color: "oklch(0.55 0.004 264)" }} />
+                  <HugeiconsIcon icon={CancelCircleIcon} size={16} style={{ color: "var(--kiwi-tag-icon-muted)" }} />
                 </motion.span>
               ) : (
                 <motion.span
@@ -215,9 +215,9 @@ export function TagSetter({
                     transition={{ duration: 0.18, ease: "easeOut" }}
                     style={{ display: "flex" }}
                   >
-                    <HugeiconsIcon icon={AddCircleIcon} size={16} style={{ color: "oklch(0.72 0.004 264)" }} />
+                    <HugeiconsIcon icon={AddCircleIcon} size={16} style={{ color: "var(--kiwi-text-secondary)" }} />
                   </motion.span>
-                  <span className="text-xs font-medium" style={{ color: "oklch(0.72 0.004 264)" }}>
+                  <span className="text-xs font-medium" style={{ color: "var(--kiwi-text-secondary)" }}>
                     Add Tag
                   </span>
                 </motion.span>
@@ -251,7 +251,7 @@ export function TagSetter({
                   }
                 }}
                 placeholder={placeholder}
-                style={{ color: "oklch(0.92 0.004 264)" }}
+                style={{ color: "var(--kiwi-text-primary)" }}
               />
 
               <div className="flex gap-1 shrink-0">
@@ -261,10 +261,10 @@ export function TagSetter({
                   whileHover={{ scale: 1.06 }}
                   transition={{ type: "spring", stiffness: 500, damping: 28 }}
                   className="rounded-full p-1 flex items-center justify-center"
-                  style={{ background: "oklch(0.22 0.004 264 / 0.6)" }}
+                  style={{ background: "var(--kiwi-surface-raised)" }}
                   aria-label="Remove last tag"
                 >
-                  <HugeiconsIcon icon={RemoveCircleIcon} size={14} style={{ color: "oklch(0.55 0.004 264)" }} />
+                  <HugeiconsIcon icon={RemoveCircleIcon} size={14} style={{ color: "var(--kiwi-tag-icon-muted)" }} />
                 </motion.button>
 
                 <motion.button
@@ -273,10 +273,10 @@ export function TagSetter({
                   whileHover={{ scale: 1.06 }}
                   transition={{ type: "spring", stiffness: 500, damping: 28 }}
                   className="rounded-full p-1 flex items-center justify-center"
-                  style={{ background: "oklch(0.22 0.004 264 / 0.6)" }}
+                  style={{ background: "var(--kiwi-surface-raised)" }}
                   aria-label="Add tag"
                 >
-                  <HugeiconsIcon icon={AddCircleIcon} size={14} style={{ color: "oklch(0.72 0.004 264)" }} />
+                  <HugeiconsIcon icon={AddCircleIcon} size={14} style={{ color: "var(--kiwi-text-secondary)" }} />
                 </motion.button>
               </div>
             </form>

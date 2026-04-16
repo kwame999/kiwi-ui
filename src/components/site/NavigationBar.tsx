@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { HugeiconsIcon } from '@hugeicons/react'
-import { Github01Icon, Sun01Icon, Moon02Icon } from '@hugeicons/core-free-icons'
+import { Sun01Icon, Moon02Icon } from '@hugeicons/core-free-icons'
 import { Kiwi } from "./Logo"
 import { docsPageRoutes } from "@/data/docsRoutes";
 import { Github } from "./SVGs"

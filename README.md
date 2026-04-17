@@ -1,4 +1,4 @@
-![Frame 200 (2)](https://github.com/user-attachments/assets/c0ab8f3c-d55a-4edb-8018-b6f01f42d2be)
+<img width="5236" height="3664" alt="Frame 203 (3)" src="https://github.com/user-attachments/assets/93395eb0-40b9-481e-8163-2178dd532add" />
 <img width="1280" height="640" alt="ezgif-60b3e0a166d0e1a5" src="https://github.com/user-attachments/assets/3bee836d-4bde-493e-be3f-73f020d7a55b" />
 
 # Kiwi UI
